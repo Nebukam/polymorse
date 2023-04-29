@@ -12,5 +12,6 @@
     },
     "scripts": {
         "nkmjs": "nkmjs"
-    }
+    },
+    "gitHead": "045a867cc22c25f70f5a67428dbdb2e6e8656e53"
 }
