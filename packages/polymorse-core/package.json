@@ -1,7 +1,7 @@
 {
     "name": "@polymorse/core",
-    "version": "0.0.1",
-	"description": "PolyMorse Core",
+    "version": "0.0.2",
+    "description": "PolyMorse Core",
     "author": {
         "name": "Timothé Lapetite",
         "email": "nebukam@gmail.com"

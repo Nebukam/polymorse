@@ -1,7 +1,7 @@
 {
     "name": "@polymorse/client",
-    "version": "0.0.1",
-	"description": "PolyMorse Client",
+    "version": "0.0.2",
+    "description": "PolyMorse Client",
     "author": {
         "name": "Timothé Lapetite",
         "email": "nebukam@gmail.com"
@@ -9,7 +9,7 @@
     "license": "SEE LICENSE IN LICENSE",
     "dependencies": {
         "@nkmjs/core": "^1.0.2",
-        "@polymorse/core": "^0.0.1"
+        "@polymorse/core": "^0.0.2"
     },
     "scripts": {
         "nkmjs": "nkmjs"

@@ -1,6 +1,6 @@
 {
     "name": "@polymorse/server",
-    "version": "0.0.1",
+    "version": "0.0.2",
     "description": "PolyMorse Server",
     "author": {
         "name": "Timothé Lapetite",
@@ -9,8 +9,8 @@
     "main": "server.js",
     "dependencies": {
         "@nkmjs/core": "^1.0.2",
-        "@polymorse/core": "^0.0.1",
-		"marked": "^4.3.0"
+        "@polymorse/core": "^0.0.2",
+        "marked": "^4.3.0"
     },
     "scripts": {
         "start": "node server.js"
