@@ -1,0 +1,16 @@
+{
+    "name": "@polymorse/core",
+    "version": "0.0.1",
+	"description": "PolyMorse Core",
+    "author": {
+        "name": "Timothé Lapetite",
+        "email": "nebukam@gmail.com"
+    },
+    "license": "SEE LICENSE IN LICENSE",
+    "dependencies": {
+        "@nkmjs/core": "^1.0.2"
+    },
+    "scripts": {
+        "nkmjs": "nkmjs"
+    }
+}

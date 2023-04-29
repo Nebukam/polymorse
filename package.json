@@ -1,0 +1,10 @@
+{
+    "name": "polymorse",
+    "private": true,
+    "devDependencies": {
+        "lerna": "^4.0.0"
+    },
+    "scripts": {
+        "nkmjs": "nkmjs"
+    }
+}
