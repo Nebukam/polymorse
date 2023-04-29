@@ -15,12 +15,12 @@ PolyMorse is an small ecosystem that leverage openAI API to publish content in m
 
 ## **INFOS**
 
-PolyMorse is **primarily oriented toward developing tools & self contained applications**. Once compiled, the app itself is constructed on the fly _inside the client_ (meaning no server-side rendering, no 'per-page' metadata etc).  
-The application framework itself is plain javascript. When packaged for Electron, it isn't transformed (bundled); however for extensions & PWA, the code is bundled using [Browserify](http://browserify.org/), transpiled using [Babel](https://babeljs.io/) for broader compatibility & finally minified using [Terser](https://github.com/terser/terser) plus an additional bit of custom transforms. 
+PolyMorse is currently in development, and is not in a usable state.
 
 
 ### · [@polymorse/core](https://github.com/Nebukam/polymorse/tree/main/packages/polymorse-core)
 ### · [@polymorse/client](https://github.com/Nebukam/polymorse/tree/main/packages/polymorse-client)  
+### · [@polymorse/server](https://github.com/Nebukam/polymorse/tree/main/packages/polymorse-server)  
 
 · · ·
 
