@@ -1,0 +1,30 @@
+{
+    "name": "polymorse-workbench",
+    "version": "0.0.1",
+    "description": "PolyMorse Workbench",
+    "author": {
+        "name": "Timothé Lapetite",
+        "email": "nebukam@gmail.com"
+    },
+    "main": "index.js",
+    "private": true,
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/Nebukam/polymorse/tree/main/packages/polymorse-gen"
+    },
+    "scripts": {
+        "nkmjs": "nkmjs",
+        "start": "node server.js",
+        "start-dev": "nodemon server.js"
+    },
+    "license": "SEE LICENSE IN LICENSE",
+    "dependencies": {
+        "@nkmjs/core": "^1.0.4",
+        "@polymorse/core": "../polymorse-core",
+        "@polymorse/server": "../polymorse-server"
+    },
+    "devDependencies": {
+        "nodemon": "^2.0.22",
+        "@nkmjs/core-dev": "^1.0.4"
+    }
+}

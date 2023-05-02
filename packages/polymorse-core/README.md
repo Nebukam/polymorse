@@ -4,13 +4,8 @@
 
 ![PolyMorse][logo]
 
-
-
-
-
-
-
-
-
+```
+//Contains high level data models and structures
+```
 
 [logo]: https://github.com/Nebukam/nkmjs/raw/main/packages/polymorse-core/bin/logo.png "polymorse-logo"

@@ -6,16 +6,14 @@
         "name": "Timothé Lapetite",
         "email": "nebukam@gmail.com"
     },
+    "main": "index.js",
     "repository": {
         "type": "git",
         "url": "https://github.com/Nebukam/polymorse/tree/main/packages/polymorse-core"
     },
     "license": "SEE LICENSE IN LICENSE",
     "dependencies": {
-        "@nkmjs/core": "^1.0.2"
+        "@nkmjs/core": "^1.0.4"
     },
-    "scripts": {
-        "nkmjs": "nkmjs"
-    },
-    "gitHead": "c4d5a67acc990e04be4db8e5dc7fbc10dfe88579"
+    "gitHead": "8d876d542a109b2cf78e00834a7b43ccf67fad53"
 }
