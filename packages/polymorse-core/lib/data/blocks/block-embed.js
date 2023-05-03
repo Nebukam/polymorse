@@ -1,18 +1,17 @@
 'use strict';
 
-const nkm = require(`@nkmjs/core`);
-const dom = nkm.ui.dom;
+const nkm = require(`@nkmjs/core/nkmin`);
 const u = nkm.u;
 const io = nkm.io;
 
 const IDS = require(`../ids`);
 
 const base = require("./abstract-block");
-class MediaBlock extends base {
+class EmbedBlock extends base {
     constructor() { super(); }
 
     static __NFO__ = {
-        [nkm.com.IDS.UID]: `@polymorse:block-media`,
+        [nkm.com.IDS.UID]: `@polymorse:block-embed`,
         [nkm.com.IDS.ICON]: `document`
     };
 
@@ -26,4 +25,4 @@ class MediaBlock extends base {
 
 }
 
-module.exports = MediaBlock;
+module.exports = EmbedBlock;

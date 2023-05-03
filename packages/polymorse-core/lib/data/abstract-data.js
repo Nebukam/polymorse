@@ -1,6 +1,6 @@
 'use strict';
 
-const nkm = require(`@nkmjs/core`);
+const nkm = require(`@nkmjs/core/nkmin`);
 const IDS = require(`./ids`);
 
 const base = nkm.data.SimpleDataBlock;

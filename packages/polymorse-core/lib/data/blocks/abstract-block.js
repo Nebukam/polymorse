@@ -1,7 +1,6 @@
 'use strict';
 
-const nkm = require(`@nkmjs/core`);
-const dom = nkm.ui.dom;
+const nkm = require(`@nkmjs/core/nkmin`);
 const u = nkm.u;
 const io = nkm.io;
 

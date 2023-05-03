@@ -13,7 +13,7 @@
     },
     "license": "SEE LICENSE IN LICENSE",
     "dependencies": {
-        "@nkmjs/core": "^1.0.4",
+        "@nkmjs/core": "^1.0.11",
         "csso": "^4.2.0",
         "sass": "^1.32.5"
     },

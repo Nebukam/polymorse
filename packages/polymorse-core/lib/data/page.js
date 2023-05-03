@@ -1,21 +1,20 @@
 'use strict';
 
-const nkm = require(`@nkmjs/core`);
-const dom = nkm.ui.dom;
+const nkm = require(`@nkmjs/core/nkmin`);
 const u = nkm.u;
 const io = nkm.io;
 
 const IDS = require(`./ids`);
 
 const base = require(`./abstract-entity`);
-class User extends base {
+class Page extends base {
     constructor() { super(); }
 
-    static __headerClass = require(`./user-header`);
-    static __bodyClass = require(`./user-body`);
+    static __headerClass = require(`./page-header`);
+    static __bodyClass = require(`./page-body`);
 
     static __NFO__ = {
-        [nkm.com.IDS.UID]: `@polymorse:user`,
+        [nkm.com.IDS.UID]: `@polymorse:page`,
         [nkm.com.IDS.ICON]: `document`
     };
 
@@ -30,4 +29,4 @@ class User extends base {
 
 }
 
-module.exports = User;
+module.exports = Page;

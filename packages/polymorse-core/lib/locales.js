@@ -1,6 +1,6 @@
 'use strict';
 
-const nkm = require(`@nkmjs/core`);
+const nkm = require(`@nkmjs/core/nkmin`);
 
 class LOCALES extends nkm.com.helpers.SingletonEx {
     constructor() { super(); }
@@ -119,7 +119,35 @@ class LOCALES extends nkm.com.helpers.SingletonEx {
 
     }
 
+    static getInfos(p_id) {
+        if (p_id in this._primary) { return this._locales[this._primary[p_id]]; }
+        for (let id in this._locales) {
+            let infos = this._locales[id];
+            if (infos.id == p_id ||
+                infos.o == p_id ||
+                infos.name == p_id) {
+                return infos;
+            }
+        }
+        throw new Error(`Request locale (${p_id}) does not exists.`);
+    }
+
+    static getName(p_locale) {
+        let infos = this.getInfos(p_locale);
+        return infos.name;
+    }
+
+    static getLocalizedName(p_locale) {
+        let infos = this.getInfos(p_locale);
+        return infos.o;
+    }
+
+    static getId(p_locale) {
+        let infos = this.getInfos(p_locale);
+        return infos.id;
+    }
+
 
 }
 
-module.exports = Polymorse;
+module.exports = LOCALES;

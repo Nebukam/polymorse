@@ -15,16 +15,16 @@
     "scripts": {
         "nkmjs": "nkmjs",
         "start": "node server.js",
-        "start-dev": "nodemon server.js"
+        "start-server": "nodemon server.js"
     },
     "license": "SEE LICENSE IN LICENSE",
     "dependencies": {
-        "@nkmjs/core": "^1.0.4",
-        "@polymorse/core": "../polymorse-core",
-        "@polymorse/server": "../polymorse-server"
+        "@nkmjs/core": "^1.0.11",
+        "@polymorse/core": "^0.0.4",
+        "@polymorse/server": "^0.0.4"
     },
     "devDependencies": {
         "nodemon": "^2.0.22",
-        "@nkmjs/core-dev": "^1.0.4"
+        "@nkmjs/core-dev": "^1.0.11"
     }
 }

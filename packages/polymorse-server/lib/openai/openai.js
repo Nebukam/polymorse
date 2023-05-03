@@ -1,7 +1,8 @@
 'use strict';
 
-const nkm = require(`@nkmjs/core`);
+const nkm = require(`@nkmjs/core/nkmin`);
 const { Configuration, OpenAIApi } = require("openai");
+const polyCore = require(`@polymorse/core`);
 
 class OpenAI extends nkm.com.helpers.SingletonEx {
     constructor() { super(); }

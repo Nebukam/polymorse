@@ -2,5 +2,8 @@
 'use strict';
 
 module.exports = {
-    //SIGNAL: require(`./lib/signal`),
+    
+    LOCALES: require(`./lib/locales`),
+    PolyMorse: require(`./lib/polymorse`),
+    
 }
