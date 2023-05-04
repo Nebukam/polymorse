@@ -1,7 +1,6 @@
 'use strict';
 
 const nkm = require(`@nkmjs/core/nkmin`);
-const IDS = require(`./ids`);
 
 const _id_MAX_CHAR = `maxChars`;
 const _id_URL = `url`;

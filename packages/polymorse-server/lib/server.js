@@ -2,11 +2,41 @@ const server = require(`@nkmjs/core/server`);
 const handlers = require(`./handlers`);
 const { Configuration, OpenAIApi } = require("openai");
 
+const ActionManager = require(`./action-manager`);
+
 class ServerBase extends server.core.ServerBase {
     constructor(p_config) { super(p_config); }
 
     _Init() {
         super._Init();
+
+        /*
+            Draft API
+            User actions:
+            - Open navigator to /admin
+                -> Check if user has clearance for admin
+                    -> Serve admin 
+                -> if not, serve /profile instead
+            - Open navigator to /profile/(no id)
+                -> Serve logged user profile (build full JSON of drafts & published pages, as well as profile details)
+            - Open navigator to /profile/:id
+                -> Serve profile (build full JSON of drafts & published pages, as well as profile details)
+            - Open navigator to /edit/(no id)
+                -> Serve drafting page (create new entry as draft, return page uuid)
+            - Open navigator to /edit/:id
+                -> Serve drafting page (retrieve identified draft, if does not exist, redirect to draft/)
+            - Open navigator to /resume
+                -> Redirect to latest edited page (published or not)
+            - Open navigator to /page/:id/:locale
+                -> Serve page in selected locale, or 
+            
+        */
+
+
+        ActionManager._RegisterActions({
+            publish
+        });
+
         this._RegisterAPIs({
             getUserProfile: {
                 route: `/user/profile/:id`,

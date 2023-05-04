@@ -13,7 +13,7 @@
     },
     "license": "SEE LICENSE IN LICENSE",
     "dependencies": {
-        "@nkmjs/core": "^1.0.11"
+        "@nkmjs/core": "^1.0.12"
     },
     "gitHead": "8d876d542a109b2cf78e00834a7b43ccf67fad53"
 }

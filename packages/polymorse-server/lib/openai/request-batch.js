@@ -1,13 +1,16 @@
 'use strict';
 
 const nkm = require(`@nkmjs/core/nkmin`);
-const IDS = require(`./ids`);
-
-const OpenAIAPI = require(`../openai`);
+const FLAGS = require(`../flags`);
 
 const base = nkm.com.pool.DisposableObjectEx;
 class RequestBatch extends base {
     constructor() { super(); }
+
+    static Send(...requests) {
+        let newBatch = nkm.com.Rent(RequestBatch);
+        return newBatch.Send(...requests);
+    }
 
     static __distribute = nkm.com.helpers.OptionsDistribute.Ext();
 
@@ -27,13 +30,14 @@ class RequestBatch extends base {
 
         this._running = false;
         this._callbacks = new nkm.com.helpers.Callbacks();
+        this._requests = [];
+        this._requestsOptions = null;
 
         this._Bind(this._OnReqSuccess);
         this._Bind(this._OnReqError);
 
-        this._Bind(this._OnSuccess);
-        this._Bind(this._OnReply);
-        this._Bind(this._OnError);
+        this._Bind(this._OnProgress);
+        this._Bind(this._OnComplete);
 
     }
 
@@ -48,9 +52,11 @@ class RequestBatch extends base {
 
         if (this._running) { return; }
 
+        this._requestsOptions = requests;
+
         this._running = true;
         this._completeCount = 0;
-        this._requests = [];
+        this._requests.length = 0;
 
         requests.forEach(req => {
             let r = nkm.com.Rent(req.type);
@@ -70,33 +76,36 @@ class RequestBatch extends base {
 
     _OnReqSuccess(p_req) {
         this._completeCount++;
+        this._OnProgress();
     }
 
     _OnReqError(p_req) {
         this._completeCount++;
+        this._errorCount++;
+        this._OnProgress();
     }
 
-    _OnSuccess() {
-
-        this._callbacks.OnSuccess(this).Clear();
-        this._OnEnd();
+    _OnProgress() {
+        if (this._requests.length < this._completeCount) { return; }
+        this._OnComplete();
     }
 
-    _OnError() {
-
-        this._callbacks.OnError(this).Clear();
-        this._OnEnd();
-    }
-
-    _OnEnd() {
+    _OnComplete() {
         this._running = false;
+        if (this._errorCount == this._completeCount) { this._callbacks.OnError(this).Clear(); }
+        else { this._callbacks.OnSuccess(this).Clear(); }
     }
-
 
     _CleanUp() {
+
+        this._requests.forEach(req => { req.Release(); });
+
         this._running = false;
-        this._requests = [];
+        this._requests.length = 0;
+        this._requestsOptions.length = 0;
+
         super._CleanUp();
+
     }
 
 }

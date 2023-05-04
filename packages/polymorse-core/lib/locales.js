@@ -18,7 +18,7 @@ class LOCALES extends nkm.com.helpers.SingletonEx {
             da: "da-DK",
             de: "de-DE",
             el: "el-GR",
-            name: "en-US",
+            en: "en-US",
             es: "es-ES",
             et: "et-EE",
             eu: "eu",
@@ -120,9 +120,14 @@ class LOCALES extends nkm.com.helpers.SingletonEx {
     }
 
     static getInfos(p_id) {
-        if (p_id in this._primary) { return this._locales[this._primary[p_id]]; }
-        for (let id in this._locales) {
-            let infos = this._locales[id];
+        let
+            prim = this.instance._primary,
+            locales = this.instance._locales;
+
+        if (p_id in prim) { return locales[prim[p_id]]; }
+
+        for (let id in locales) {
+            let infos = locales[id];
             if (infos.id == p_id ||
                 infos.o == p_id ||
                 infos.name == p_id) {

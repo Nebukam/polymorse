@@ -13,7 +13,7 @@
     },
     "license": "SEE LICENSE IN LICENSE",
     "dependencies": {
-        "@nkmjs/core": "^1.0.11",
+        "@nkmjs/core": "^1.0.12",
         "@polymorse/core": "^0.0.4"
     },
     "devDependencies": {

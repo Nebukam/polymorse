@@ -5,6 +5,7 @@ const u = nkm.u;
 const io = nkm.io;
 
 const IDS = require(`./ids`);
+const SIGNAL = require(`../signal`);
 
 const base = require(`./abstract-entity-block`);
 class PageHeader extends base {
@@ -22,6 +23,15 @@ class PageHeader extends base {
 
     _Init() {
         super._Init();
+        this._state = null;
+    }
+
+    get state() { return this._state; }
+    set state(p_value) {
+        if (this._state == p_value) { return; }
+        let oldState = this._state;
+        this._state = p_value;
+        this.Broadcast(SIGNAL.STATE_CHANGED, this, this._state, oldState);
     }
 
     _CleanUp() {

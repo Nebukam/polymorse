@@ -49,6 +49,10 @@ class IDS {
     static ORDER = Object.freeze(`order`);
     static BLOCK_TYPE = Object.freeze(`blockType`);
 
+    static DATE_CREATED = Object.freeze(`created`);
+    static LAST_PUBLISHED = Object.freeze(`published`);
+    static LAST_EDITED = Object.freeze(`edited`);
+
     static {
         nkm.data.RegisterDescriptors({
 
@@ -91,6 +95,24 @@ class IDS {
             [IDS.BLOCK_TYPE]: {
                 valueType: nkm.data.TYPES.STRING,
                 label: `Type`,
+                desc: `...`
+            },
+
+            [IDS.DATE_CREATED]: {
+                valueType: nkm.data.TYPES.STRING,
+                label: `Creation date`,
+                desc: `...`
+            },
+
+            [IDS.LAST_PUBLISHED]: {
+                valueType: nkm.data.TYPES.STRING,
+                label: `Last publishing date`,
+                desc: `...`
+            },
+
+            [IDS.LAST_EDITED]: {
+                valueType: nkm.data.TYPES.STRING,
+                label: `Last editing date`,
                 desc: `...`
             },
 
