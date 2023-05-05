@@ -5,6 +5,7 @@ const u = nkm.u;
 const io = nkm.io;
 
 const IDS = require(`./ids`);
+const SIGNAL = require("../signal");
 
 const base = nkm.com.pool.DisposableObjectEx;
 class Registry extends base {
@@ -29,7 +30,26 @@ class Registry extends base {
         this._map[p_uid] = newEntity;
         this._entities.push(newEntity);
 
+        this.Broadcast(SIGNAL.ENTITY_CREATED, this, newEntity);
+
         return newEntity;
+
+    }
+
+    Get(p_uid) { return p_uid in this._map ? this._map[p_uid] : null; }
+
+    Remove(p_uid) {
+
+        if (!(p_uid in this._map)) { return false; }
+
+        let
+            entity = this._map[p_uid],
+            index = this._entities.indexOf(entity);
+
+        if (index != -1) { this._entities.splice(index, 1); }
+        delete this._map[p_uid];
+
+        return entity;
 
     }
 

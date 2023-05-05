@@ -11,12 +11,14 @@ class ActionHandler extends base {
     constructor() { super(); }
 
     _SanitizeRequest(p_request) {
+        
         if (!this._SanitizeRequest(p_request)) { return false; }
 
         //Ensure that action target is owned by user.
         //Then, check action map and forward 
 
         return true;
+
     }
 
     //To send data back: this._res.send(json);

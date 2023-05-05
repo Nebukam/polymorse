@@ -1,10 +1,12 @@
-const server = require(`@nkmjs/core/server`);
+const nkmServer = require(`@nkmjs/core/server`);
+const polyCore = require(`@polymorse/core`);
+
 const handlers = require(`./handlers`);
 const { Configuration, OpenAIApi } = require("openai");
 
 const ActionManager = require(`./action-manager`);
 
-class ServerBase extends server.core.ServerBase {
+class ServerBase extends nkmServer.core.ServerBase {
     constructor(p_config) { super(p_config); }
 
     _Init() {
@@ -69,6 +71,20 @@ class ServerBase extends server.core.ServerBase {
                 start: true
             }
         });
+    }
+
+    _Boot() {
+
+        polyCore.PolyMorse.userRegistry.Watch(polyCore.SIGNAL.ENTITY_CREATED,
+            (p_registry, p_entity) => {
+
+            });
+
+        polyCore.PolyMorse.pageRegistry.Watch(polyCore.SIGNAL.ENTITY_CREATED,
+            (p_registry, p_entity) => {
+
+            });
+
     }
 
 }

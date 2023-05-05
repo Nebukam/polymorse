@@ -1,21 +1,22 @@
 'use strict';
 
+const nkmServer = require(`@nkmjs/core/server`);
 const nkm = require(`@nkmjs/core/nkmin`);
 const polyCore = require(`@polymorse/core`);
 
 /**
  * Get EDIT manages the creation & serving of pages for editing.
  */
-const base = nkm.com.pool.DisposableObjectEx;
-class AbstractAction extends base {
+const base = nkmServer.actions.AbstractAction;
+class EditPublish extends base {
     constructor() { super(); }
 
     static __model = {};
 
-    Execute(p_body) {
-        return true;
+    _InternalExecute(p_op) {
+        return false;
     }
 
 }
 
-module.exports = AbstractAction;
+module.exports = EditPublish;

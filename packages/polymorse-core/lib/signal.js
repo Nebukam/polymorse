@@ -11,6 +11,14 @@ class SIGNAL {
      */
     static STATE_CHANGED = Symbol(`stateChanged`);
 
+    /**
+     * @description Entity created
+     * @type {symbol}
+     * @customtag read-only
+     * @group State
+     */
+    static ENTITY_CREATED = Symbol(`entityCreated`);
+
 }
 
 module.exports = SIGNAL;

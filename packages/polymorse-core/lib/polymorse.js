@@ -18,6 +18,9 @@ class Polymorse extends nkm.com.helpers.SingletonEx {
 
     static get locales() { return this.instance._locales; }
 
+    static get userRegistry() { return this.instance._users; }
+    static get pageRegistry() { return this.instance._pages; }
+
     static CreateUser(p_uid) {
         let newUser = this.instance._users.Create(p_uid);
         return newUser;

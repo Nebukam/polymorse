@@ -6,6 +6,7 @@ class AbstractUserHandler extends server.handlers.HandlerBase {
     constructor() { super(); }
 
     _SanitizeRequest(p_request) {
+        
         //TODO: Validate user is authenticated here
         //Either through oidc or cookies..?
 
@@ -15,8 +16,10 @@ class AbstractUserHandler extends server.handlers.HandlerBase {
         //if(!p_request.params.id){ return false; }
         //if(p_request.params.id == ``){ return false; }
         //this._id = p_request.params.id;
+
         console.log(p_request);
         return true;
+
     }
 
 }
