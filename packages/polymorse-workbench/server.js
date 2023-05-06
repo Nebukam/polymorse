@@ -6,12 +6,12 @@
 
 const MAIN_SERVER = require(`./app/js-server/main`);
 const path = require(`path`);
-const serverDir = path.join(__dirname, `app/js-server`);
+const dirServer = path.join(__dirname, `app/js-server`);
 
 new MAIN_SERVER({
 	dirname:__dirname,
-	serverDir:serverDir,
-	envPath:path.join(serverDir, `/.env`),
+	dirServer:dirServer,
+	envPath:path.join(dirServer, `/.env`),
 	version:'1.0.3',
 	lang:'en',
 	locales:[],

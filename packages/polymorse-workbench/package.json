@@ -19,12 +19,12 @@
     },
     "license": "SEE LICENSE IN LICENSE",
     "dependencies": {
-        "@nkmjs/core": "^1.0.14",
+        "@nkmjs/core": "^1.0.17",
         "@polymorse/core": "^0.0.4",
         "@polymorse/server": "^0.0.4"
     },
     "devDependencies": {
         "nodemon": "^2.0.22",
-        "@nkmjs/core-dev": "^1.0.14"
+        "@nkmjs/core-dev": "^1.0.17"
     }
 }

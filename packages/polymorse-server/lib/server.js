@@ -6,13 +6,14 @@ const { Configuration, OpenAIApi } = require("openai");
 
 const ActionManager = require(`./action-manager`);
 
-class ServerBase extends nkmServer.core.ServerBase {
+class ServerBase extends nkmServer.server.ServerBase {
     constructor(p_config) { super(p_config); }
 
     _Init() {
         super._Init();
 
         /*
+        
             Draft API
             User actions:
             - Open navigator to /admin
@@ -87,6 +88,6 @@ class ServerBase extends nkmServer.core.ServerBase {
 
     }
 
-}
+}W
 
 module.exports = ServerBase;
