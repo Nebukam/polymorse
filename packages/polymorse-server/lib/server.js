@@ -1,4 +1,4 @@
-const nkmServer = require(`@nkmjs/core/server`);
+const nkm = require(`@nkmjs/core/nkmserver`);
 const polyCore = require(`@polymorse/core`);
 
 const handlers = require(`./handlers`);
@@ -6,7 +6,7 @@ const { Configuration, OpenAIApi } = require("openai");
 
 const ActionManager = require(`./action-manager`);
 
-class ServerBase extends nkmServer.server.ServerBase {
+class ServerBase extends nkm.server.ServerBase {
     constructor(p_config) { super(p_config); }
 
     _Init() {
