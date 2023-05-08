@@ -2,10 +2,7 @@ const nkm = require(`@nkmjs/core/nkmserver`);
 const iofs = require(`@nkmjs/server-io-fs`);
 const polyCore = require(`@polymorse/core`);
 
-
 const handlers = require(`./handlers`);
-
-const ActionManager = require(`./action-manager`);
 
 class ServerBase extends nkm.server.ServerBase {
     constructor(p_config) { super(p_config); }
@@ -15,15 +12,19 @@ class ServerBase extends nkm.server.ServerBase {
             cl: iofs.IO,
             transceivers:[
                 {
-                    root:process.env.POLYMORSE_DATABASE_IDENTIFIER,
-                    uid:`database`
+                    root:`D:\\GIT\polymorse\\packages\\polymorse-workbench\\database\\users`,
+                    uid:`db_users`
+                },
+                {
+                    root:`D:\\GIT\polymorse\\packages\\polymorse-workbench\\database\\pages`,
+                    uid:`db_pages`
                 }
             ]
         });
     }
 
-    _Init() {
-        super._Init();
+    _InitServer() {
+        super._InitServer();
 
         /*
         
@@ -50,7 +51,7 @@ class ServerBase extends nkm.server.ServerBase {
 
 
         ActionManager._RegisterActions({
-            publish
+
         });
 
         this._RegisterAPIs({

@@ -3,7 +3,7 @@
 const nkm = require(`@nkmjs/core/nkmin`);
 const polyData = require(`./data`);
 
-class Polymorse extends nkm.com.helpers.SingletonEx {
+class Polymorse extends nkm.com.Observable {
     constructor() { super(); }
 
     _Init() {
@@ -16,21 +16,21 @@ class Polymorse extends nkm.com.helpers.SingletonEx {
 
     }
 
-    static get locales() { return this.instance._locales; }
+    get locales() { return this._locales; }
 
-    static get userRegistry() { return this.instance._users; }
-    static get pageRegistry() { return this.instance._pages; }
+    get userRegistry() { return this._users; }
+    get pageRegistry() { return this._pages; }
 
-    static CreateUser(p_uid) {
-        let newUser = this.instance._users.Create(p_uid);
+    CreateUser(p_uid) {
+        let newUser = this._users.Create(p_uid);
         return newUser;
     }
 
-    static CreatePage(p_uid) {
-        let newPage = this.instance._pages.Create(p_uid);
+    CreatePage(p_uid) {
+        let newPage = this._pages.Create(p_uid);
         return newPage;
     }
 
 }
 
-module.exports = Polymorse;
+module.exports = new Polymorse();

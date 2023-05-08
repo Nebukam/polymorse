@@ -2,19 +2,17 @@
 const path = require(`path`);
 const fs = require(`fs`);
 
-const nkm = require(`@nkmjs/core/nkmin`);
+const nkm = require(`@nkmjs/core/nkmserver`);
 const polyCore = require(`@polymorse/core`);
-
 const PolyMorse = polyCore.PolyMorse;
-
 const polyData = polyCore.data;
 const polyBlocks = polyData.blocks;
 
-class PolymorseDebug extends nkm.com.helpers.SingletonEx {
-    constructor() { super(); }
+const iofs = require(`@nkmjs/server-io-fs`);
 
-    _Init() {
-        super._Init();
+class Debug {
+    constructor() {
+
         this._users = [];
         this._blockList = [
             polyBlocks.Text,
@@ -27,7 +25,7 @@ class PolymorseDebug extends nkm.com.helpers.SingletonEx {
 
     }
 
-    static GenerateDebugData(p_directory, p_flushExisting) {
+    GenerateDebugData(p_flushExisting) {
 
         /*
 
@@ -53,24 +51,20 @@ class PolymorseDebug extends nkm.com.helpers.SingletonEx {
 
         */
 
+        this._usersTs = iofs.IO.db_users;
+        this._pagesTs = iofs.IO.db_pages;
+
         if (p_flushExisting) {
-            try { fs.rmdirSync(p_directory, { recursive: true }); }
+            try { fs.rmdirSync(this._usersTs.Join(``), { recursive: true }); }
+            catch (e) { }
+            try { fs.rmdirSync(this._pagesTs.Join(``), { recursive: true }); }
             catch (e) { }
         }
 
         // TODO : Generate a bunch of data on-disk to simulate real infos.
         // - Generate a few users profiles
         // - Generate a few pages
-        // - Go through the static content generation process
-
-        try { let location = fs.statSync(p_directory); }
-        catch (e) { fs.mkdirSync(p_directory, { recursive: true }); }
-
-        this._usersPath = path.join(p_directory, `users`);
-        this._pagesPath = path.join(p_directory, `pages`);
-
-        fs.mkdirSync(this._usersPath, { recursive: true });
-        fs.mkdirSync(this._pagesPath, { recursive: true });
+        // - Go through the content generation process
 
         this.GenerateUser(`Admin`);
         for (let i = 0; i < 10; i++) { this.GenerateUser(nkm.u.tils.UUID); }
@@ -79,7 +73,7 @@ class PolymorseDebug extends nkm.com.helpers.SingletonEx {
 
     }
 
-    static GenerateUser(p_uid) {
+    GenerateUser(p_uid) {
 
         let user = PolyMorse.CreateUser(p_uid);
         user.LoadHeader();
@@ -89,12 +83,12 @@ class PolymorseDebug extends nkm.com.helpers.SingletonEx {
 
     }
 
-    static GeneratePage() {
+    GeneratePage() {
 
         let
             uuid = nkm.u.tils.UUID,
             page = PolyMorse.CreatePage(uuid),
-            uList = PolyMorse.instance._users._entities,
+            uList = PolyMorse._users._entities,
             owner = uList[Math.floor(Math.random() * uList.length)];
 
         let pageHeader = page.LoadHeader();
@@ -107,24 +101,33 @@ class PolymorseDebug extends nkm.com.helpers.SingletonEx {
 
     }
 
-    static GenerateTranslation(p_morse) {
+    GenerateTranslation(p_morse) {
 
     }
 
-    static SaveEntity(p_entity) {
+    SaveEntity(p_entity) {
 
-        let
-            baseDir = nkm.u.isInstanceOf(p_entity, polyData.User) ? this._usersPath : this._pagesPath,
-            uuidDir = path.join(baseDir, p_entity.uuid);
+        let ts = nkm.u.isInstanceOf(p_entity, polyData.User) ? this._usersTs : this._pagesTs;
 
-        this.BootstrapEntityDirectory(baseDir, p_entity.uuid);
+        //this.BootstrapEntityDirectory(baseDir, p_entity.uuid);
 
-        fs.writeFileSync(path.join(uuidDir, `header.json`), JSON.stringify(p_entity.header.Serialize()));
-        fs.writeFileSync(path.join(uuidDir, `body.json`), JSON.stringify(p_entity.body.Serialize()));
+        ts.WriteFile(
+            ts.Join(p_entity.uuid, `header.json`),
+            JSON.stringify(p_entity.header.Serialize()),
+            () => { },
+            { recursive: true }
+        );
+
+        ts.WriteFile(
+            ts.Join(p_entity.uuid, `body.json`),
+            JSON.stringify(p_entity.body.Serialize()),
+            () => { },
+            { recursive: true }
+        );
 
     }
 
-    static BootstrapEntityDirectory(p_base, p_uid) {
+    BootstrapEntityDirectory(p_base, p_uid) {
 
         let
             baseDir = path.join(p_base, p_uid),
@@ -143,4 +146,4 @@ class PolymorseDebug extends nkm.com.helpers.SingletonEx {
 
 }
 
-module.exports = PolymorseDebug;
+module.exports = new Debug();

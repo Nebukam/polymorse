@@ -9,9 +9,7 @@ const style = require("@nkmjs/style");
  * @hideconstructor
  * @memberof ui.core
  */
-class FLAGS {
-    constructor() { }
-
+module.exports = {
     // Generics
 
     /**
@@ -20,7 +18,7 @@ class FLAGS {
      * @customtag read-only
      * @group Generic
      */
-    static PENDING = Object.freeze(`pending`);
+    PENDING: Object.freeze(`pending`),
 
     /**
      * @description TODO
@@ -28,7 +26,7 @@ class FLAGS {
      * @customtag read-only
      * @group Generic
      */
-    static ERROR = Object.freeze(`error`);
+    ERROR: Object.freeze(`error`),
 
     /**
      * @description TODO
@@ -36,8 +34,6 @@ class FLAGS {
      * @customtag read-only
      * @group Generic
      */
-    static SUCCESS = Object.freeze(`success`);
+    SUCCESS: Object.freeze(`success`),
 
 }
-
-module.exports = FLAGS;

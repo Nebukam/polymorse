@@ -28,7 +28,7 @@ const _empty_TEXT_COMPLETION = Object.freeze({
     }
 });
 
-const base = nkm.com.pool.DisposableObjectEx;
+const base = nkm.com.Observable;
 class AbstractRequest extends base {
     constructor() { super(); }
 

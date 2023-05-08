@@ -2,11 +2,8 @@
 
 const nkm = require(`@nkmjs/core/nkmin`);
 
-class LOCALES extends nkm.com.helpers.SingletonEx {
-    constructor() { super(); }
-
-    _Init() {
-        super._Init();
+class LOCALES {
+    constructor() {
 
         this._primary = {
             af: "af-ZA",
@@ -119,10 +116,10 @@ class LOCALES extends nkm.com.helpers.SingletonEx {
 
     }
 
-    static getInfos(p_id) {
+    getInfos(p_id) {
         let
-            prim = this.instance._primary,
-            locales = this.instance._locales;
+            prim = this._primary,
+            locales = this._locales;
 
         if (p_id in prim) { return locales[prim[p_id]]; }
 
@@ -137,17 +134,17 @@ class LOCALES extends nkm.com.helpers.SingletonEx {
         throw new Error(`Request locale (${p_id}) does not exists.`);
     }
 
-    static getName(p_locale) {
+    getName(p_locale) {
         let infos = this.getInfos(p_locale);
         return infos.name;
     }
 
-    static getLocalizedName(p_locale) {
+    getLocalizedName(p_locale) {
         let infos = this.getInfos(p_locale);
         return infos.o;
     }
 
-    static getId(p_locale) {
+    getId(p_locale) {
         let infos = this.getInfos(p_locale);
         return infos.id;
     }
@@ -155,4 +152,4 @@ class LOCALES extends nkm.com.helpers.SingletonEx {
 
 }
 
-module.exports = LOCALES;
+module.exports = new LOCALES();

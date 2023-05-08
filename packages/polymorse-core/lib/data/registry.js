@@ -7,7 +7,7 @@ const io = nkm.io;
 const IDS = require(`./ids`);
 const SIGNAL = require("../signal");
 
-const base = nkm.com.pool.DisposableObjectEx;
+const base = nkm.com.Observable;
 class Registry extends base {
     constructor(p_entityClass = null) {
         super();

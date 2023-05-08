@@ -3,7 +3,7 @@
 const nkm = require(`@nkmjs/core/nkmin`);
 const FLAGS = require(`../flags`);
 
-const base = nkm.com.pool.DisposableObjectEx;
+const base = nkm.com.Observable;
 class RequestBatch extends base {
     constructor() { super(); }
 

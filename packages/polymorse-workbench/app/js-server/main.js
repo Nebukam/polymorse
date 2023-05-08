@@ -2,6 +2,9 @@ const polyServer = require(`@polymorse/server`);
 const polyCore = require(`@polymorse/core`);
 
 const nkm = require(`@nkmjs/core/nkmin`);//Load AFTER polymorse!
+const iofs = require(`@nkmjs/server-io-fs`);
+
+const Debug = require(`./debug`);
 
 class ServerProcess extends polyServer.ServerBase {
     constructor(p_config) { super(p_config); }
@@ -11,16 +14,16 @@ class ServerProcess extends polyServer.ServerBase {
             cl: iofs.IO,
             transceivers:[
                 {
-                    root:process.env.POLYMORSE_DATABASE_IDENTIFIER,
+                    root:`D:\\GIT\\polymorse\\packages\\polymorse-workbench\\database`,
                     uid:`database`
                 }
             ]
         });
     }
 
-    _Init() {
+    _Boot() {
 
-        super._Init();
+        super._Boot();
 
         /*
         polyServer.openai.ChatTranslate.Send({
@@ -29,7 +32,7 @@ class ServerProcess extends polyServer.ServerBase {
         }).finally(req => req.Release());
         */
 
-        PolyMorseDebug.GenerateDebugData(`D:\\GIT\\polymorse\\packages\\polymorse-workbench\\database`, true);
+        Debug.GenerateDebugData(true);
 
     }
 

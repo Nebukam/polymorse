@@ -1,13 +1,12 @@
 'use strict';
 
-const nkmServer = require(`@nkmjs/core/server`);
-const nkm = require(`@nkmjs/core/nkmin`);
+const nkm = require(`@nkmjs/core/nkmserver`);
 const polyCore = require(`@polymorse/core`);
 
 /**
  * Get EDIT manages the creation & serving of pages for editing.
  */
-const base = nkmServer.actions.AbstractAction;
+const base = nkm.server.actions.AbstractAction;
 class AbstractUserAction extends base {
     constructor() { super(); }
 
@@ -22,12 +21,6 @@ class AbstractUserAction extends base {
 
             return false; 
         }
-
-        //Ensure user exists
-        let userEntity = polyCore.PolyMorse.userRegistry.Get(p_op.user);
-        if (!userEntity) { return false; }
-
-        //
 
 
         return false;
