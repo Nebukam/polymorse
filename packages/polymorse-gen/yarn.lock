@@ -64,10 +64,10 @@
     "@nkmjs/collections" "^1.0.2"
     "@nkmjs/utils" "^1.0.4"
 
-"@nkmjs/core@^1.0.17":
-  version "1.0.17"
-  resolved "https://registry.yarnpkg.com/@nkmjs/core/-/core-1.0.17.tgz#ca523ccb2a19854e7e745fe7949d108383e3945b"
-  integrity sha512-Eg9aoobCu3LF5dvFPrMRNV57S83suUSPIwHN5WUC3GfZXhGFnuwEaPwDZuaFqLPDXnf0TZhKJhsi/LJPc8JcCA==
+"@nkmjs/core@^1.0.20":
+  version "1.0.20"
+  resolved "https://registry.yarnpkg.com/@nkmjs/core/-/core-1.0.20.tgz#0f23350484e5aa3421aac7612ba0effa2ca7e6af"
+  integrity sha512-YsvXcO/Jgl/7up+HRQouVXPE2WQk7AcGM7sPY8Qq8iyX09Mi2lCWjw8PRulKnBiwL/JOKLgRquXvP3bUs+qMZw==
   dependencies:
     "@nkmjs/actions" "^1.0.6"
     "@nkmjs/app-core" "^1.0.8"
@@ -83,8 +83,8 @@
     "@nkmjs/io-electron" "^1.0.7"
     "@nkmjs/localisation" "^1.0.6"
     "@nkmjs/metrics" "^1.0.6"
-    "@nkmjs/server-core" "^1.2.2"
-    "@nkmjs/server-io" "^0.0.4"
+    "@nkmjs/server-core" "^1.2.5"
+    "@nkmjs/server-io" "^0.0.6"
     "@nkmjs/services" "^1.0.6"
     "@nkmjs/style" "^1.0.6"
     "@nkmjs/ui-core" "^1.0.8"
@@ -214,15 +214,15 @@
     "@nkmjs/services" "^1.0.6"
     "@nkmjs/utils" "^1.0.4"
 
-"@nkmjs/server-core@^1.2.2":
-  version "1.2.2"
-  resolved "https://registry.yarnpkg.com/@nkmjs/server-core/-/server-core-1.2.2.tgz#cb5024065d33e1155127ca23629b54eb577d1084"
-  integrity sha512-XoCLfvkQP7zpRMX1S23xr0Y2L6rupEErSFsaOk+pGd4PAovUfcZ6kzj6ARY4OMqogOqPRlkP6m+5M6GYWM+C5Q==
+"@nkmjs/server-core@^1.2.5":
+  version "1.2.5"
+  resolved "https://registry.yarnpkg.com/@nkmjs/server-core/-/server-core-1.2.5.tgz#337cb7d7d53979b6491a02e21a927399358f5e04"
+  integrity sha512-AOM8PnqK0p27sZNBjQcA5ScO5U+CMbnP1b0MenZfzWN32+o2uALclfvJY+S+ITbGVTLEX9CTp/l2+9Szy5YFKQ==
   dependencies:
     "@nkmjs/collections" "^1.0.2"
     "@nkmjs/common" "^1.0.5"
     "@nkmjs/environment" "^1.0.6"
-    "@nkmjs/server-io" "^0.0.4"
+    "@nkmjs/server-io" "^0.0.6"
     "@nkmjs/utils" "^1.0.4"
     axios "^1.4.0"
     cors "^2.8.5"
@@ -232,10 +232,10 @@
     express-fileupload "^1.4.0"
     express-openid-connect "^2.15.0"
 
-"@nkmjs/server-io@^0.0.4":
-  version "0.0.4"
-  resolved "https://registry.yarnpkg.com/@nkmjs/server-io/-/server-io-0.0.4.tgz#13203bbf03fb53201a16692a90d49b56efe6fc78"
-  integrity sha512-cXcFKo2K+vhbChA1WRAdYdKQief/6elVfcOZraR7Q/r/ANV2as1oshqG9wXV5ikPepYC8xtLZ/2oIRfeoqHrZA==
+"@nkmjs/server-io@^0.0.6":
+  version "0.0.6"
+  resolved "https://registry.yarnpkg.com/@nkmjs/server-io/-/server-io-0.0.6.tgz#8b1debde0c10dc774e62b33bebbdad2c62f4f83c"
+  integrity sha512-TL7qYMNxlPiO6YsM/J10kzizehb1VeLdejYcbk6zbp8LvygTrdpgEfgZMQZsQC88f9jE69XAKHIgM3A7/xj2RA==
   dependencies:
     "@nkmjs/collections" "^1.0.2"
     "@nkmjs/common" "^1.0.5"

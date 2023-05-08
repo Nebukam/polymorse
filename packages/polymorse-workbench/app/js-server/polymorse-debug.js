@@ -3,11 +3,11 @@ const path = require(`path`);
 const fs = require(`fs`);
 
 const nkm = require(`@nkmjs/core/nkmin`);
+const polyCore = require(`@polymorse/core`);
 
-const FSUTILS = require(`./helpers/fsutils`);
-const PolyMorse = require(`./polymorse`);
+const PolyMorse = polyCore.PolyMorse;
 
-const polyData = require(`./data`);
+const polyData = polyCore.data;
 const polyBlocks = polyData.blocks;
 
 class PolymorseDebug extends nkm.com.helpers.SingletonEx {
@@ -54,7 +54,7 @@ class PolymorseDebug extends nkm.com.helpers.SingletonEx {
         */
 
         if (p_flushExisting) {
-            try { FSUTILS.rmdir(p_directory); }
+            try { fs.rmdirSync(p_directory, { recursive: true }); }
             catch (e) { }
         }
 
@@ -64,13 +64,13 @@ class PolymorseDebug extends nkm.com.helpers.SingletonEx {
         // - Go through the static content generation process
 
         try { let location = fs.statSync(p_directory); }
-        catch (e) { fs.mkdirSync(p_directory); }
+        catch (e) { fs.mkdirSync(p_directory, { recursive: true }); }
 
         this._usersPath = path.join(p_directory, `users`);
         this._pagesPath = path.join(p_directory, `pages`);
 
-        fs.mkdirSync(this._usersPath);
-        fs.mkdirSync(this._pagesPath);
+        fs.mkdirSync(this._usersPath, { recursive: true });
+        fs.mkdirSync(this._pagesPath, { recursive: true });
 
         this.GenerateUser(`Admin`);
         for (let i = 0; i < 10; i++) { this.GenerateUser(nkm.u.tils.UUID); }
@@ -131,11 +131,11 @@ class PolymorseDebug extends nkm.com.helpers.SingletonEx {
             localesDir = path.join(baseDir, `locales`),
             assetsDir = path.join(baseDir, `assets`);
 
-        fs.mkdirSync(baseDir);
-        fs.mkdirSync(localesDir);
-        fs.mkdirSync(assetsDir);
+        fs.mkdirSync(baseDir, { recursive: true });
+        fs.mkdirSync(localesDir, { recursive: true });
+        fs.mkdirSync(assetsDir, { recursive: true });
 
-        PolyMorse.locales.forEach(loc =>{
+        PolyMorse.locales.forEach(loc => {
             fs.mkdirSync(path.join(localesDir, loc));
         });
 

@@ -1,8 +1,8 @@
 'use strict';
 
-const server = require(`@nkmjs/core/server`).core;
+const nkm = require(`@nkmjs/core/nkmserver`);
 
-class AbstractUserHandler extends server.handlers.HandlerBase {
+class UserActionHandler extends nkm.server.handlers.POST {
     constructor() { super(); }
 
     _SanitizeRequest(p_request) {
@@ -18,9 +18,9 @@ class AbstractUserHandler extends server.handlers.HandlerBase {
 
         console.log(p_request);
         return true;
-        
+
     }
 
 }
 
-module.exports = AbstractUserHandler;
+module.exports = UserActionHandler;

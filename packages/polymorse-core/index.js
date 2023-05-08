@@ -10,6 +10,8 @@ module.exports = {
     FLAGS: require(`./lib/flags`),
 
     PolyMorse: __POLYMORSE,
+    helpers: require(`./lib/helpers`),
+    data: require(`./lib/data`),    
 
     CreateUser: (p_uid) => { return __POLYMORSE.CreateUser(p_uid); },
     CreatePage: (p_uid) => { return __POLYMORSE.CreatePage(p_uid); },

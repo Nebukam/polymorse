@@ -1,13 +1,26 @@
 const nkm = require(`@nkmjs/core/nkmserver`);
+const iofs = require(`@nkmjs/server-io-fs`);
 const polyCore = require(`@polymorse/core`);
 
+
 const handlers = require(`./handlers`);
-const { Configuration, OpenAIApi } = require("openai");
 
 const ActionManager = require(`./action-manager`);
 
 class ServerBase extends nkm.server.ServerBase {
     constructor(p_config) { super(p_config); }
+    
+    _RegisterIOServices(p_ioClasses) {
+        p_ioClasses.push({ 
+            cl: iofs.IO,
+            transceivers:[
+                {
+                    root:process.env.POLYMORSE_DATABASE_IDENTIFIER,
+                    uid:`database`
+                }
+            ]
+        });
+    }
 
     _Init() {
         super._Init();
@@ -88,6 +101,6 @@ class ServerBase extends nkm.server.ServerBase {
 
     }
 
-}W
+}
 
 module.exports = ServerBase;

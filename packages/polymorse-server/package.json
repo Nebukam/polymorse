@@ -12,7 +12,7 @@
         "url": "https://github.com/Nebukam/polymorse/tree/main/packages/polymorse-server"
     },
     "dependencies": {
-        "@nkmjs/core": "^1.0.17",
+        "@nkmjs/core": "^1.0.20",
         "@nkmjs/server-io-aws-s3": "^0.0.4",
         "@nkmjs/server-io-fs": "^0.0.4",
         "@polymorse/core": "^0.0.4",

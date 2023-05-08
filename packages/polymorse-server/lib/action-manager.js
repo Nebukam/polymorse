@@ -1,7 +1,6 @@
 'use strict';
 
 const nkm = require(`@nkmjs/core/nkmin`);
-const polyData = require(`./data`);
 
 class ActionManager extends nkm.com.helpers.SingletonEx {
     constructor() { super(); }
