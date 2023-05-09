@@ -24,5 +24,7 @@ PolyMorse is currently in development, and is not in a usable state.
 
 · · ·
 
+---
+note:when working locally use yarn link on mknjs after bootstrapin lerna
 
 [logo]: https://github.com/Nebukam/polymorse/raw/main/bin/polymorse-monorepo-logo.png "polymorse-logo"

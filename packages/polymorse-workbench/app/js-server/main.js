@@ -1,7 +1,7 @@
+const nkm = require(`@nkmjs/core/nkmin`);
 const polyServer = require(`@polymorse/server`);
 const polyCore = require(`@polymorse/core`);
 
-const nkm = require(`@nkmjs/core/nkmin`);//Load AFTER polymorse!
 const iofs = require(`@nkmjs/server-io-fs`);
 
 const Debug = require(`./debug`);
@@ -10,15 +10,25 @@ class ServerProcess extends polyServer.ServerBase {
     constructor(p_config) { super(p_config); }
 
     _RegisterIOServices(p_ioConfigs) {
-        p_ioConfigs.push({ 
+
+        super._RegisterIOServices(p_ioConfigs);
+
+        p_ioConfigs.push({
             cl: iofs.IO,
-            transceivers:[
-                {
-                    root:`D:\\GIT\\polymorse\\packages\\polymorse-workbench\\database`,
-                    uid:`database`
-                }
-            ]
+            config: {
+                transceivers: [
+                    {
+                        root: `D:\\GIT\polymorse\\packages\\polymorse-workbench\\database\\users`,
+                        uid: polyServer.IDS.STORAGE_USERS
+                    },
+                    {
+                        root: `D:\\GIT\polymorse\\packages\\polymorse-workbench\\database\\pages`,
+                        uid: polyServer.IDS.STORAGE_PAGES
+                    }
+                ]
+            }
         });
+
     }
 
     _Boot() {

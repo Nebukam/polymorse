@@ -8,6 +8,16 @@
         "lerna": "^6.6.2"
     },
     "scripts": {
-        "nkmjs": "nkmjs"
+        "nkmjs": "nkmjs",
+        "bootstrap":"lerna bootstrap && yarn add-nkmjs-link",
+        "link-all": "yarn unlink-all && lerna exec --parallel yarn link",
+        "add-nkmjs-link": "lerna exec --parallel yarn link-nkmjs",
+        "unlink-all": "lerna exec --parallel --bail=false yarn unlink"
+    },
+    "localnkmpaths": {
+        "@nkmjs/core": "../nkmjs/packages/nkmjs-core",
+        "@nkmjs/core-dev": "../nkmjs/packages/nkmjs-core-dev",
+        "@nkmjs/server-io-aws-s3": "../nkmjs/packages/nkmjs-server-io-aws-s3",
+        "@nkmjs/server-io-fs": "../nkmjs/packages/nkmjs-server-io-fs"
     }
 }

@@ -4,6 +4,7 @@ const fs = require(`fs`);
 
 const nkm = require(`@nkmjs/core/nkmserver`);
 const polyCore = require(`@polymorse/core`);
+const polyServer = require(`@polymorse/server`);
 const PolyMorse = polyCore.PolyMorse;
 const polyData = polyCore.data;
 const polyBlocks = polyData.blocks;
@@ -51,13 +52,13 @@ class Debug {
 
         */
 
-        this._usersTs = iofs.IO.db_users;
-        this._pagesTs = iofs.IO.db_pages;
+        this._usersTs = iofs.IO[polyServer.IDS.STORAGE_USERS];
+        this._pagesTs = iofs.IO[polyServer.IDS.STORAGE_PAGES];
 
         if (p_flushExisting) {
-            try { fs.rmdirSync(this._usersTs.Join(``), { recursive: true }); }
+            try { fs.rmSync(this._usersTs.Join(``), { recursive: true }); }
             catch (e) { }
-            try { fs.rmdirSync(this._pagesTs.Join(``), { recursive: true }); }
+            try { fs.rmSync(this._pagesTs.Join(``), { recursive: true }); }
             catch (e) { }
         }
 

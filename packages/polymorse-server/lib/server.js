@@ -3,23 +3,26 @@ const iofs = require(`@nkmjs/server-io-fs`);
 const polyCore = require(`@polymorse/core`);
 
 const handlers = require(`./handlers`);
+const IDS = require(`./ids`);
 
 class ServerBase extends nkm.server.ServerBase {
     constructor(p_config) { super(p_config); }
-    
-    _RegisterIOServices(p_ioClasses) {
-        p_ioClasses.push({ 
+
+    _RegisterIOServices(p_ioConfigs) {
+        p_ioConfigs.push({
             cl: iofs.IO,
-            transceivers:[
-                {
-                    root:`D:\\GIT\polymorse\\packages\\polymorse-workbench\\database\\users`,
-                    uid:`db_users`
-                },
-                {
-                    root:`D:\\GIT\polymorse\\packages\\polymorse-workbench\\database\\pages`,
-                    uid:`db_pages`
-                }
-            ]
+            config: {
+                transceivers: [
+                    {
+                        root: `/database/users`,
+                        uid: IDS.STORAGE_USERS
+                    },
+                    {
+                        root: `/database/pages`,
+                        uid: IDS.STORAGE_PAGES
+                    }
+                ]
+            }
         });
     }
 
@@ -50,7 +53,7 @@ class ServerBase extends nkm.server.ServerBase {
         */
 
 
-        ActionManager._RegisterActions({
+        nkm.server.actions.Manager.AddMultiple({
 
         });
 
