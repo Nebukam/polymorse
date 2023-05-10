@@ -70,8 +70,10 @@ class PolyCoreLink extends nkm.com.Observable {
             PolyMorse.pageRegistry,
             p_config.pages);
 
+        let sts = this._settingsLink.transceiver;
+
         // Check if content is available
-        this._settingsLink.transceiver.ReadFile(`root.json`,
+        sts.ReadFile(sts.Join(`root.json`),
             (p_err, p_path, p_content) => {
                 if (p_err) {
                     console.log(`Root settings not found, creating them.`);

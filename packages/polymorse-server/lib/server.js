@@ -22,22 +22,16 @@ class ServerBase extends nkm.server.ServerBaseAuth0 {
             config: {
                 transceivers: [
                     {
-                        root: path.join(nkm.main.dirName, `/database/settings`),
-                        uid: IDS.STORAGE_SETTINGS,
-                        prependRoot: true,
-                        recursive: true
+                        root: path.join(nkm.main.dirName, `../database/settings`),
+                        uid: IDS.STORAGE_SETTINGS
                     },
                     {
                         root: path.join(nkm.main.dirName, `/database/users`),
-                        uid: IDS.STORAGE_USERS,
-                        prependRoot: true,
-                        recursive: true
+                        uid: IDS.STORAGE_USERS
                     },
                     {
                         root: path.join(nkm.main.dirName, `/database/pages`),
-                        uid: IDS.STORAGE_PAGES,
-                        prependRoot: true,
-                        recursive: true
+                        uid: IDS.STORAGE_PAGES
                     }
                 ]
             }

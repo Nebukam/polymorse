@@ -12,7 +12,7 @@ class ServerProcess extends polyServer.ServerBase {
     _RegisterIOServices(p_ioConfigs) {
 
         super._RegisterIOServices(p_ioConfigs);
-
+/*
         p_ioConfigs.push({
             cl: iofs.IO,
             config: {
@@ -28,7 +28,7 @@ class ServerProcess extends polyServer.ServerBase {
                 ]
             }
         });
-
+*/
     }
 
     _InitAPIs() {

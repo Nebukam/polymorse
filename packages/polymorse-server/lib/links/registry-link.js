@@ -36,26 +36,54 @@ class RegistryLink extends nkm.com.Observable {
         this._entityCount = 0;
         //Check if user directory exists at all
         this._transceiver.Exists(``, (p_err, p_path, p_exists) => {
-            if (p_exists) {
-                this._transceiver.ReadDir(``, (p_err, p_path, p_content) => {
-                    console.log(p_err, p_path, p_content);
-                    if (p_err) {
-                        console.log(p_err);
+
+            if (!p_exists) {
+                console.log(`Skip loading (ENOENT) :: ${p_path}`);
+                this._OnHeadersLoaded();
+                return;
+            }
+
+            this._transceiver.ReadDir(``, (p_err, p_path, p_content) => {
+
+                if (p_err) {
+                    if (p_err.code == 'ENOENT') {
+                        //TODO: Should we create an empty directory?
+                        //rely on recursive paths creation instead?
+                        console.log(`Skip loading (ENOENT) :: ${p_path}`);
+                        this._OnHeadersLoaded();
                     } else {
-                        p_content.forEach(entry => {
-                            this._transceiver.ReadFile(this._transceiver.Join(entry, `header.json`),
-                                (p_err, p_path, headerContent) => {
+                        throw p_err;
+                    }
+                } else {
+
+                    if (p_content.directories.length == 0) {
+                        console.log(`Skip loading (EMPTY) :: ${p_path}`);
+                        this._OnHeadersLoaded();
+                        return;
+                    }
+
+                    let
+                        dirs = p_content.directories,
+                        total = dirs.length,
+                        current = 0;
+
+                    console.log(`Loading (${total}) :: ${p_path}`);
+
+                    dirs.forEach(entry => {
+                        this._transceiver.ReadFile(this._transceiver.Join(entry, `header.json`),
+                            (p_err, p_path, headerContent) => {
+                                if (headerContent) {
                                     this._registry.Create(entry, {
                                         header: nkm.u.isString(headerContent) ? JSON.parse(headerContent) : headerContent
                                     });
-                                    if (this._entityCreated == this._userCount) { this._OnHeadersLoaded(); }
-                                });
-                        });
-                    }
-                });
-            } else {
+                                }
+                                current++;
+                                if (current == total) { this._OnHeadersLoaded(); }
+                            });
+                    });
+                }
+            });
 
-            }
         });
 
 
