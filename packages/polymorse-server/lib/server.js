@@ -2,11 +2,19 @@ const nkm = require(`@nkmjs/core/nkmserver`);
 const iofs = require(`@nkmjs/server-io-fs`);
 const polyCore = require(`@polymorse/core`);
 
+const path = require(`path`);
+
 const handlers = require(`./handlers`);
 const IDS = require(`./ids`);
 
-class ServerBase extends nkm.server.ServerBase {
+const links = require(`./links`);
+
+class ServerBase extends nkm.server.ServerBaseAuth0 {
     constructor(p_config) { super(p_config); }
+
+    _Init() {
+        super._Init();
+    }
 
     _RegisterIOServices(p_ioConfigs) {
         p_ioConfigs.push({
@@ -14,20 +22,48 @@ class ServerBase extends nkm.server.ServerBase {
             config: {
                 transceivers: [
                     {
-                        root: `/database/users`,
-                        uid: IDS.STORAGE_USERS
+                        root: path.join(nkm.main.dirName, `/database/settings`),
+                        uid: IDS.STORAGE_SETTINGS,
+                        prependRoot: true,
+                        recursive: true
                     },
                     {
-                        root: `/database/pages`,
-                        uid: IDS.STORAGE_PAGES
+                        root: path.join(nkm.main.dirName, `/database/users`),
+                        uid: IDS.STORAGE_USERS,
+                        prependRoot: true,
+                        recursive: true
+                    },
+                    {
+                        root: path.join(nkm.main.dirName, `/database/pages`),
+                        uid: IDS.STORAGE_PAGES,
+                        prependRoot: true,
+                        recursive: true
                     }
                 ]
             }
         });
     }
 
-    _InitServer() {
-        super._InitServer();
+    _PrepareInternalInit() {
+
+        super._PrepareInternalInit();
+
+        //links.PolycoreLink.Watch();
+        links.PolycoreLink.InitializeAndStart({
+            settings: iofs.IO.Get(IDS.STORAGE_SETTINGS),
+            users: iofs.IO.Get(IDS.STORAGE_USERS),
+            pages: iofs.IO.Get(IDS.STORAGE_PAGES)
+        });
+
+    }
+
+    _IsReadyForInit() {
+        return links.PolycoreLink.ready;
+    }
+
+    _InitAPIs() {
+
+        super._InitAPIs();
 
         /*
         
@@ -58,51 +94,25 @@ class ServerBase extends nkm.server.ServerBase {
         });
 
         this._RegisterAPIs({
-            getUserProfile: {
-                route: `/user/profile/:id`,
-                handler: handlers.UserProfile,
-                start: true
+            userAction: {
+                route: `/action`,
+                handler: handlers.UserAction,
             },
-            getUserProfile64: {
-                route: `/user/profile64/:id`,
-                handler: handlers.UserProfile64,
-                start: true
+            userGet: {
+                route: `/action2`,
+                handler: handlers.UserGet,
             },
-            getFriendlist: {
-                route: `/user/friendlist/:id`,
-                handler: handlers.UserFriendlist,
-                start: true
-            },
-            getLibrary: {
-                route: `/user/library/:id`,
-                handler: handlers.UserLibrary,
-                start: true
-            },
-            getStore: {
-                route: `/store/:id`,
-                handler: handlers.Store,
-                start: true
-            },
-            getDeal: {
-                route: `/deal/:id`,
-                handler: handlers.Deal,
-                start: true
-            }
         });
+
+    }
+
+    GetUser(p_req) {
+        if (!this.IsAuthenticated(p_req)) { return null; }
+        return polyCore.PolyMorse.GetOrCreateUserByAuthID(super.GetUser(p_req));
     }
 
     _Boot() {
-
-        polyCore.PolyMorse.userRegistry.Watch(polyCore.SIGNAL.ENTITY_CREATED,
-            (p_registry, p_entity) => {
-
-            });
-
-        polyCore.PolyMorse.pageRegistry.Watch(polyCore.SIGNAL.ENTITY_CREATED,
-            (p_registry, p_entity) => {
-
-            });
-
+        super._Boot();
     }
 
 }

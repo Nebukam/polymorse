@@ -8,126 +8,133 @@ const nkm = require(`@nkmjs/core/nkmin`);
  * @hideconstructor
  * @memberof ui.core
  */
-class IDS {
-    constructor() { }
+const IDS = {};
 
-    //#region Documents
-    
-    static UUID = Object.freeze(`uuid`);
-    static CLEARANCE = Object.freeze(`clearance`);
+//#region Documents
 
-    static {
-        nkm.data.RegisterDescriptors({
+IDS.UUID = Object.freeze(`uuid`);
+IDS.CLEARANCE = Object.freeze(`clearance`);
 
-            [IDS.UUID]: {
-                valueType: nkm.data.TYPES.STRING,
-                label: `UUID`,
-                desc: `Universal Unique Identifier`
-            },            
+nkm.data.RegisterDescriptors({
 
-            [IDS.CLEARANCE]: {
-                valueType: nkm.data.TYPES.STRING,
-                label: `Clearance`,
-                desc: `Clearance required to see the content`
-            },
+    [IDS.UUID]: {
+        valueType: nkm.data.TYPES.STRING,
+        label: `UUID`,
+        desc: `Universal Unique Identifier`
+    },
 
-        });
-    }
+    [IDS.CLEARANCE]: {
+        valueType: nkm.data.TYPES.STRING,
+        label: `Clearance`,
+        desc: `Clearance required to see the content`
+    },
 
-    //#endregion
+});
 
-    //#region Content
+//#endregion
 
-    static OWNER_ID = Object.freeze(`authorId`);
+//#region Content
 
-    static HEADER = Object.freeze(`header`);
+IDS.OWNER_ID = Object.freeze(`authorId`);
 
-    static CONTENT = Object.freeze(`content`);
-    static CONTENT_TAGS = Object.freeze(`contentTags`);
-    static CONTENT_BLOCKS = Object.freeze(`blocks`);
+IDS.HEADER = Object.freeze(`header`);
 
-    static ORDER = Object.freeze(`order`);
-    static BLOCK_TYPE = Object.freeze(`blockType`);
+IDS.CONTENT = Object.freeze(`content`);
+IDS.CONTENT_TAGS = Object.freeze(`contentTags`);
+IDS.CONTENT_BLOCKS = Object.freeze(`blocks`);
 
-    static DATE_CREATED = Object.freeze(`created`);
-    static LAST_PUBLISHED = Object.freeze(`published`);
-    static LAST_EDITED = Object.freeze(`edited`);
+IDS.ORDER = Object.freeze(`order`);
+IDS.BLOCK_TYPE = Object.freeze(`blockType`);
 
-    static {
-        nkm.data.RegisterDescriptors({
+IDS.TIME_CREATED = Object.freeze(`created`);
+IDS.TIME_LAST_EDITED = Object.freeze(`edited`);
+IDS.TIME_LAST_PUBLISHED = Object.freeze(`published`);
 
-            [IDS.OWNER_ID]: {
-                valueType: nkm.data.TYPES.STRING,
-                label: `Owner ID`,
-                desc: `The content' owner identifier`
-            },
+nkm.data.RegisterDescriptors({
 
-            [IDS.HEADER]: {
-                label: `Header`,
-                desc: `Morse Header`
-            },
+    [IDS.OWNER_ID]: {
+        valueType: nkm.data.TYPES.STRING,
+        label: `Owner ID`,
+        desc: `The content' owner identifier`
+    },
 
-            [IDS.CONTENT]: {
-                valueType: nkm.data.TYPES.STRING,
-                label: `Content`,
-                desc: `...`
-            },
+    [IDS.HEADER]: {
+        label: `Header`,
+        desc: `Morse Header`
+    },
 
-            [IDS.CONTENT_TAGS]: {
-                valueType: nkm.data.TYPES.STRING,
-                label: `Tags`,
-                desc: `...`
-            },
+    [IDS.CONTENT]: {
+        valueType: nkm.data.TYPES.STRING,
+        label: `Content`,
+        desc: `...`
+    },
 
-            [IDS.CONTENT_BLOCKS]: {
-                valueType: nkm.data.TYPES.STRING,
-                label: `Children`,
-                desc: `...`
-            },
+    [IDS.CONTENT_TAGS]: {
+        valueType: nkm.data.TYPES.STRING,
+        label: `Tags`,
+        desc: `...`
+    },
 
-            
-            [IDS.ORDER]: {
-                valueType: nkm.data.TYPES.STRING,
-                label: `Order`,
-                desc: `...`
-            },
-
-            [IDS.BLOCK_TYPE]: {
-                valueType: nkm.data.TYPES.STRING,
-                label: `Type`,
-                desc: `...`
-            },
-
-            [IDS.DATE_CREATED]: {
-                valueType: nkm.data.TYPES.STRING,
-                label: `Creation date`,
-                desc: `...`
-            },
-
-            [IDS.LAST_PUBLISHED]: {
-                valueType: nkm.data.TYPES.STRING,
-                label: `Last publishing date`,
-                desc: `...`
-            },
-
-            [IDS.LAST_EDITED]: {
-                valueType: nkm.data.TYPES.STRING,
-                label: `Last editing date`,
-                desc: `...`
-            },
-
-        });
-    }
-
-    //#endregion
+    [IDS.CONTENT_BLOCKS]: {
+        valueType: nkm.data.TYPES.STRING,
+        label: `Children`,
+        desc: `...`
+    },
 
 
+    [IDS.ORDER]: {
+        valueType: nkm.data.TYPES.STRING,
+        label: `Order`,
+        desc: `...`
+    },
 
-}
+    [IDS.BLOCK_TYPE]: {
+        valueType: nkm.data.TYPES.STRING,
+        label: `Type`,
+        desc: `...`
+    },
 
-//#region descriptors
+    [IDS.TIME_CREATED]: {
+        valueType: nkm.data.TYPES.NUMBER,
+        label: `Creation date`,
+        desc: `...`
+    },
 
+    [IDS.TIME_LAST_PUBLISHED]: {
+        valueType: nkm.data.TYPES.NUMBER,
+        label: `Last publishing date`,
+        desc: `...`
+    },
 
+    [IDS.TIME_LAST_EDITED]: {
+        valueType: nkm.data.TYPES.NUMBER,
+        label: `Last editing date`,
+        desc: `...`
+    },
+
+});
+
+//#endregion
+
+//#region User
+
+IDS.IDENTITY = Object.freeze(`identity`);
+
+//#endregion
+
+//#region Documents
+
+IDS.TIME_INIT_DATE = Object.freeze(`initTime`);
+
+nkm.data.RegisterDescriptors({
+
+    [IDS.TIME_INIT_DATE]: {
+        valueType: nkm.data.TYPES.NUMBER,
+        label: `Initialization date`,
+        desc: `Universal Unique Identifier`
+    },
+
+});
 
 //#endregion
 

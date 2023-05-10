@@ -15,7 +15,7 @@
     "scripts": {
         "nkmjs": "nkmjs",
         "start": "node server.js",
-        "start-server": "nodemon server.js",
+        "start-server": "nodemon --watch app server.js",
         "link-nkmjs":"yarn link @nkmjs/core && yarn link @nkmjs/core-dev && yarn link @nkmjs/server-io-fs"
     },
     "license": "SEE LICENSE IN LICENSE",

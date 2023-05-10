@@ -26,13 +26,9 @@ class AbstractEntity extends base {
 
     _Init() {
         super._Init();
-        this._uuid = ``;
         this._header = null;
         this._body = null;
     }
-
-    get uuid() { return this._uuid; }
-    set uuid(p_value) { this._uuid = p_value; }
 
     get header() { return this._header; }
     set header(p_value) {

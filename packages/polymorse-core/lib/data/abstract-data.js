@@ -1,6 +1,8 @@
 'use strict';
 
 const nkm = require(`@nkmjs/core/nkmin`);
+const JSONS = nkm.data.serialization.JSONSerializer;
+
 const IDS = require(`./ids`);
 
 const base = nkm.data.SimpleDataBlock;
@@ -17,15 +19,26 @@ class AbstractData extends base {
         this._infos = null;
     }
 
+    get uuid() { return this.Get(IDS.UUID); }
+    set uuid(p_value) { this.Set(IDS.UUID, p_value); }
+
     get infos() { return this._infos; }
 
-    _CleanUp(){
+    _CleanUp() {
         super._CleanUp();
         this._infos = null;
     }
 
+    Deserialize(p_serial) {
+        JSONS.Deserialize(p_serial, this);
+    }
 
-    toString() { return `{${this.constructor.name}::${this.rootId}}`; }
+    Serialize() {
+        let serial = JSONS.Serialize(this);
+        return serial;
+    }
+
+    toString() { return `{${this.constructor.name}::...}`; }
 
 }
 

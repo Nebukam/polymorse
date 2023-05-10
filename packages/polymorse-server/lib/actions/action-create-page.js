@@ -7,8 +7,8 @@ const polyCore = require(`@polymorse/core`);
 /**
  * Get EDIT manages the creation & serving of pages for editing.
  */
-const base = require(`./abstract-update-action`);
-class EditPublish extends base {
+const base = nkmServer.actions.AbstractAction;
+class CreatePageAction extends base {
     constructor() { super(); }
 
     static __model = {};
@@ -19,4 +19,4 @@ class EditPublish extends base {
 
 }
 
-module.exports = EditPublish;
+module.exports = CreatePageAction;

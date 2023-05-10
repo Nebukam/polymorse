@@ -9,7 +9,9 @@ module.exports = {
 
     User:require(`./user`),
     Page:require(`./page`),
+    Settings:require(`./settings`),
 
     Registry:require(`./registry`),
+    
 
 }

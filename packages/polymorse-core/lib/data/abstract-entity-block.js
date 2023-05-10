@@ -4,8 +4,6 @@ const nkm = require(`@nkmjs/core/nkmin`);
 const u = nkm.u;
 const io = nkm.io;
 
-const JSONS = nkm.data.serialization.JSONSerializer;
-
 const IDS = require(`./ids`);
 const AbstractData = require("./abstract-data");
 
@@ -31,10 +29,6 @@ class AbstractEntityBlock extends base {
 
     get entity() { return this._entity; }
     set entity(p_value) { this._entity = p_value; }
-
-    Deserialize(p_serial) { JSONS.Deserialize(p_serial, this); }
-
-    Serialize() { return JSONS.Serialize(this); }
 
     _CleanUp() {
         this.entity = null;

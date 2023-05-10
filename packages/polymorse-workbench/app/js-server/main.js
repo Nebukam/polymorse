@@ -18,16 +18,46 @@ class ServerProcess extends polyServer.ServerBase {
             config: {
                 transceivers: [
                     {
-                        root: `D:\\GIT\polymorse\\packages\\polymorse-workbench\\database\\users`,
+                        root: `D:\\GIT\\polymorse\\packages\\polymorse-workbench\\database\\users`,
                         uid: polyServer.IDS.STORAGE_USERS
                     },
                     {
-                        root: `D:\\GIT\polymorse\\packages\\polymorse-workbench\\database\\pages`,
+                        root: `D:\\GIT\\polymorse\\packages\\polymorse-workbench\\database\\pages`,
                         uid: polyServer.IDS.STORAGE_PAGES
                     }
                 ]
             }
         });
+
+    }
+
+    _InitAPIs() {
+        super._InitAPIs();
+
+        this._RegisterAPIs([
+            {
+                route: '/',
+                fn: (req, res) => {
+                    res.render('index', {
+                        title: 'Auth0 Webapp sample Nodejs',
+                        isAuthenticated: this.IsAuthenticated()
+                    });
+                }
+            },
+            {
+                route: '/profile',
+                requireAuth: true,
+                fn:
+                    (req, res) => {
+                        console.log(req, res);
+                        res.render('profile', {
+                            userProfile: JSON.stringify(this.GetUser(req), null, 2),
+                            title: 'Profile page'
+                        });
+                    },
+                start: true
+            },
+        ]);
 
     }
 
@@ -42,7 +72,7 @@ class ServerProcess extends polyServer.ServerBase {
         }).finally(req => req.Release());
         */
 
-        Debug.GenerateDebugData(true);
+        //Debug.GenerateDebugData(true);
 
     }
 

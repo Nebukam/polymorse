@@ -3,7 +3,7 @@
 const nkm = require(`@nkmjs/core/nkmserver`);
 const polyCore = require(`@polymorse/core`);
 
-class UserActionHandler extends nkm.server.handlers.Action {
+class UserGetHandler extends nkm.server.handlers.GET {
     constructor() { super(); }
 
     _SanitizeRequest(p_request) {
@@ -15,8 +15,13 @@ class UserActionHandler extends nkm.server.handlers.Action {
         // so if authentication is required by this handler
         // this code is only reached if the auth passes.
 
-        let polyUser = p_request.locales.user;
+        //TODO: If user does not exist, create it!
+        let polyUser = polyCore.PolyMorse.GetOrCreateUserByAuthID(
+            nkm.env.app.GetUser(p_request));
+
         if (!polyUser) { return false; }
+
+        p_request.polyUser = polyUser;
 
         //TODO: Make sure authenticated user has editing rights on the target object
 
@@ -26,7 +31,6 @@ class UserActionHandler extends nkm.server.handlers.Action {
         //if(p_request.params.id == ``){ return false; }
         //this._id = p_request.params.id;
 
-        console.log(this._actionParams);
         console.log(p_request);
         return true;
 
@@ -34,4 +38,4 @@ class UserActionHandler extends nkm.server.handlers.Action {
 
 }
 
-module.exports = UserActionHandler;
+module.exports = UserGetHandler;

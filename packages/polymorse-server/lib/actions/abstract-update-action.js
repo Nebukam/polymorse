@@ -7,18 +7,19 @@ const polyCore = require(`@polymorse/core`);
 /**
  * Get EDIT manages the creation & serving of pages for editing.
  */
-const base = require(`./abstract-update-action`);
-class EditAction extends base {
+const base = nkmServer.actions.AbstractAction;
+class AbstractUpdateAction extends base {
     constructor() { super(); }
 
     static __model = {
-        target:`uid`
+        target: `uid`
     };
 
-    _InternalExecute(p_op) {
-        return false;
+    CanExecute(p_operation) {
+        //TODO: Ensure user is authorized to update target
+        return true;
     }
 
 }
 
-module.exports = EditAction;
+module.exports = AbstractUpdateAction;

@@ -76,7 +76,7 @@ class Debug {
 
     GenerateUser(p_uid) {
 
-        let user = PolyMorse.CreateUser(p_uid);
+        let user = PolyMorse.userRegistry.Create(p_uid);
         user.LoadHeader();
         user.LoadBody();
 
@@ -88,7 +88,7 @@ class Debug {
 
         let
             uuid = nkm.u.tils.UUID,
-            page = PolyMorse.CreatePage(uuid),
+            page = PolyMorse._pages.Create(uuid),
             uList = PolyMorse._users._entities,
             owner = uList[Math.floor(Math.random() * uList.length)];
 
@@ -115,14 +115,14 @@ class Debug {
         ts.WriteFile(
             ts.Join(p_entity.uuid, `header.json`),
             JSON.stringify(p_entity.header.Serialize()),
-            () => { },
+            (err, p_path, p_success) => { },
             { recursive: true }
         );
 
         ts.WriteFile(
             ts.Join(p_entity.uuid, `body.json`),
             JSON.stringify(p_entity.body.Serialize()),
-            () => { },
+            (err, p_path, p_success) => { },
             { recursive: true }
         );
 

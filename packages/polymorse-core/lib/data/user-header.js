@@ -16,7 +16,8 @@ class UserHeader extends base {
     };
 
     static __VALUES = this.Ext(base.__VALUES, {
-        [IDS.CLEARANCE]: { value: 0 }
+        [IDS.CLEARANCE]: { value: 0 },
+        [IDS.IDENTITY]: { value: [] }
     });
 
     _Init() {

@@ -12,6 +12,7 @@ class Registry extends base {
     constructor(p_entityClass = null) {
         super();
         this._entityClass = p_entityClass || this.constructor.__entityClass;
+        this._onCreatedFn = null;
     }
 
     static __entityClass = null;
@@ -22,7 +23,12 @@ class Registry extends base {
         this._entities = [];
     }
 
-    Create(p_uid) {
+    get onCreatedFn() { return this._onCreatedFn; }
+    set onCreatedFn(p_value) { this._onCreatedFn = p_value; }
+
+    Create(p_uid, p_options = null) {
+
+        if (p_uid in this._map) { throw new Error(`Entity with uid '${p_uid}' already exist!`); }
 
         let newEntity = nkm.com.Rent(this._entityClass);
         newEntity.uuid = p_uid;
@@ -30,7 +36,16 @@ class Registry extends base {
         this._map[p_uid] = newEntity;
         this._entities.push(newEntity);
 
-        this.Broadcast(SIGNAL.ENTITY_CREATED, this, newEntity);
+        if (p_options) {
+            if (p_options.header) {
+                newEntity.LoadHeader(p_options.header);
+            }
+        }
+
+
+        if (this._onCreatedFn) { this._onCreatedFn(newEntity, p_options); }
+
+        this.Broadcast(SIGNAL.ENTITY_CREATED, this, newEntity, p_options);
 
         return newEntity;
 
