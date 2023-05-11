@@ -1,13 +1,12 @@
 'use strict';
 
-const nkmServer = require(`@nkmjs/core/server`);
-const nkm = require(`@nkmjs/core/nkmin`);
+const nkm = require(`@nkmjs/core/nkmserver`);
 const polyCore = require(`@polymorse/core`);
 
 /**
  * Get EDIT manages the creation & serving of pages for editing.
  */
-const base = nkmServer.actions.AbstractAction;
+const base = require(`./abstract-user-action`);
 class CreatePageAction extends base {
     constructor() { super(); }
 

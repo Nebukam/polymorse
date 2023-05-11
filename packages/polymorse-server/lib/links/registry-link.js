@@ -9,12 +9,11 @@ class RegistryLink extends nkm.com.Observable {
     _Init() {
         super._Init();
 
-        this._entityCreated = 0;
-
         this._registry = null;
         this._registryObserver = new nkm.com.signals.Observer();
         this._registryObserver
-            .Hook(polyCore.SIGNAL.ENTITY_CREATED, this._OnEntityCreated, this);
+            .Hook(polyCore.SIGNAL.ENTITY_CREATED, this._OnEntityCreated, this)
+            .Hook(polyCore.SIGNAL.ENTITY_BODY_REQUESTED, this._OnEntityBodyRequested, this);
 
     }
 
@@ -28,17 +27,32 @@ class RegistryLink extends nkm.com.Observable {
     }
 
     _OnEntityCreated(p_entity) {
-        this._entityCreated++;
-        //
+
     }
 
+    _OnEntityBodyRequested(p_entity, p_registry) {
+        this._transceiver.ReadFile(
+            this._transceiver.Join(entry, `body.json`),
+            (p_err, p_path, bodyContent) => {
+                if (p_err) {
+                    p_entity._OnBodyRequestHandled(p_err);
+                } else {
+                    p_entity.LoadBody(JSON.parse(bodyContent));
+                    p_entity._OnBodyRequestHandled(null);
+                }
+            });
+    }
+
+    //#region Initial loading
+
     LoadHeaders() {
-        this._entityCount = 0;
+
         //Check if user directory exists at all
+
         this._transceiver.Exists(``, (p_err, p_path, p_exists) => {
 
             if (!p_exists) {
-                console.log(`Skip loading (ENOENT) :: ${p_path}`);
+                console.log(` · · ← RegistryLink :: Skip loading (ENOENT) :: ${p_path}`);
                 this._OnHeadersLoaded();
                 return;
             }
@@ -49,7 +63,7 @@ class RegistryLink extends nkm.com.Observable {
                     if (p_err.code == 'ENOENT') {
                         //TODO: Should we create an empty directory?
                         //rely on recursive paths creation instead?
-                        console.log(`Skip loading (ENOENT) :: ${p_path}`);
+                        console.log(` · · ← RegistryLink :: Skip loading (ENOENT) :: ${p_path}`);
                         this._OnHeadersLoaded();
                     } else {
                         throw p_err;
@@ -57,28 +71,30 @@ class RegistryLink extends nkm.com.Observable {
                 } else {
 
                     if (p_content.directories.length == 0) {
-                        console.log(`Skip loading (EMPTY) :: ${p_path}`);
+                        console.log(` · · ← RegistryLink :: Skip loading (EMPTY) :: ${p_path}`);
                         this._OnHeadersLoaded();
                         return;
                     }
 
                     let
                         dirs = p_content.directories,
-                        total = dirs.length,
-                        current = 0;
+                        queue = [...dirs];
 
-                    console.log(`Loading (${total}) :: ${p_path}`);
+                    console.log(` · · ← RegistryLink :: Loading (${total}) :: ${p_path}`);
 
                     dirs.forEach(entry => {
-                        this._transceiver.ReadFile(this._transceiver.Join(entry, `header.json`),
+                        this._transceiver.ReadFile(
+                            this._transceiver.Join(entry, `header.json`),
                             (p_err, p_path, headerContent) => {
                                 if (headerContent) {
                                     this._registry.Create(entry, {
                                         header: nkm.u.isString(headerContent) ? JSON.parse(headerContent) : headerContent
                                     });
                                 }
-                                current++;
-                                if (current == total) { this._OnHeadersLoaded(); }
+
+                                queue.splice(queue.indexOf(entry), 1);
+                                if (!queue.length) { this._OnHeadersLoaded(); }
+
                             });
                     });
                 }
@@ -92,6 +108,8 @@ class RegistryLink extends nkm.com.Observable {
     _OnHeadersLoaded() {
         this.Broadcast(nkm.com.SIGNAL.READY, this);
     }
+
+    //#endregion
 
 }
 

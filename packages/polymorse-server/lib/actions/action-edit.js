@@ -1,7 +1,6 @@
 'use strict';
 
-const nkmServer = require(`@nkmjs/core/server`);
-const nkm = require(`@nkmjs/core/nkmin`);
+const nkm = require(`@nkmjs/core/nkmserver`);
 const polyCore = require(`@polymorse/core`);
 
 /**

@@ -19,7 +19,6 @@ class PolyCoreLink extends nkm.com.Observable {
         this._config = null;
 
         this._regLinkObserver = new nkm.com.signals.Observer();
-        this._regLinkObserver.Hook(nkm.com.SIGNAL.READY, this._ProcessNext, this);
 
         this._regLinks = [];
         this._regQueue = [];
@@ -37,6 +36,8 @@ class PolyCoreLink extends nkm.com.Observable {
         this._regLinks.push(newRegLink);
         this._regQueue.push(newRegLink);
         this._regLinkObserver.Observe(newRegLink);
+
+        newRegLink.WatchOnce(nkm.com.SIGNAL.READY, this._ProcessNext, this);
 
         return newRegLink;
 
@@ -76,7 +77,7 @@ class PolyCoreLink extends nkm.com.Observable {
         sts.ReadFile(sts.Join(`root.json`),
             (p_err, p_path, p_content) => {
                 if (p_err) {
-                    console.log(`Root settings not found, creating them.`);
+                    console.log(` · → PolyLink :: Root settings not found, creating them.`);
                     // Need to create root settings first.
                     let serial = JSON.stringify(this._rootSettings.Serialize());
                     this._settingsLink.transceiver.WriteFile(`${this._rootSettings.uuid}.json`, serial,
@@ -85,7 +86,7 @@ class PolyCoreLink extends nkm.com.Observable {
                             else { this._ProcessNext(); }
                         });
                 } else {
-                    console.log(`Root settings found, processing.`);
+                    console.log(` · ← PolyLink :: Root settings found, processing.`);
                     // Root settings can be pushed.
                     this._rootSettings.Deserialize(JSON.parse(p_content));
                     //TODO: Do something with options...
@@ -99,7 +100,6 @@ class PolyCoreLink extends nkm.com.Observable {
     _ProcessNext() {
 
         let currentLink = this._regQueue.shift();
-        console.log(`_ProcessNext`);
 
         if (!currentLink) {
             this._OnInitializationEnd();

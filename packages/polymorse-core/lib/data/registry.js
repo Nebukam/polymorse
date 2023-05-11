@@ -21,6 +21,9 @@ class Registry extends base {
         super._Init();
         this._map = {};
         this._entities = [];
+        this._entitiesObserver = new nkm.com.signals.Observer();
+        this._entitiesObserver
+            .Hook(SIGNAL.ENTITY_BODY_REQUESTED, this._OnEntityBodyRequest, this);
     }
 
     get onCreatedFn() { return this._onCreatedFn; }
@@ -44,6 +47,7 @@ class Registry extends base {
 
 
         if (this._onCreatedFn) { this._onCreatedFn(newEntity, p_options); }
+        this._entitiesObserver.Observe(newEntity);
 
         this.Broadcast(SIGNAL.ENTITY_CREATED, this, newEntity, p_options);
 
@@ -60,6 +64,8 @@ class Registry extends base {
         let
             entity = this._map[p_uid],
             index = this._entities.indexOf(entity);
+
+        this._entitiesObserver.Unobserve(entity);
 
         if (index != -1) { this._entities.splice(index, 1); }
         delete this._map[p_uid];
@@ -98,6 +104,9 @@ class Registry extends base {
         super._CleanUp();
     }
 
+    _OnEntityBodyRequest(p_entity) {
+        this.Broadcast(SIGNAL.ENTITY_BODY_REQUESTED, this, p_entity);
+    }
 
 }
 

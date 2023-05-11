@@ -1,7 +1,6 @@
 'use strict';
 
-class SIGNAL {
-    constructor() { }
+module.exports = {
 
     /**
      * @description State changed
@@ -9,7 +8,7 @@ class SIGNAL {
      * @customtag read-only
      * @group State
      */
-    static STATE_CHANGED = Symbol(`stateChanged`);
+    STATE_CHANGED: Symbol(`stateChanged`),
 
     /**
      * @description Entity created
@@ -17,8 +16,15 @@ class SIGNAL {
      * @customtag read-only
      * @group State
      */
-    static ENTITY_CREATED = Symbol(`entityCreated`);
+    ENTITY_CREATED: Symbol(`entityCreated`),
+
+    /**
+     * @description Entity request body loading
+     * @type {symbol}
+     * @customtag read-only
+     * @group State
+     */
+    ENTITY_BODY_REQUESTED: Symbol(`bodyRequest`),
+
 
 }
-
-module.exports = SIGNAL;

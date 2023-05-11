@@ -8,9 +8,12 @@ const handlers = require(`./handlers`);
 const IDS = require(`./ids`);
 
 const links = require(`./links`);
+const actions = require("./actions");
 
 class ServerBase extends nkm.server.ServerBaseAuth0 {
     constructor(p_config) { super(p_config); }
+
+    static __defaultIOFS = iofs.IO;
 
     _Init() {
         super._Init();
@@ -18,11 +21,11 @@ class ServerBase extends nkm.server.ServerBaseAuth0 {
 
     _RegisterIOServices(p_ioConfigs) {
         p_ioConfigs.push({
-            cl: iofs.IO,
+            cl: this.constructor.__defaultIOFS,
             config: {
                 transceivers: [
                     {
-                        root: path.join(nkm.main.dirName, `../database/settings`),
+                        root: path.join(nkm.main.dirName, `./database/settings`),
                         uid: IDS.STORAGE_SETTINGS
                     },
                     {
@@ -84,18 +87,59 @@ class ServerBase extends nkm.server.ServerBaseAuth0 {
 
 
         nkm.server.actions.Manager.AddMultiple({
-
+            'edit': actions.Edit,
+            'publish': actions.Publish,
+            'create-page': actions.CreatePage
         });
 
         this._RegisterAPIs({
-            userAction: {
-                route: `/action`,
+
+            apiAction: {
+                // Simple action endpoint
+                route: `/polymorse/v1/action`,
                 handler: handlers.UserAction,
+                requireAuth: true,
             },
-            userGet: {
-                route: `/action2`,
+
+            apiGet: {
+                // Simple get endpoint
+                route: `/polymorse/v1/get`,
                 handler: handlers.UserGet,
+                requireAuth: true,
             },
+
+            servePage: {
+                // Render a page
+                route: `/page/:pageId`,
+                handler: handlers.PageRender,
+                view: IDS.VIEW_PAGE,
+                requireAuth: true,
+            },
+
+            serveHome: {
+                // Render home
+                route: `/`,
+                handler: handlers.PageRender,
+                view: IDS.VIEW_HOME,
+                requireAuth: true,
+            },
+
+            serveAdmin: {
+                // Render admin
+                route: `/admin`,
+                handler: handlers.PageRender,
+                view: IDS.VIEW_ADMIN,
+                requireAuth: true,
+            },
+
+            serveCompose: {
+                // Render compose
+                route: `/compose`,
+                handler: handlers.PageRender,
+                view: IDS.VIEW_PAGE_EDITOR,
+                requireAuth: true,
+            },
+
         });
 
     }

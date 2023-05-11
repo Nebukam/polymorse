@@ -15,15 +15,8 @@ class UserGetHandler extends nkm.server.handlers.GET {
         // so if authentication is required by this handler
         // this code is only reached if the auth passes.
 
-        //TODO: If user does not exist, create it!
-        let polyUser = polyCore.PolyMorse.GetOrCreateUserByAuthID(
-            nkm.env.app.GetUser(p_request));
-
+        let polyUser = p_request.locales.user;
         if (!polyUser) { return false; }
-
-        p_request.polyUser = polyUser;
-
-        //TODO: Make sure authenticated user has editing rights on the target object
 
         //TODO: Add user object to operation for the action to consume
 

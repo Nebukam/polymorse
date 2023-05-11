@@ -12,23 +12,23 @@ class ServerProcess extends polyServer.ServerBase {
     _RegisterIOServices(p_ioConfigs) {
 
         super._RegisterIOServices(p_ioConfigs);
-/*
-        p_ioConfigs.push({
-            cl: iofs.IO,
-            config: {
-                transceivers: [
-                    {
-                        root: `D:\\GIT\\polymorse\\packages\\polymorse-workbench\\database\\users`,
-                        uid: polyServer.IDS.STORAGE_USERS
-                    },
-                    {
-                        root: `D:\\GIT\\polymorse\\packages\\polymorse-workbench\\database\\pages`,
-                        uid: polyServer.IDS.STORAGE_PAGES
+        /*
+                p_ioConfigs.push({
+                    cl: iofs.IO,
+                    config: {
+                        transceivers: [
+                            {
+                                root: `D:\\GIT\\polymorse\\packages\\polymorse-workbench\\database\\users`,
+                                uid: polyServer.IDS.STORAGE_USERS
+                            },
+                            {
+                                root: `D:\\GIT\\polymorse\\packages\\polymorse-workbench\\database\\pages`,
+                                uid: polyServer.IDS.STORAGE_PAGES
+                            }
+                        ]
                     }
-                ]
-            }
-        });
-*/
+                });
+        */
     }
 
     _InitAPIs() {

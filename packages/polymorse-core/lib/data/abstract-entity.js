@@ -5,8 +5,10 @@ const u = nkm.u;
 const io = nkm.io;
 
 const IDS = require(`./ids`);
+const SIGNAL = require(`../signal`);
 const AbstractData = require("./abstract-data");
 const MorseHeader = require(`./page-header`);
+
 
 const _id_HEADER = Object.freeze('header');
 const _id_BODY = Object.freeze('body');
@@ -26,8 +28,13 @@ class AbstractEntity extends base {
 
     _Init() {
         super._Init();
+
         this._header = null;
         this._body = null;
+        this._requestCBs = new nkm.com.helpers.CallList();
+
+        this._Bind(this._OnBodyRequestHandled);
+
     }
 
     get header() { return this._header; }
@@ -75,6 +82,33 @@ class AbstractEntity extends base {
         if (!this._body) { this.body = nkm.com.Rent(this.constructor.__bodyClass); }
         if (p_serial) { this._body.Deserialize(p_serial); }
         return this._body;
+    }
+
+
+    /**
+     * Requests body to be loaded, 
+     * @param {*} p_callback 
+     */
+    RequestBody(p_callback) {
+        if (this._requestCBs.Has(p_callback)) { return; }
+        this._requestCBs.Add(p_callback);
+        this.Broadcast(SIGNAL.ENTITY_BODY_REQUESTED, this, this._OnBodyRequestHandled);
+    }
+
+    /**
+     * Body is expected to exist if resolution is positive
+     * @param {*} p_err 
+     * @returns 
+     */
+    _OnBodyRequestHandled(p_err) {
+
+        if (p_err) {
+            this._requestCBs.Notify(this, p_err).Clear();
+            return;
+        }
+
+        this._requestCBs.Notify(this, this._body).Clear();
+
     }
 
     _CleanUp() {
