@@ -1,6 +1,6 @@
 {
     "name": "@polymorse/gen",
-    "version": "0.0.1",
+    "version": "0.0.2",
     "description": "PolyMorse Gen",
     "author": {
         "name": "Timothé Lapetite",
@@ -13,7 +13,7 @@
     },
     "license": "SEE LICENSE IN LICENSE",
     "scripts": {
-        "link-nkmjs":"yarn link @nkmjs/core"
+        "link-nkmjs": "yarn link @nkmjs/core"
     },
     "dependencies": {
         "@nkmjs/core": "^1.1.6",

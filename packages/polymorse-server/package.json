@@ -1,6 +1,6 @@
 {
     "name": "@polymorse/server",
-    "version": "0.0.4",
+    "version": "0.0.5",
     "description": "PolyMorse Server",
     "author": {
         "name": "Timothé Lapetite",
@@ -12,13 +12,13 @@
         "url": "https://github.com/Nebukam/polymorse/tree/main/packages/polymorse-server"
     },
     "scripts": {
-        "link-nkmjs":"yarn link @nkmjs/core && yarn link @nkmjs/server-io-aws-s3 && yarn link @nkmjs/server-io-fs"
+        "link-nkmjs": "yarn link @nkmjs/core && yarn link @nkmjs/server-io-aws-s3 && yarn link @nkmjs/server-io-fs"
     },
     "dependencies": {
         "@nkmjs/core": "^1.1.6",
         "@nkmjs/server-io-aws-s3": "^0.1.6",
         "@nkmjs/server-io-fs": "^0.1.6",
-        "@polymorse/core": "^0.0.4",
+        "@polymorse/core": "^0.0.5",
         "marked": "^4.3.0"
     },
     "gitHead": "8d876d542a109b2cf78e00834a7b43ccf67fad53"
