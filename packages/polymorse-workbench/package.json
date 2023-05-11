@@ -1,6 +1,6 @@
 {
     "name": "polymorse-workbench",
-    "version": "0.0.2",
+    "version": "0.0.3",
     "description": "PolyMorse Workbench",
     "author": {
         "name": "Timothé Lapetite",
@@ -22,8 +22,8 @@
     "dependencies": {
         "@nkmjs/core": "^1.1.6",
         "@nkmjs/server-io-fs": "^0.1.6",
-        "@polymorse/core": "^0.0.5",
-        "@polymorse/server": "^0.0.5"
+        "@polymorse/core": "^0.0.6",
+        "@polymorse/server": "^0.0.6"
     },
     "devDependencies": {
         "@nkmjs/core-dev": "^1.1.6",

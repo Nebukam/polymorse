@@ -1,6 +1,6 @@
 {
     "name": "@polymorse/server",
-    "version": "0.0.5",
+    "version": "0.0.6",
     "description": "PolyMorse Server",
     "author": {
         "name": "Timothé Lapetite",
@@ -18,7 +18,7 @@
         "@nkmjs/core": "^1.1.6",
         "@nkmjs/server-io-aws-s3": "^0.1.6",
         "@nkmjs/server-io-fs": "^0.1.6",
-        "@polymorse/core": "^0.0.5",
+        "@polymorse/core": "^0.0.6",
         "marked": "^4.3.0"
     },
     "gitHead": "3e0810bae6fa7bc8f956330cb8bb167f02d8234e"
