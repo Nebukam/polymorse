@@ -1,5 +1,5 @@
 {
-    "name": "polymorse-workbench",
+    "name": "@polymorse/workbench",
     "longName": "polymorse-workbench Verbose App Name",
     "shortName": "polymorse-workbench App",
     "description": "PolyMorse Workbench",
