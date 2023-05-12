@@ -26,3 +26,4 @@ class UserHeader extends base {
 }
 
 module.exports = UserHeader;
+nkm.com.BINDINGS.RegisterFromNFO(UserHeader);

@@ -25,3 +25,4 @@ class ImageBlock extends base {
 }
 
 module.exports = ImageBlock;
+nkm.com.BINDINGS.RegisterFromNFO(ImageBlock);

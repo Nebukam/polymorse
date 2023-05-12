@@ -93,7 +93,7 @@ class RegistryLink extends nkm.com.Observable {
                         dirs = p_content.directories,
                         queue = [...dirs];
 
-                    console.log(` · · ← RegistryLink :: Loading (${total}) :: ${p_path}`);
+                    console.log(` · · ← RegistryLink :: Loading (${queue.length}) :: ${p_path}`);
 
                     dirs.forEach(entry => {
                         this._transceiver.ReadFile(

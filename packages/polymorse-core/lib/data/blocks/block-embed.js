@@ -25,3 +25,4 @@ class EmbedBlock extends base {
 }
 
 module.exports = EmbedBlock;
+nkm.com.BINDINGS.RegisterFromNFO(EmbedBlock);

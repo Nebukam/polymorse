@@ -25,3 +25,4 @@ class VideoBlock extends base {
 }
 
 module.exports = VideoBlock;
+nkm.com.BINDINGS.RegisterFromNFO(VideoBlock);

@@ -23,8 +23,6 @@ class PolyCoreLink extends nkm.com.Observable {
         this._regLinks = [];
         this._regQueue = [];
 
-        this._rootSettings = PolyMorse.settingsRegistry.Create(`root`);
-
     }
 
     _RegistryLink(p_registry, p_transceiver) {
@@ -73,8 +71,13 @@ class PolyCoreLink extends nkm.com.Observable {
 
         let sts = this._settingsLink.transceiver;
 
-        PolyMorse.mainSettings.body.RequestLoad((p_block, p_err)=>{
-            console.log(p_err);
+        PolyMorse.mainSettings.body.RequestLoad((p_block, p_err) => {
+            if (p_err) {
+                PolyMorse.mainSettings.body.RequestSave((p_block, p_err) => {
+                    if (p_err) { throw p_err; }
+                    this._ProcessNext();
+                })
+            } else { this._ProcessNext(); }
         });
 
         /*

@@ -30,3 +30,4 @@ class User extends base {
 }
 
 module.exports = User;
+nkm.com.BINDINGS.RegisterFromNFO(User);

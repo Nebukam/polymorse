@@ -38,7 +38,7 @@ class AbstractData extends base {
 
     Serialize() {
         let serial = JSONS.Serialize(this);
-        return serial;
+        return JSON.stringify(serial);
     }
 
     toString() { return `{${this.constructor.name}::...}`; }

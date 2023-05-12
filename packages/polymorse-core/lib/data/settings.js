@@ -32,3 +32,4 @@ class Settings extends base {
 }
 
 module.exports = Settings;
+nkm.com.BINDINGS.RegisterFromNFO(Settings);

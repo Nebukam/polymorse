@@ -25,3 +25,4 @@ class MarkdownBlock extends base {
 }
 
 module.exports = MarkdownBlock;
+nkm.com.BINDINGS.RegisterFromNFO(MarkdownBlock);

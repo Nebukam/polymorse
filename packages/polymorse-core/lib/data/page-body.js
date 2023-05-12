@@ -26,3 +26,4 @@ class PageBody extends base {
 }
 
 module.exports = PageBody;
+nkm.com.BINDINGS.RegisterFromNFO(PageBody);

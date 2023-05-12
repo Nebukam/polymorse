@@ -25,3 +25,4 @@ class MediaBlock extends base {
 }
 
 module.exports = MediaBlock;
+nkm.com.BINDINGS.RegisterFromNFO(MediaBlock);

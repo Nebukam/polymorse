@@ -25,3 +25,4 @@ class SettingsHeader extends base {
 }
 
 module.exports = SettingsHeader;
+nkm.com.BINDINGS.RegisterFromNFO(SettingsHeader);

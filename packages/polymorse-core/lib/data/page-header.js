@@ -43,3 +43,4 @@ class PageHeader extends base {
 }
 
 module.exports = PageHeader;
+nkm.com.BINDINGS.RegisterFromNFO(PageHeader);

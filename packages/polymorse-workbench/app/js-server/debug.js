@@ -114,14 +114,14 @@ class Debug {
 
         ts.WriteFile(
             ts.Join(p_entity.uuid, `header.json`),
-            JSON.stringify(p_entity.header.Serialize()),
+            p_entity.header.Serialize(),
             (err, p_path, p_success) => { },
             { recursive: true }
         );
 
         ts.WriteFile(
             ts.Join(p_entity.uuid, `body.json`),
-            JSON.stringify(p_entity.body.Serialize()),
+            p_entity.body.Serialize(),
             (err, p_path, p_success) => { },
             { recursive: true }
         );

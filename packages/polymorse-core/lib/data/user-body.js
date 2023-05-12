@@ -25,3 +25,4 @@ class UserBody extends base {
 }
 
 module.exports = UserBody;
+nkm.com.BINDINGS.RegisterFromNFO(UserBody);
