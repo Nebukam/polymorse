@@ -1,6 +1,9 @@
 
 'use strict';
 
+const nkm = require(`@nkmjs/core/nkmin`);
+
+nkm.com.BINDINGS.Expand(require(`./bindings`));
 const __POLYMORSE = require(`./lib/polymorse`);
 
 module.exports = {
@@ -11,7 +14,7 @@ module.exports = {
 
     PolyMorse: __POLYMORSE,
     helpers: require(`./lib/helpers`),
-    data: require(`./lib/data`),    
+    data: require(`./lib/data`),
 
     CreateUser: (p_uid) => { return __POLYMORSE.RegisterUser(p_uid); },
     CreatePage: (p_uid) => { return __POLYMORSE.RegisterPage(p_uid); },

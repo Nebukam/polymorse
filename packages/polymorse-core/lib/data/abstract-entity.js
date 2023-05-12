@@ -6,6 +6,8 @@ const io = nkm.io;
 
 const IDS = require(`./ids`);
 const SIGNAL = require(`../signal`);
+const CONTEXT = require("../context");
+
 const AbstractData = require("./abstract-data");
 const MorseHeader = require(`./page-header`);
 
@@ -18,22 +20,21 @@ const base = AbstractData;
 class AbstractEntity extends base {
     constructor() { super(); }
 
-    static __headerClass = null;
-    static __bodyClass = null;
+    static __headerKey = null;
+    static __bodyKey = null;
 
-    static __NFO__ = {
-        [nkm.com.IDS.UID]: `@polymorse:entity`,
-        [nkm.com.IDS.ICON]: `document`
-    };
+    static __NFO__ = nkm.com.NFOS.Ext({
+        [nkm.com.IDS.UID]: `@polymorse:entity`
+    }, base);
 
     _Init() {
         super._Init();
 
         this._header = null;
         this._body = null;
-        this._requestCBs = new nkm.com.helpers.CallList();
 
-        this._Bind(this._OnBodyRequestHandled);
+        this._Bind(this._OnSubRequestLoad);
+        this._Bind(this._OnSubRequestSave);
 
     }
 
@@ -67,49 +68,49 @@ class AbstractEntity extends base {
         if (p_value) {
             this[p_id] = p_value;
             p_value.entity = this;
+            p_value
+                .Watch(SIGNAL.REQUEST_LOAD, (block, p_callback) => { this.Broadcast(SIGNAL.REQUEST_LOAD, block, p_callback); })
+                .Watch(SIGNAL.REQUEST_SAVE, (block, p_callback) => { this.Broadcast(SIGNAL.REQUEST_SAVE, block, p_callback); });
+
             return p_value;
         }
 
     }
 
-    LoadHeader(p_serial = null) {
-        if (!this._header) { this.header = nkm.com.Rent(this.constructor.__headerClass); }
+    _CreateSub(p_key) {
+        let cl = p_key;
+        if (nkm.u.isInstanceOf(cl, nkm.com.helpers.CSYMBOL)) {
+            cl = nkm.com.BINDINGS.Get(CONTEXT.ENTITIES, p_key, null);
+        }
+        return nkm.com.Rent(cl);
+    }
+
+    _OnSubRequestLoad(p_sub, p_callback) { this.Broadcast(SIGNAL.REQUEST_LOAD, p_sub, p_callback); }
+    _OnSubRequestSave(p_sub, p_callback) { this.Broadcast(SIGNAL.REQUEST_SAVE, p_sub, p_callback); }
+
+    LoadHeader(p_serial = null, p_requestLoad = false) {
+        if (!this._header) { this.header = this._CreateSub(this.constructor.__headerKey); }
         if (p_serial) { this._header.Deserialize(p_serial); }
+        else if (p_requestLoad) { this._header.RequestLoad(); }
         return this._header;
     }
 
-    LoadBody(p_serial = null) {
-        if (!this._body) { this.body = nkm.com.Rent(this.constructor.__bodyClass); }
+    LoadBody(p_serial = null, p_requestLoad = false) {
+        if (!this._body) { this.body = this._CreateSub(this.constructor.__bodyKey); }
         if (p_serial) { this._body.Deserialize(p_serial); }
+        else if (p_requestLoad) { this._body.RequestLoad(); }
         return this._body;
     }
 
+    ///
 
-    /**
-     * Requests body to be loaded, 
-     * @param {*} p_callback 
-     */
-    RequestBody(p_callback) {
-        if (this._requestCBs.Has(p_callback)) { return; }
-        this._requestCBs.Add(p_callback);
-        this.Broadcast(SIGNAL.ENTITY_BODY_REQUESTED, this, this._OnBodyRequestHandled);
+    CreateBlock(p_uid, p_class) {
+        if (!this._body) { this.LoadBody(); }
+        return this._body.CreateBlock(p_uid, p_class);
     }
 
-    /**
-     * Body is expected to exist if resolution is positive
-     * @param {*} p_err 
-     * @returns 
-     */
-    _OnBodyRequestHandled(p_err) {
 
-        if (p_err) {
-            this._requestCBs.Notify(this, p_err).Clear();
-            return;
-        }
-
-        this._requestCBs.Notify(this, this._body).Clear();
-
-    }
+    ///
 
     _CleanUp() {
         this.header = null;

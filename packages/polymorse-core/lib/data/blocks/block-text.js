@@ -10,10 +10,9 @@ const base = require("./abstract-block");
 class TextBlock extends base {
     constructor() { super(); }
 
-    static __NFO__ = {
-        [nkm.com.IDS.UID]: `@polymorse:block-text`,
-        [nkm.com.IDS.ICON]: `document`
-    };
+    static __NFO__ = nkm.com.NFOS.Ext({
+        [nkm.com.IDS.UID]: `@polymorse:block-text`
+    }, base);
 
     static __VALUES = this.Ext(base.__VALUES, {
         //[IDS.CONTENT]: { value: `` }

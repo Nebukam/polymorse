@@ -4,7 +4,7 @@ module.exports = {
 
     VIEW_PAGE: Object.freeze(`page`),
     VIEW_PAGE_EDITOR: Object.freeze(`page-editor`),
-    VIEW_HOME: Object.freeze(`home`),
+    VIEW_INDEX: Object.freeze(`index`),
     VIEW_ADMIN: Object.freeze(`admin`),
 
     STORAGE_USERS: Object.freeze(`storage_users`),

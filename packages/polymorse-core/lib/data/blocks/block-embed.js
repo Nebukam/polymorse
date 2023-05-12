@@ -10,10 +10,9 @@ const base = require("./abstract-block");
 class EmbedBlock extends base {
     constructor() { super(); }
 
-    static __NFO__ = {
-        [nkm.com.IDS.UID]: `@polymorse:block-embed`,
-        [nkm.com.IDS.ICON]: `document`
-    };
+    static __NFO__ = nkm.com.NFOS.Ext({
+        [nkm.com.IDS.UID]: `@polymorse:block-embed`
+    }, base);
 
     static __VALUES = this.Ext(base.__VALUES, {
         //[IDS.CONTENT]: { value: `` }

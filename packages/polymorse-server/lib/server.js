@@ -111,7 +111,7 @@ class ServerBase extends nkm.server.ServerBaseAuth0 {
             servePage: {
                 // Render a page
                 route: `/page/:pageId`,
-                handler: handlers.PageRender,
+                handler: handlers.RenderPage,
                 view: IDS.VIEW_PAGE,
                 requireAuth: true,
             },
@@ -119,15 +119,15 @@ class ServerBase extends nkm.server.ServerBaseAuth0 {
             serveHome: {
                 // Render home
                 route: `/`,
-                handler: handlers.PageRender,
-                view: IDS.VIEW_HOME,
+                handler: handlers.RenderPage,
+                view: IDS.VIEW_INDEX,
                 requireAuth: true,
             },
 
             serveAdmin: {
                 // Render admin
                 route: `/admin`,
-                handler: handlers.PageRender,
+                handler: handlers.RenderPage,
                 view: IDS.VIEW_ADMIN,
                 requireAuth: true,
             },
@@ -135,7 +135,7 @@ class ServerBase extends nkm.server.ServerBaseAuth0 {
             serveCompose: {
                 // Render compose
                 route: `/compose`,
-                handler: handlers.PageRender,
+                handler: handlers.RenderPage,
                 view: IDS.VIEW_PAGE_EDITOR,
                 requireAuth: true,
             },

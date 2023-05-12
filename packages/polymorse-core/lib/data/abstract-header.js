@@ -7,12 +7,12 @@ const io = nkm.io;
 const IDS = require(`./ids`);
 
 const base = require(`./abstract-entity-block`);
-class AbstractBody extends base {
+class AbstractHeader extends base {
     constructor() { super(); }
 
     static __NFO__ = nkm.com.NFOS.Ext({
-        [nkm.com.IDS.UID]: `@polymorse:abstract-body`,
-        [nkm.com.IDS.TYPE]: IDS.TYPE_BODY
+        [nkm.com.IDS.UID]: `@polymorse:abstract-header`,
+        [nkm.com.IDS.TYPE]: IDS.TYPE_HEADER
     }, base);
 
     static __DATALISTS = {
@@ -25,18 +25,6 @@ class AbstractBody extends base {
 
     get blocks() { return this._blocks; }
 
-    CreateBlock(p_uid, p_class) {
-        //TODO: Make sure there is no duplicate name?
-        let newBlock = nkm.com.Rent(p_class);
-        newBlock.uuid = p_uid;
-        this._blocks.Add(newBlock);
-        return newBlock;
-    }
-
-    RemoveBlock(p_block){
-        this._blocks.Remove(p_block);
-    }
-
     _CleanUp() {
         super._CleanUp();
     }
@@ -44,4 +32,4 @@ class AbstractBody extends base {
 
 }
 
-module.exports = AbstractBody;
+module.exports = AbstractHeader;

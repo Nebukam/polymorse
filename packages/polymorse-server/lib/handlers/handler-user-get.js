@@ -15,7 +15,7 @@ class UserGetHandler extends nkm.server.handlers.GET {
         // so if authentication is required by this handler
         // this code is only reached if the auth passes.
 
-        let polyUser = p_request.locales.user;
+        let polyUser = p_request.user;
         if (!polyUser) { return false; }
 
         //TODO: Add user object to operation for the action to consume
@@ -24,7 +24,6 @@ class UserGetHandler extends nkm.server.handlers.GET {
         //if(p_request.params.id == ``){ return false; }
         //this._id = p_request.params.id;
 
-        console.log(p_request);
         return true;
 
     }

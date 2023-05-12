@@ -6,16 +6,18 @@ const io = nkm.io;
 
 const IDS = require(`../ids`);
 
-const base = require("./block-media");
-class ImageBlock extends base {
+const base = require("./abstract-block");
+class TextBlock extends base {
     constructor() { super(); }
 
     static __NFO__ = nkm.com.NFOS.Ext({
-        [nkm.com.IDS.UID]: `@polymorse:block-image`
+        [nkm.com.IDS.UID]: `@polymorse:block-category`
     }, base);
 
     static __VALUES = this.Ext(base.__VALUES, {
-        //[IDS.CONTENT]: { value: `` }
+        [IDS.TITLE]: { value: `` },
+        [IDS.DESCRIPTION]: { value: `` },
+        [IDS.PARENT_UUID]: { value: null },
     });
 
     _Init() {
@@ -24,4 +26,4 @@ class ImageBlock extends base {
 
 }
 
-module.exports = ImageBlock;
+module.exports = TextBlock;

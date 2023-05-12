@@ -139,7 +139,7 @@ class Debug {
         fs.mkdirSync(localesDir, { recursive: true });
         fs.mkdirSync(assetsDir, { recursive: true });
 
-        PolyMorse.locales.forEach(loc => {
+        PolyMorse.locals.forEach(loc => {
             fs.mkdirSync(path.join(localesDir, loc));
         });
 

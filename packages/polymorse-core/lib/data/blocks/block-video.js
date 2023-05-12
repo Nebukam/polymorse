@@ -10,10 +10,9 @@ const base = require("./block-media");
 class VideoBlock extends base {
     constructor() { super(); }
 
-    static __NFO__ = {
-        [nkm.com.IDS.UID]: `@polymorse:block-video`,
-        [nkm.com.IDS.ICON]: `document`
-    };
+    static __NFO__ = nkm.com.NFOS.Ext({
+        [nkm.com.IDS.UID]: `@polymorse:block-video`
+    }, base);
 
     static __VALUES = this.Ext(base.__VALUES, {
         //[IDS.CONTENT]: { value: `` }

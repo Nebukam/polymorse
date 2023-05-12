@@ -73,6 +73,11 @@ class PolyCoreLink extends nkm.com.Observable {
 
         let sts = this._settingsLink.transceiver;
 
+        PolyMorse.mainSettings.body.RequestLoad((p_block, p_err)=>{
+            console.log(p_err);
+        });
+
+        /*
         // Check if content is available
         sts.ReadFile(sts.Join(`root.json`),
             (p_err, p_path, p_content) => {
@@ -94,7 +99,7 @@ class PolyCoreLink extends nkm.com.Observable {
                 }
             }
         );
-
+        */
     }
 
     _ProcessNext() {

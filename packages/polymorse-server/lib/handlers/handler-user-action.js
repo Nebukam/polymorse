@@ -15,7 +15,7 @@ class UserActionHandler extends nkm.server.handlers.Action {
         // so if authentication is required by this handler
         // this code is only reached if the auth passes.
 
-        let polyUser = p_request.locales.user;
+        let polyUser = p_request.user;
         if (!polyUser) { return false; }
 
         //TODO: Make sure authenticated user has editing rights on the target object
@@ -27,7 +27,6 @@ class UserActionHandler extends nkm.server.handlers.Action {
         //this._id = p_request.params.id;
 
         console.log(this._actionParams);
-        console.log(p_request);
         return true;
 
     }

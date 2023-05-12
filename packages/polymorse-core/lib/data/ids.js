@@ -40,6 +40,7 @@ IDS.OWNER_ID = Object.freeze(`authorId`);
 IDS.HEADER = Object.freeze(`header`);
 
 IDS.CONTENT = Object.freeze(`content`);
+IDS.CONTENT_CATEGORY = Object.freeze(`contentCategory`);
 IDS.CONTENT_TAGS = Object.freeze(`contentTags`);
 IDS.CONTENT_BLOCKS = Object.freeze(`blocks`);
 
@@ -81,6 +82,11 @@ nkm.data.RegisterDescriptors({
         desc: `...`
     },
 
+    [IDS.CONTENT_CATEGORY]: {
+        valueType: nkm.data.TYPES.STRING,
+        label: `Category`,
+        desc: `...`
+    },
 
     [IDS.ORDER]: {
         valueType: nkm.data.TYPES.STRING,
@@ -132,6 +138,47 @@ nkm.data.RegisterDescriptors({
         valueType: nkm.data.TYPES.NUMBER,
         label: `Initialization date`,
         desc: `Universal Unique Identifier`
+    },
+
+});
+
+//#endregion
+
+//#region Generic properties
+
+IDS.PARENT_UUID = Object.freeze(`puuid`);
+IDS.TITLE = Object.freeze(`title`);
+IDS.DESCRIPTION = Object.freeze(`description`);
+
+IDS.TYPE_BODY = Object.freeze(`body`);
+IDS.TYPE_HEADER = Object.freeze(`header`);
+IDS.TYPE_BLOCK = Object.freeze(`block`);
+
+IDS.JSON = Object.freeze(`json`);
+
+nkm.data.RegisterDescriptors({
+
+    [IDS.PARENT_UUID]: {
+        valueType: nkm.data.TYPES.STRING,
+        label: `Parent UUID`,
+        desc: `Parent`
+    },
+
+    [IDS.TITLE]: {
+        valueType: nkm.data.TYPES.STRING,
+        label: `Title`,
+        desc: `Title`
+    },
+
+    [IDS.DESCRIPTION]: {
+        valueType: nkm.data.TYPES.STRING,
+        label: `Description`,
+        desc: `Content description`
+    },
+
+    [IDS.JSON]: {
+        serialize: (p_value, p_def, p_data) => { return JSON.stringify(p_value); },
+        deserialize: (p_value, p_def, p_data) => { return JSON.parse(p_value); }
     },
 
 });

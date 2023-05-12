@@ -6,16 +6,27 @@ const io = nkm.io;
 
 const IDS = require(`./ids`);
 const SIGNAL = require("../signal");
+const CONTEXT = require(`../context`);
 
 const base = nkm.com.Observable;
 class Registry extends base {
-    constructor(p_entityClass = null) {
-        super();
-        this._entityClass = p_entityClass || this.constructor.__entityClass;
-        this._onCreatedFn = null;
-    }
 
-    static __entityClass = null;
+    static __entityKey = null;
+
+    constructor(p_entityKey = null) {
+        super();
+
+        let eKey = p_entityKey || this.constructor.__entityKey;
+        if (nkm.u.isInstanceOf(eKey, nkm.com.helpers.CSYMBOL)) {
+            this._entityClass = nkm.com.BINDINGS.Get(
+                CONTEXT.ENTITIES, eKey, null);
+        } else {
+            this._entityClass = eKey;
+        }
+
+        this._onCreatedFn = null;
+
+    }
 
     _Init() {
         super._Init();
@@ -23,7 +34,8 @@ class Registry extends base {
         this._entities = [];
         this._entitiesObserver = new nkm.com.signals.Observer();
         this._entitiesObserver
-            .Hook(SIGNAL.ENTITY_BODY_REQUESTED, this._OnEntityBodyRequest, this);
+            .Hook(SIGNAL.REQUEST_LOAD, this._OnBlockRequestLoad, this)
+            .Hook(SIGNAL.REQUEST_SAVE, this._OnBlockRequestSave, this);
     }
 
     get onCreatedFn() { return this._onCreatedFn; }
@@ -104,8 +116,12 @@ class Registry extends base {
         super._CleanUp();
     }
 
-    _OnEntityBodyRequest(p_entity) {
-        this.Broadcast(SIGNAL.ENTITY_BODY_REQUESTED, this, p_entity);
+    _OnBlockRequestLoad(p_block, p_callback) {
+        this.Broadcast(SIGNAL.REQUEST_LOAD, this, p_block, p_callback);
+    }
+
+    _OnBlockRequestSave(p_block, p_callback) {
+        this.Broadcast(SIGNAL.REQUEST_SAVE, this, p_block, p_callback);
     }
 
 }

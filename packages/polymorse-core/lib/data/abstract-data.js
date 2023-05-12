@@ -7,8 +7,11 @@ const IDS = require(`./ids`);
 
 const base = nkm.data.SimpleDataBlock;
 class AbstractData extends base {
-
     constructor() { super(); }
+
+    static __NFO__ = {
+        [nkm.com.IDS.UID]: `@polymorse:abstract-body`
+    };
 
     static __VALUES = {
         [IDS.UUID]: { value: `` },

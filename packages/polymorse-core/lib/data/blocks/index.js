@@ -1,5 +1,7 @@
 module.exports = {
-    
+
+    AbstractBlock: require(`./abstract-block`),
+
     Text: require(`./block-text`),
     Markdown: require(`./block-markdown`),
 
@@ -8,5 +10,6 @@ module.exports = {
     Video: require(`./block-video`),
 
     Embed: require(`./block-embed`),
+    JSON: require(`./block-json`),
 
 }

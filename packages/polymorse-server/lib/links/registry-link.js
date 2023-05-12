@@ -13,7 +13,8 @@ class RegistryLink extends nkm.com.Observable {
         this._registryObserver = new nkm.com.signals.Observer();
         this._registryObserver
             .Hook(polyCore.SIGNAL.ENTITY_CREATED, this._OnEntityCreated, this)
-            .Hook(polyCore.SIGNAL.ENTITY_BODY_REQUESTED, this._OnEntityBodyRequested, this);
+            .Hook(polyCore.SIGNAL.REQUEST_LOAD, this._OnLoadRequest, this)
+            .Hook(polyCore.SIGNAL.REQUEST_SAVE, this._OnSaveRequest, this);
 
     }
 
@@ -30,16 +31,28 @@ class RegistryLink extends nkm.com.Observable {
 
     }
 
-    _OnEntityBodyRequested(p_entity, p_registry) {
+    _OnLoadRequest(p_registry, p_block, p_callback) {
+        let nfos = nkm.com.NFOS.Get(p_block);
         this._transceiver.ReadFile(
-            this._transceiver.Join(entry, `body.json`),
-            (p_err, p_path, bodyContent) => {
+            this._transceiver.Join(p_block.entity.uuid, `${nfos[nkm.com.IDS.TYPE]}.json`),
+            (p_err, p_path, p_serial) => {
                 if (p_err) {
-                    p_entity._OnBodyRequestHandled(p_err);
+                    p_callback(p_err);
                 } else {
-                    p_entity.LoadBody(JSON.parse(bodyContent));
-                    p_entity._OnBodyRequestHandled(null);
+                    p_block.Deserialize(JSON.parse(p_serial));
+                    p_callback(null);
                 }
+            });
+    }
+
+    _OnSaveRequest(p_registry, p_block, p_callback) {
+        let nfos = nkm.com.NFOS.Get(p_block);
+        this._transceiver.WriteFile(
+            this._transceiver.Join(p_block.entity.uuid, `${nfos[nkm.com.IDS.TYPE]}.json`),
+            p_block.Serialize(),
+            (p_err, p_path, p_success) => {
+                if (p_err) { p_callback(p_err); }
+                else { p_callback(null); }
             });
     }
 
@@ -86,14 +99,30 @@ class RegistryLink extends nkm.com.Observable {
                         this._transceiver.ReadFile(
                             this._transceiver.Join(entry, `header.json`),
                             (p_err, p_path, headerContent) => {
-                                if (headerContent) {
-                                    this._registry.Create(entry, {
-                                        header: nkm.u.isString(headerContent) ? JSON.parse(headerContent) : headerContent
-                                    });
-                                }
 
-                                queue.splice(queue.indexOf(entry), 1);
-                                if (!queue.length) { this._OnHeadersLoaded(); }
+                                //Attempt to load body
+                                this._transceiver.ReadFile(
+                                    this._transceiver.Join(entry, `body.json`),
+                                    (p_err, p_path, bodyContent) => {
+
+                                        let data = {};
+
+                                        if (headerContent) {
+                                            data.header = nkm.u.isString(headerContent) ?
+                                                JSON.parse(headerContent) : headerContent;
+                                        }
+
+                                        if (bodyContent) {
+                                            data.body = nkm.u.isString(bodyContent) ?
+                                                JSON.parse(bodyContent) : bodyContent;
+                                        }
+
+                                        this._registry.Create(entry, data);
+
+                                        queue.splice(queue.indexOf(entry), 1);
+                                        if (!queue.length) { this._OnHeadersLoaded(); }
+
+                                    });
 
                             });
                     });

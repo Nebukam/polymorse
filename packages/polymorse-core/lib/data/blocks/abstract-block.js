@@ -11,10 +11,10 @@ const base = AbstractData;
 class ContentBlock extends base {
     constructor() { super(); }
 
-    static __NFO__ = {
+    static __NFO__ = nkm.com.NFOS.Ext({
         [nkm.com.IDS.UID]: `@polymorse:block`,
-        [nkm.com.IDS.ICON]: `document`
-    };
+        [nkm.com.IDS.TYPE]:IDS.TYPE_BLOCK
+    }, base);
 
     static __VALUES = this.Ext(base.__VALUES, {
         [IDS.ORDER]: { value: 0 },

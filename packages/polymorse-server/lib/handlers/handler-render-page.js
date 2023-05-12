@@ -3,7 +3,7 @@
 const nkm = require(`@nkmjs/core/nkmserver`);
 const polyCore = require(`@polymorse/core`);
 
-const base = require(`./handler-user-get`);
+const base = require(`./handler-render`);
 class PageRenderHandler extends base {
     constructor() { super(); }
 

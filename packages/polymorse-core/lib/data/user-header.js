@@ -6,14 +6,13 @@ const io = nkm.io;
 
 const IDS = require(`./ids`);
 
-const base = require(`./abstract-entity-block`);
+const base = require(`./abstract-header`);
 class UserHeader extends base {
     constructor() { super(); }
 
-    static __NFO__ = {
+    static __NFO__ = nkm.com.NFOS.Ext({
         [nkm.com.IDS.UID]: `@polymorse:user-header`,
-        [nkm.com.IDS.ICON]: `document`
-    };
+    }, base);
 
     static __VALUES = this.Ext(base.__VALUES, {
         [IDS.CLEARANCE]: { value: 0 },

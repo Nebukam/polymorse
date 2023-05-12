@@ -7,11 +7,19 @@ module.exports = {
 
     blocks: require(`./blocks`),
 
-    User:require(`./user`),
-    Page:require(`./page`),
-    Settings:require(`./settings`),
+    User: require(`./user`),
+    UserHeader: require(`./user-header`),
+    UserBody: require(`./user-body`),
 
-    Registry:require(`./registry`),
-    
+    Page: require(`./page`),
+    PageHeader: require(`./page-header`),
+    PageBody: require(`./page-body`),
+
+    Settings: require(`./settings`),
+    SettingsHeader: require(`./settings-header`),
+    SettingsBody: require(`./settings-body`),
+
+    Registry: require(`./registry`),
+
 
 }

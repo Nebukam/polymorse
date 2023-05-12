@@ -2,6 +2,7 @@
 
 const nkm = require(`@nkmjs/core/nkmin`);
 const polyData = require(`./data`);
+const CONTEXT = require(`./context`);
 const _registration = Symbol(`discover`);
 
 class Polymorse extends nkm.com.Observable {
@@ -15,15 +16,18 @@ class Polymorse extends nkm.com.Observable {
 
         this._registries = new nkm.collections.List();
 
-        this._settings = this._NewRegistry(polyData.Settings);
-        this._users = this._NewRegistry(polyData.User);
-        this._pages = this._NewRegistry(polyData.Page);
+        this._settings = this._NewRegistry(CONTEXT.ENTITY_SETTINGS);
+        this._users = this._NewRegistry(CONTEXT.ENTITY_USER);
+        this._pages = this._NewRegistry(CONTEXT.ENTITY_PAGE);
 
-        this._locales = [`en`, `fr`, `ja`];
+        this._mainSettings = this._settings.Create(`main`);
+        let locales = this._mainSettings.CreateBlock(`locales`, polyData.blocks.JSON);
+        locales.list = [`en`, `fr`, `ja`];
 
     }
 
     get registries() { return this._registries; }
+    get mainSettings() { return this._mainSettings; }
 
     _NewRegistry(p_entityClass) {
         let newRegistry = new polyData.Registry(p_entityClass);
@@ -33,9 +37,10 @@ class Polymorse extends nkm.com.Observable {
 
     get locales() { return this._locales; }
 
+    get settingsRegistry() { return this._settings; }
     get userRegistry() { return this._users; }
     get pageRegistry() { return this._pages; }
-    get settingsRegistry() { return this._settings; }
+
 
     GetUserByAuthID(p_userInfos) {
         //TODO: Implement identity management instead of using 'sub' as uuid
@@ -45,7 +50,7 @@ class Polymorse extends nkm.com.Observable {
 
     GetOrCreateUserByAuthID(p_userInfos) {
         let user = this.GetUserByAuthID(p_userInfos);
-        if (!user) { user = this._users.Create(uid, { userInfos: p_userInfos }); }
+        if (!user) { user = this._users.Create(p_userInfos.sub, { userInfos: p_userInfos }); }
         return user;
     }
 

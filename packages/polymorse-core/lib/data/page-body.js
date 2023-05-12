@@ -10,10 +10,9 @@ const base = require(`./abstract-body`);
 class PageBody extends base {
     constructor() { super(); }
 
-    static __NFO__ = {
+    static __NFO__ = nkm.com.NFOS.Ext({
         [nkm.com.IDS.UID]: `@polymorse:page-body`,
-        [nkm.com.IDS.ICON]: `document`
-    };
+    }, base);
 
     _Init() {
         super._Init();

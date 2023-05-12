@@ -7,18 +7,19 @@ const io = nkm.io;
 const IDS = require(`./ids`);
 const SIGNAL = require(`../signal`);
 
-const base = require(`./abstract-entity-block`);
+const base = require(`./abstract-header`);
 class PageHeader extends base {
     constructor() { super(); }
 
-    static __NFO__ = {
+    static __NFO__ = nkm.com.NFOS.Ext({
         [nkm.com.IDS.UID]: `@polymorse:page-header`,
-        [nkm.com.IDS.ICON]: `document`
-    };
+    }, base);
 
     static __VALUES = this.Ext(base.__VALUES, {
         [IDS.CLEARANCE]: { value: 0 },
-        [IDS.OWNER_ID]: { value: `` }
+        [IDS.OWNER_ID]: { value: `` },
+        [IDS.CONTENT_CATEGORY]: { value: `` },
+        [IDS.CONTENT_TAGS]: { value: [] },
     });
 
     _Init() {
