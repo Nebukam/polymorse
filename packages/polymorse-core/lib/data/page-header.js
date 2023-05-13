@@ -35,6 +35,15 @@ class PageHeader extends base {
         this.Broadcast(SIGNAL.STATE_CHANGED, this, this._state, oldState);
     }
 
+    CommitValueUpdate(p_id, p_newValue, p_oldValue, p_silent = false) {
+        super.CommitValueUpdate(p_id, p_newValue, p_oldValue, p_silent);
+        switch (p_id) {
+            case IDS.OWNER_ID:
+                // Retrieve owner and register this entity as owned in memory
+                break;
+        }
+    }
+
     _CleanUp() {
         super._CleanUp();
     }

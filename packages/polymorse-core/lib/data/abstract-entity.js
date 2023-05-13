@@ -41,14 +41,16 @@ class AbstractEntity extends base {
     get header() { return this._header; }
     set header(p_value) {
         if (this._AssignBlock(_id_HEADER, p_value)) {
-
+            p_value.Watch(nkm.com.SIGNAL.VALUE_CHANGED,
+                (...args) => { this.Broadcast(SIGNAL.HEADER_VALUE_CHANGED, ...args); });
         }
     }
 
     get body() { return this._body; }
     set body(p_value) {
         if (this._AssignBlock(_id_BODY, p_value)) {
-
+            p_value.Watch(nkm.com.SIGNAL.VALUE_CHANGED,
+                (...args) => { this.Broadcast(SIGNAL.BODY_VALUE_CHANGED, ...args); });
         }
     }
 
@@ -100,6 +102,12 @@ class AbstractEntity extends base {
         if (p_serial) { this._body.Deserialize(p_serial); }
         else if (p_requestLoad) { this._body.RequestLoad(); }
         return this._body;
+    }
+
+    Update(p_options = null) {
+        if (!p_options) { return; }
+        if (p_options.header) { this.LoadHeader(p_options.header); }
+        if (p_options.body) { this.LoadBody(p_options.body); }
     }
 
     ///

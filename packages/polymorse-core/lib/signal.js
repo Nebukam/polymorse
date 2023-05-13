@@ -12,7 +12,7 @@ module.exports = {
     REQUEST_SAVE: Symbol(`requestSave`),
     SAVED: Symbol(`saved`),
 
-
-
+    HEADER_VALUE_CHANGED:Symbol(`headerValueChanged`),
+    BODY_VALUE_CHANGED:Symbol(`bodyValueChanged`),
 
 }

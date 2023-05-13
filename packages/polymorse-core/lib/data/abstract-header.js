@@ -19,6 +19,10 @@ class AbstractHeader extends base {
         [IDS.CONTENT_BLOCKS]: { autoSort: (a, b) => { return a.Get(IDS.ORDER) - b.Get(IDS.ORDER) } },
     };
 
+    static __VALUES = this.Ext(base.__VALUES, {
+        [IDS.TIME_CREATED]: { value: 0 },
+    });
+
     _Init() {
         super._Init();
     }

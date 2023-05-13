@@ -30,16 +30,24 @@ class Registry extends base {
 
     _Init() {
         super._Init();
+        this._prefix = ``;
         this._map = {};
         this._entities = [];
         this._entitiesObserver = new nkm.com.signals.Observer();
         this._entitiesObserver
             .Hook(SIGNAL.REQUEST_LOAD, this._OnBlockRequestLoad, this)
-            .Hook(SIGNAL.REQUEST_SAVE, this._OnBlockRequestSave, this);
+            .Hook(SIGNAL.REQUEST_SAVE, this._OnBlockRequestSave, this)
+            .Hook(SIGNAL.HEADER_VALUE_CHANGED, this._OnHeaderValueChanged, this)
+            .Hook(SIGNAL.BODY_VALUE_CHANGED, this._OnBodyValueChanged, this);
     }
+
+    get entitiesObserver() { return this._entitiesObserver; }
 
     get onCreatedFn() { return this._onCreatedFn; }
     set onCreatedFn(p_value) { this._onCreatedFn = p_value; }
+
+    get prefix() { return this._prefix; }
+    set prefix(p_value) { this._prefix = p_value; }
 
     Create(p_uid, p_options = null) {
 
@@ -51,12 +59,7 @@ class Registry extends base {
         this._map[p_uid] = newEntity;
         this._entities.push(newEntity);
 
-        if (p_options) {
-            if (p_options.header) {
-                newEntity.LoadHeader(p_options.header);
-            }
-        }
-
+        newEntity.Update(p_options);
 
         if (this._onCreatedFn) { this._onCreatedFn(newEntity, p_options); }
         this._entitiesObserver.Observe(newEntity);
@@ -68,6 +71,13 @@ class Registry extends base {
     }
 
     Get(p_uid) { return p_uid in this._map ? this._map[p_uid] : null; }
+
+    GetOrCreate(p_uid, p_options = null) {
+        let entity = this.Get(p_uid);
+        if (!entity) { entity = this.Create(p_uid, p_options); }
+        else { entity.Update(p_options); }
+        return entity;
+    }
 
     Remove(p_uid) {
 
@@ -110,18 +120,27 @@ class Registry extends base {
 
     }
 
-    _CleanUp() {
-        this._map = {};
-        this._entities.length = 0;
-        super._CleanUp();
-    }
-
     _OnBlockRequestLoad(p_block, p_callback) {
         this.Broadcast(SIGNAL.REQUEST_LOAD, this, p_block, p_callback);
     }
 
     _OnBlockRequestSave(p_block, p_callback) {
         this.Broadcast(SIGNAL.REQUEST_SAVE, this, p_block, p_callback);
+    }
+
+    _OnHeaderValueChanged(p_header, p_id, p_newValue, p_oldValue) {
+
+    }
+
+    _OnBodyValueChanged(p_body, p_id, p_newValue, p_oldValue) {
+
+    }
+
+    _CleanUp() {
+        this._prefix = ``;
+        this._map = {};
+        this._entities.length = 0;
+        super._CleanUp();
     }
 
 }

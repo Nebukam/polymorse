@@ -19,6 +19,10 @@ class ContentBlock extends base {
         [IDS.JSON]: { value: {} }
     });
 
+
+    get json() { return this.Get(IDS.JSON); }
+    set json(p_value) { this.Set(IDS.JSON, p_value); }
+
     _Init() {
         super._Init();
     }

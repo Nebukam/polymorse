@@ -1,6 +1,8 @@
 const nkm = require(`@nkmjs/core/nkmserver`);
 const iofs = require(`@nkmjs/server-io-fs`);
 const polyCore = require(`@polymorse/core`);
+const PolyMorse = polyCore.PolyMorse;
+
 
 const path = require(`path`);
 
@@ -35,6 +37,10 @@ class ServerBase extends nkm.server.ServerBaseAuth0 {
                     {
                         root: path.join(nkm.main.dirName, `/database/pages`),
                         uid: IDS.STORAGE_PAGES
+                    },
+                    {
+                        root: path.join(nkm.main.dirName, `/database/drafts`),
+                        uid: IDS.STORAGE_DRAFTS
                     }
                 ]
             }
@@ -46,12 +52,19 @@ class ServerBase extends nkm.server.ServerBaseAuth0 {
         super._PrepareInternalInit();
 
         //links.PolycoreLink.Watch();
-        links.PolycoreLink.InitializeAndStart({
-            settings: iofs.IO.Get(IDS.STORAGE_SETTINGS),
-            users: iofs.IO.Get(IDS.STORAGE_USERS),
-            pages: iofs.IO.Get(IDS.STORAGE_PAGES)
-        });
+        links.PolycoreLink.InitializeAndStart(this._GetPolylinkConfig());
 
+    }
+
+    _GetPolylinkConfig() {
+        return {
+            registries: [
+                { registry: PolyMorse.settingsRegistry, io: iofs.IO.Get(IDS.STORAGE_SETTINGS) },
+                { registry: PolyMorse.userRegistry, io: iofs.IO.Get(IDS.STORAGE_USERS) },
+                { registry: PolyMorse.pageRegistry, io: iofs.IO.Get(IDS.STORAGE_PAGES) },
+                { registry: PolyMorse.draftRegistry, io: iofs.IO.Get(IDS.STORAGE_DRAFTS) },
+            ]
+        };
     }
 
     _IsReadyForInit() {

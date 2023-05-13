@@ -23,6 +23,10 @@ class AbstractEntityBlock extends base {
         [nkm.com.IDS.TYPE]: `block`
     }, base);
 
+    static __VALUES = this.Ext(base.__VALUES, {
+        [IDS.UUID]: { value: 0, [nkm.data.IDS.SKIP_SERIALIZATION]:true },
+    });
+
     _Init() {
         super._Init();
 
