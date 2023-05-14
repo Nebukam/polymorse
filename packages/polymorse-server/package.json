@@ -15,9 +15,9 @@
         "link-nkmjs": "yarn link @nkmjs/core && yarn link @nkmjs/server-io-aws-s3 && yarn link @nkmjs/server-io-fs"
     },
     "dependencies": {
-        "@nkmjs/core": "^1.1.6",
-        "@nkmjs/server-io-aws-s3": "^0.1.6",
-        "@nkmjs/server-io-fs": "^0.1.6",
+        "@nkmjs/core": "^1.2.0",
+        "@nkmjs/server-io-aws-s3": "^0.1.7",
+        "@nkmjs/server-io-fs": "^0.1.7",
         "@polymorse/core": "^0.0.6",
         "marked": "^4.3.0"
     },

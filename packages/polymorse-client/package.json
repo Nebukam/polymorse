@@ -16,7 +16,7 @@
         "link-nkmjs": "yarn link @nkmjs/core"
     },
     "dependencies": {
-        "@nkmjs/core": "^1.1.6",
+        "@nkmjs/core": "^1.2.0",
         "@polymorse/core": "^0.0.6"
     },
     "devDependencies": {

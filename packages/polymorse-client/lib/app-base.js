@@ -12,9 +12,12 @@ class AppBase extends nkm.app.AppBase {
 
     static __singleViewLayer = MainLayout;
 
-    _Init() {
+    get baseUrl() { return this._baseUrl; }
 
+    _Init() {
         super._Init();
+
+        this._baseUrl = `http://localhost:8080`;
 
         this._mainCatalog = nkm.data.catalogs.CreateFrom({
             [nkm.com.IDS.NAME]: `polymorse-client-views`
