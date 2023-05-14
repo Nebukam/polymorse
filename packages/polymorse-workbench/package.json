@@ -16,14 +16,16 @@
         "nkmjs": "nkmjs",
         "start": "node server.js",
         "start-server": "nodemon --watch app server.js",
-        "link-nkmjs": "yarn link @nkmjs/core && yarn link @nkmjs/core-dev && yarn link @nkmjs/server-io-fs"
+        "link-nkmjs": "yarn link @nkmjs/core && yarn link @nkmjs/core-dev && yarn link @nkmjs/server-io-fs && yarn add electron"
     },
     "license": "SEE LICENSE IN LICENSE",
     "dependencies": {
         "@nkmjs/core": "^1.1.6",
         "@nkmjs/server-io-fs": "^0.1.6",
         "@polymorse/core": "^0.0.6",
-        "@polymorse/server": "^0.0.6"
+        "@polymorse/server": "^0.0.6",
+        "@polymorse/client": "^0.0.6",
+        "electron": "^24.3.0"
     },
     "devDependencies": {
         "@nkmjs/core-dev": "^1.1.6",

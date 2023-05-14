@@ -3,5 +3,5 @@
 
 module.exports = {
     //SIGNAL: require(`./lib/signal`),
-    AppBase: require(`./lib/app-base`),
+    ElectronBase: require(`./lib/electron-base`),
 }

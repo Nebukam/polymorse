@@ -1,11 +1,10 @@
 'use strict';
 
 const nkm = require(`@nkmjs/core`);
-const polymorse = require(`@polymorse/core`);
+const polyCore = require(`@polymorse/core`);
+const polyClient = require(`@polymorse/client`);
 
-const PolyMorseDebug = require(`../js-server/polymorse-debug`);
-
-class PolymorseWorkbench extends nkm.app.AppBase {
+class PolymorseWorkbench extends polyClient.Client {
 
     constructor() { super(); }
 
