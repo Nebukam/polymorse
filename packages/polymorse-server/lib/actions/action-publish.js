@@ -10,7 +10,9 @@ const base = require(`./abstract-update-action`);
 class EditPublish extends base {
     constructor() { super(); }
 
-    static __model = {};
+    static __NFO__ = {
+        identifier:`publish`
+    };
 
     _InternalExecute(p_op) {
         return false;

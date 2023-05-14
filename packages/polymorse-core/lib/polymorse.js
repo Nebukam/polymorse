@@ -15,6 +15,7 @@ class Polymorse extends nkm.com.Observable {
 
         super._Init();
 
+        this._serverSide = false;
         this._registries = new nkm.collections.List();
 
         this._settings = this._NewRegistry(CONTEXT.ENTITY_SETTINGS);
@@ -41,6 +42,8 @@ class Polymorse extends nkm.com.Observable {
         locales.json = [`en`, `fr`, `ja`];
 
     }
+
+    get serverSide() { return this._serverSide; }
 
     get registries() { return this._registries; }
     get mainSettings() { return this._mainSettings; }

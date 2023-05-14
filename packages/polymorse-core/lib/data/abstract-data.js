@@ -32,14 +32,9 @@ class AbstractData extends base {
         this._infos = null;
     }
 
-    Deserialize(p_serial) {
-        JSONS.Deserialize(p_serial, this);
-    }
+    Deserialize(p_serial) { JSONS.Deserialize(p_serial, this); }
 
-    Serialize() {
-        let serial = JSONS.Serialize(this);
-        return JSON.stringify(serial, null, 2);
-    }
+    Serialize() { return JSONS.Serialize(this); }
 
     toString() { return `{${this.constructor.name}::...}`; }
 

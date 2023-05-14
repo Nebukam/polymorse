@@ -10,8 +10,8 @@ const base = require(`./abstract-update-action`);
 class EditAction extends base {
     constructor() { super(); }
 
-    static __model = {
-        target:`uid`
+    static __NFO__ = {
+        identifier:`edit`
     };
 
     _InternalExecute(p_op) {

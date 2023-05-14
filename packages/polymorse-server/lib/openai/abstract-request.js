@@ -129,7 +129,6 @@ class AbstractRequest extends base {
                     Authorization: `Bearer ${process.env.OPENAI_API_KEY}`,
                     'OpenAI-Organization': process.env.OPENAI_API_ORG
                 },
-                //body: JSON.stringify(requestBody),
             }
 
         this._cachedRequestOptions = requestOptions;

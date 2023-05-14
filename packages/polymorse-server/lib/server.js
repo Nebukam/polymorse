@@ -11,6 +11,7 @@ const IDS = require(`./ids`);
 
 const links = require(`./links`);
 const actions = require("./actions");
+const getters = require("./getters");
 
 class ServerBase extends nkm.server.ServerBaseAuth0 {
     constructor(p_config) { super(p_config); }
@@ -18,6 +19,7 @@ class ServerBase extends nkm.server.ServerBaseAuth0 {
     static __defaultIOFS = iofs.IO;
 
     _Init() {
+        polyCore.PolyMorse._serverSide = true;
         super._Init();
     }
 
@@ -98,28 +100,9 @@ class ServerBase extends nkm.server.ServerBaseAuth0 {
             
         */
 
-
-        nkm.server.actions.Manager.AddMultiple({
-            'edit': actions.Edit,
-            'publish': actions.Publish,
-            'create-page': actions.CreatePage
-        });
+        nkm.server.AddGetters(getters);
 
         this._RegisterAPIs({
-
-            apiAction: {
-                // Simple action endpoint
-                route: `/polymorse/v1/action`,
-                handler: handlers.UserAction,
-                requireAuth: true,
-            },
-
-            apiGet: {
-                // Simple get endpoint
-                route: `/polymorse/v1/get`,
-                handler: handlers.UserGet,
-                requireAuth: true,
-            },
 
             servePage: {
                 // Render a page

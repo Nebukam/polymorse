@@ -49,6 +49,8 @@ class Registry extends base {
     get prefix() { return this._prefix; }
     set prefix(p_value) { this._prefix = p_value; }
 
+    get entities() { return this._entities; }
+
     Create(p_uid, p_options = null) {
 
         if (p_uid in this._map) { throw new Error(`Entity with uid '${p_uid}' already exist!`); }

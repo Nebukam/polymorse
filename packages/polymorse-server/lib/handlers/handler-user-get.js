@@ -3,7 +3,7 @@
 const nkm = require(`@nkmjs/core/nkmserver`);
 const polyCore = require(`@polymorse/core`);
 
-class UserGetHandler extends nkm.server.handlers.GET {
+class UserGetHandler extends nkm.server.handlers.Getter {
     constructor() { super(); }
 
     _SanitizeRequest(p_request) {
