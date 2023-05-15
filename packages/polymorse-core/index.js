@@ -13,7 +13,7 @@ module.exports = {
     FLAGS: require(`./lib/flags`),
 
     PolyMorse: __POLYMORSE,
-    api: require(`./lib/api`),
+    routes: require(`./lib/routes`),
     helpers: require(`./lib/helpers`),
     data: require(`./lib/data`),
 

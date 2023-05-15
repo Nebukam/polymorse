@@ -11,7 +11,6 @@ const IDS = require(`./ids`);
 
 const links = require(`./links`);
 const actions = require("./actions");
-const getters = require("./getters");
 
 class ServerBase extends nkm.server.ServerBaseAuth0 {
     constructor(p_config) { super(p_config); }
@@ -100,43 +99,8 @@ class ServerBase extends nkm.server.ServerBaseAuth0 {
             
         */
 
-        nkm.server.AddGetters(getters);
-
-        this._RegisterAPIs({
-
-            servePage: {
-                // Render a page
-                route: `/page/:pageId`,
-                handler: handlers.RenderPage,
-                view: IDS.VIEW_PAGE,
-                requireAuth: true,
-            },
-
-            serveHome: {
-                // Render home
-                route: `/`,
-                handler: handlers.RenderPage,
-                view: IDS.VIEW_INDEX,
-                requireAuth: true,
-            },
-
-            serveAdmin: {
-                // Render admin
-                route: `/admin`,
-                handler: handlers.RenderPage,
-                view: IDS.VIEW_ADMIN,
-                requireAuth: true,
-            },
-
-            serveCompose: {
-                // Render compose
-                route: `/compose`,
-                handler: handlers.RenderPage,
-                view: IDS.VIEW_PAGE_EDITOR,
-                requireAuth: true,
-            },
-
-        });
+        nkm.server.AddGetters(require("./getters"));
+        this._RegisterAPIs(require(`./routes`));
 
     }
 

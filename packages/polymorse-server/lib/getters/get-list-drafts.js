@@ -10,12 +10,12 @@ const base = nkm.server.getters.AbstractGetter;
 class GetListUsers extends base {
     constructor() { super(); }
 
-    static __NFO__ = polyCore.routes.getListUsers;
+    static __NFO__ = polyCore.api.getListUsers;
 
     _InternalExecute(p_params) {
 
         //TODO: Make this async
-
+        
         let list = [],
             data = { users: list };
 
@@ -24,12 +24,14 @@ class GetListUsers extends base {
             let u = {
                 uid: user.uuid
             };
-            if (user.header) { u.header = user.header.Serialize(); }
+            if (user.header) {
+
+            }
             list.push(u);
         });
 
         this._response = data;
-
+        
         return true;
 
     }

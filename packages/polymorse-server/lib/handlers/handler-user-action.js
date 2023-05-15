@@ -26,7 +26,6 @@ class UserActionHandler extends nkm.server.handlers.Action {
         //if(p_request.params.id == ``){ return false; }
         //this._id = p_request.params.id;
 
-        console.log(this._actionParams);
         return true;
 
     }
