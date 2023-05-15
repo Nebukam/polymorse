@@ -1,10 +1,15 @@
 module.exports = {
 
-    getListUsers: {
-        // api/get/list/users
-        prefix: '/list/users',
+    getListSettings: {
+        // api/get/list/settings
+        prefix: '/list/settings',
+    },
+
+    getListDrafts: {
+        // api/get/list/drafts/:id
+        prefix: '/list/drafts',
         params: [
-            { id: 'test' }
+            { id: 'id' }
         ]
     },
 
@@ -16,27 +21,40 @@ module.exports = {
         ]
     },
 
-    getListDrafts: {
-        // api/get/list/drafts/:id
-        prefix: '/list/drafts',
+    getListUsers: {
+        // api/get/list/users
+        prefix: '/list/users',
         params: [
-            { id: 'id' }
+            { id: 'test' }
+        ]
+    },
+
+
+
+    getDraft: {
+        // api/get/draft/:id
+        prefix: '/entity/draft',
+        params: [
+            { id: 'id' },
         ]
     },
 
     getPage: {
         // api/get/page/:id/:locale
-        prefix: '/page',
+        prefix: '/entity/page',
         params: [
             { id: 'id' },
-            { id: 'locale', default:'raw' }
+            { id: 'locale', default: 'raw' }
         ]
     },
 
     getUser: {
         // api/get/user/:id
-        prefix: '/user',
-        params: [{ id: 'id' }]
+        prefix: '/entity/user',
+        params: [
+            { id: 'id' },
+            { id: 'locale', default: 'raw' } //raw, en, fr, ... only applies to header & body.
+        ]
     },
 
 }

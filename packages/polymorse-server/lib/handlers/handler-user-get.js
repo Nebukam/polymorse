@@ -28,6 +28,18 @@ class UserGetHandler extends nkm.server.handlers.Getter {
 
     }
 
+    get user() { return this._user; }
+
+    Handle() {
+        this._user = this._req.user;
+        super.Handle();
+    }
+
+    _CleanUp(){
+        this._user = null;
+        super._CleanUp();
+    }
+
 }
 
 module.exports = UserGetHandler;

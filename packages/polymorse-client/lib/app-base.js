@@ -48,11 +48,8 @@ class AppBase extends nkm.app.AppBase {
 
     AppDisplay() {
 
-        this._mainLayer.catalog = this._mainCatalog;
-        this._mainLayer.RequestView(0);
-
         super.AppDisplay();
-        this.state.Push({ test: 50 });
+
     }
 
 }

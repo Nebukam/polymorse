@@ -22,9 +22,9 @@ class GetListUsers extends base {
         let users = polyCore.PolyMorse.userRegistry.entities;
         users.forEach((user) => {
             let u = {
-                uid: user.uuid
+                uid: user.uuid,
+                header: user.header ? user.header.Serialize() : null
             };
-            if (user.header) { u.header = user.header.Serialize(); }
             list.push(u);
         });
 

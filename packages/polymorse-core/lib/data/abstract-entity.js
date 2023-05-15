@@ -16,6 +16,7 @@ const _id_HEADER = Object.freeze('header');
 const _id_BODY = Object.freeze('body');
 
 const base = AbstractData;
+const JSONS = nkm.data.serialization.JSONSerializer;
 
 class AbstractEntity extends base {
     constructor() { super(); }
@@ -56,11 +57,12 @@ class AbstractEntity extends base {
 
     _AssignBlock(p_id, p_value = null) {
 
-        p_id = `_${p_id}`;
+        let localId = `_${p_id}`;
 
-        if (this[p_id] == p_value) { return null; }
-        let oldBlock = this[p_id];
-        this[p_id] = null;
+        if (this[localId] == p_value) { return null; }
+        
+        let oldBlock = this[localId];
+        this[localId] = null;
 
         if (oldBlock) {
             oldBlock.entity = null;
@@ -68,9 +70,10 @@ class AbstractEntity extends base {
         }
 
         if (p_value) {
-            this[p_id] = p_value;
+            this[localId] = p_value;
             p_value.entity = this;
             p_value
+                .Watch(nkm.com.SIGNAL.RELEASED, () => { this[p_id] = null; })
                 .Watch(SIGNAL.REQUEST_LOAD, (block, p_callback) => { this.Broadcast(SIGNAL.REQUEST_LOAD, block, p_callback); })
                 .Watch(SIGNAL.REQUEST_SAVE, (block, p_callback) => { this.Broadcast(SIGNAL.REQUEST_SAVE, block, p_callback); });
 
@@ -123,6 +126,19 @@ class AbstractEntity extends base {
     _CleanUp() {
         this.header = null;
         super._CleanUp();
+    }
+
+    Deserialize(p_serial) {
+        if (p_serial.entity) { super.Deserialize(p_serial.entity); }
+        if (p_serial.header) { this.LoadHeader(p_serial.header); }
+        if (p_serial.body) { this.LoadBody(p_serial.body); }
+    }
+
+    Serialize() {
+        let serial = { entity: super.Serialize(this) };
+        if (this._header) { serial.header = this._header.Serialize(); }
+        if (this._body) { serial.body = this._body.Serialize(); }
+        return serial;
     }
 
 

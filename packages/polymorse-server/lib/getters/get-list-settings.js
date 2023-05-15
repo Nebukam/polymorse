@@ -7,15 +7,15 @@ const polyCore = require(`@polymorse/core`);
  * Get EDIT manages the creation & serving of pages for editing.
  */
 const base = nkm.server.getters.AbstractGetter;
-class GetListTags extends base {
+class GetListSettings extends base {
     constructor() { super(); }
 
-    static __NFO__ = polyCore.api.getListUsers;
+    static __NFO__ = polyCore.routes.getListSettings;
 
     _InternalExecute(p_params) {
 
         //TODO: Make this async
-        
+
         let list = [],
             data = { users: list };
 
@@ -24,18 +24,16 @@ class GetListTags extends base {
             let u = {
                 uid: user.uuid
             };
-            if (user.header) {
-
-            }
+            if (user.header) { u.header = user.header.Serialize(); }
             list.push(u);
         });
 
         this._response = data;
-        
+
         return true;
 
     }
 
 }
 
-module.exports = GetListTags;
+module.exports = GetListSettings;
