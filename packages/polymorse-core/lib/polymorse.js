@@ -18,10 +18,10 @@ class Polymorse extends nkm.com.Observable {
         this._serverSide = false;
         this._registries = new nkm.collections.List();
 
-        this._settings = this._NewRegistry(CONTEXT.ENTITY_SETTINGS);
-        this._users = this._NewRegistry(CONTEXT.ENTITY_USER);
-        this._pages = this._NewRegistry(CONTEXT.ENTITY_PAGE);
-        this._drafts = this._NewRegistry(CONTEXT.ENTITY_PAGE);
+        this._settings = this._NewRegistry(`settings`, CONTEXT.ENTITY_SETTINGS);
+        this._users = this._NewRegistry('users', CONTEXT.ENTITY_USER, 'users');
+        this._pages = this._NewRegistry('pages', CONTEXT.ENTITY_PAGE, 'pages');
+        this._drafts = this._NewRegistry('drafts', CONTEXT.ENTITY_PAGE, 'drafts');
 
         this._Bind(this._OnPageCreated);
         this._Bind(this._OnPageHeaderValueChanged);
@@ -38,8 +38,8 @@ class Polymorse extends nkm.com.Observable {
 
 
         this._mainSettings = this._settings.Create(`main`);
-        let locales = this._mainSettings.CreateBlock(`locales`, polyData.blocks.JSON);
-        locales.json = [`en`, `fr`, `ja`];
+        this._locales = this._mainSettings.GetOrSet(`locales`, [`en`, `fr`, `ja`]);
+        this._registryIndices = this._mainSettings.GetOrSet(`registryIndices`, {});
 
     }
 
@@ -48,10 +48,11 @@ class Polymorse extends nkm.com.Observable {
     get registries() { return this._registries; }
     get mainSettings() { return this._mainSettings; }
 
-    _NewRegistry(p_entityClass, p_prefix) {
-        let newRegistry = new polyData.Registry(p_entityClass);
+    _NewRegistry(p_name, p_entityClass, p_prefix) {
+        let newRegistry = new polyData.Registry(p_name, p_entityClass);
         this._registries.Add(newRegistry);
         newRegistry.prefix = p_prefix;
+        if (this._settings) { newRegistry.settings = this._settings.Create(p_name); }
         return newRegistry;
     }
 

@@ -20,6 +20,9 @@ class Settings extends base {
 
     _Init() {
         super._Init();
+    }
+
+    Wake() {
         this.LoadHeader();
         this.LoadBody();
     }
@@ -27,7 +30,6 @@ class Settings extends base {
     _CleanUp() {
         super._CleanUp();
     }
-
 
 }
 

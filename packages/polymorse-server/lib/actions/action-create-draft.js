@@ -11,7 +11,7 @@ class CreatePageAction extends base {
     constructor() { super(); }
 
     static __NFO__ = {
-        identifier:`create-page`
+        identifier:`create-draft`
     };
 
     _InternalExecute(p_op) {

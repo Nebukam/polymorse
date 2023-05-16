@@ -10,8 +10,6 @@ const base = nkm.server.actions.AbstractAction;
 class AbstractUserAction extends base {
     constructor() { super(); }
 
-    static __model = {};
-
     _InternalExecute(p_op) {
         
         //Ensure a user is defined before proceeding

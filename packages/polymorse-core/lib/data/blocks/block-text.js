@@ -18,7 +18,7 @@ class TextBlock extends base {
     }, base);
 
     static __VALUES = this.Ext(base.__VALUES, {
-        [BLOCK_IDS.TEXT_TYPE]: { value: ENUMS.TEXT_TYPES.At(0) }
+        [BLOCK_IDS.TEXT_TYPE]: { value: ENUMS.TEXT_TYPE_PLAIN }
     });
 
     _Init() {

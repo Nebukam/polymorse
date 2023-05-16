@@ -99,7 +99,8 @@ class ServerBase extends nkm.server.ServerBaseAuth0 {
             
         */
 
-        nkm.server.AddGetters(require("./getters"));
+        nkm.server.AddGetters(require(`./getters`));
+        nkm.server.AddActions(require(`./actions`));
         this._RegisterAPIs(require(`./routes`));
 
     }
@@ -107,6 +108,17 @@ class ServerBase extends nkm.server.ServerBaseAuth0 {
     GetUser(p_req) {
         if (!this.IsAuthenticated(p_req)) { return null; }
         return polyCore.PolyMorse.GetOrCreateUserByAuthID(super.GetUser(p_req));
+    }
+
+    InitMainSettings(p_doneCb){
+        //Init main settings
+        console.log(`First time settings init`);
+        p_doneCb();
+    }
+
+    ProcessMainSettings(p_doneCb){
+        console.log(`Processing settings`);
+        p_doneCb();
     }
 
     _Boot() {

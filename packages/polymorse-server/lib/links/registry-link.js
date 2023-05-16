@@ -29,14 +29,14 @@ class RegistryLink extends nkm.com.Observable {
         this._registryObserver.ObserveOnly(p_value);
     }
 
-    _OnEntityCreated(p_entity) {
+    _OnEntityCreated(p_registry, p_entity) {
 
     }
 
     _OnLoadRequest(p_registry, p_block, p_callback) {
         let nfos = nkm.com.NFOS.Get(p_block);
         this._transceiver.ReadFile(
-            this._transceiver.Join(p_block.entity.uuid, `${nfos[nkm.com.IDS.TYPE]}.json`),
+            this._transceiver.Join(p_block.parent.uuid, `${nfos[nkm.com.IDS.TYPE]}.json`),
             (p_err, p_path, p_serial) => {
                 if (p_err) {
                     p_callback(p_err);
@@ -50,8 +50,8 @@ class RegistryLink extends nkm.com.Observable {
     _OnSaveRequest(p_registry, p_block, p_callback) {
         let nfos = nkm.com.NFOS.Get(p_block);
         this._transceiver.WriteFile(
-            this._transceiver.Join(p_block.entity.uuid, `${nfos[nkm.com.IDS.TYPE]}.json`),
-            p_block.Serialize(),
+            this._transceiver.Join(p_block.parent.uuid, `${nfos[nkm.com.IDS.TYPE]}.json`),
+            JSON.stringify(p_block.Serialize()),
             (p_err, p_path, p_success) => {
                 if (p_err) { p_callback(p_err); }
                 else { p_callback(null); }
@@ -79,9 +79,7 @@ class RegistryLink extends nkm.com.Observable {
                     this._transceiver.Join(entry, `${p_type}.json`),
                     (p_err, p_path, p_data) => {
 
-                        let data = {
-                            [p_type]: nkm.u.isString(p_data) ? JSON.parse(p_data) : p_data
-                        };
+                        let data = { [p_type]: nkm.u.isString(p_data) ? JSON.parse(p_data) : p_data };
 
                         this._registry.GetOrCreate(entry, data);
 
@@ -132,6 +130,22 @@ class RegistryLink extends nkm.com.Observable {
 
         });
 
+    }
+
+    Bootstrap(p_callback) {
+        let rSettings = this._registry.settings;
+        if (rSettings) {
+            rSettings.header.RequestLoad((p_block, p_err) => {
+                if (p_err) {
+                    rSettings.header.RequestSave((p_block, p_err) => {
+                        if (p_err) { throw p_err; }
+                        this._registry.InitSettings(() => { this.LoadHeaders(null, p_callback); }, true);
+                    });
+                } else { this._registry.InitSettings(() => { this.LoadHeaders(null, p_callback); }, false); }
+            });
+        } else {
+            this.LoadHeaders(null, p_callback);
+        }
     }
 
     LoadHeaders(p_ids = null, p_callback = null) {

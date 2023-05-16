@@ -31,11 +31,15 @@ class AbstractEntity extends base {
     _Init() {
         super._Init();
 
+        this._internalBlocks = new nkm.collections.List();
+
         this._header = null;
         this._body = null;
 
         this._Bind(this._OnSubRequestLoad);
         this._Bind(this._OnSubRequestSave);
+        this._Bind(this.Dirty);
+        this._Bind(this._TryClearDirty);
 
     }
 
@@ -60,26 +64,35 @@ class AbstractEntity extends base {
         let localId = `_${p_id}`;
 
         if (this[localId] == p_value) { return null; }
-        
+
         let oldBlock = this[localId];
         this[localId] = null;
 
         if (oldBlock) {
-            oldBlock.entity = null;
+            this._internalBlocks.Remove(oldBlock);
+            oldBlock.parent = null;
             oldBlock.Release();
         }
 
         if (p_value) {
+            this._internalBlocks.Add(p_value);
             this[localId] = p_value;
-            p_value.entity = this;
+            p_value.parent = this;
             p_value
                 .Watch(nkm.com.SIGNAL.RELEASED, () => { this[p_id] = null; })
+                .Watch(nkm.data.SIGNAL.DIRTY_CLEARED, this._TryClearDirty)
                 .Watch(SIGNAL.REQUEST_LOAD, (block, p_callback) => { this.Broadcast(SIGNAL.REQUEST_LOAD, block, p_callback); })
                 .Watch(SIGNAL.REQUEST_SAVE, (block, p_callback) => { this.Broadcast(SIGNAL.REQUEST_SAVE, block, p_callback); });
 
             return p_value;
         }
 
+    }
+
+    _TryClearDirty() {
+        let anyDirty = false;
+        this._internalBlocks.ForEach(b => { if (b.isDirty) { isDirty = true; } });
+        if (!anyDirty) { this.ClearDirty(); }
     }
 
     _CreateSub(p_key) {
@@ -120,11 +133,11 @@ class AbstractEntity extends base {
         return this._body.CreateBlock(p_uid, p_class);
     }
 
-
     ///
 
     _CleanUp() {
         this.header = null;
+        this.body = null;
         super._CleanUp();
     }
 
@@ -140,6 +153,16 @@ class AbstractEntity extends base {
         if (this._body) { serial.body = this._body.Serialize(); }
         return serial;
     }
+
+    //#region header metadata
+
+    Set(p_key, p_value) { this.LoadHeader().metadata.Set(p_key, p_value); }
+
+    Get(p_key) { return this.LoadHeader().metadata.Get(p_key); }
+
+    GetOrSet(p_key, p_value) { return this.LoadHeader().metadata.GetOrSet(p_key, p_value); }
+
+    //#endregion
 
 
 }

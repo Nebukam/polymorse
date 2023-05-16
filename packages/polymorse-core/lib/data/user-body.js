@@ -17,7 +17,7 @@ class UserBody extends base {
     static __VALUES = this.Ext(base.__VALUES, {
         //[IDS.CLEARANCE]: { value: 0 }
     });
-
+    
     _Init() {
         super._Init();
     }

@@ -24,7 +24,7 @@ class AppBase extends nkm.app.AppBase {
         }, [
             {
                 [nkm.com.IDS.NAME]: `compose`,
-                [nkm.ui.IDS.VIEW_CLASS]: editors.Compose.Editor
+                [nkm.ui.IDS.VIEW_CLASS]: editors.entity.Editor
             },
             {
                 [nkm.com.IDS.NAME]: `profile`,

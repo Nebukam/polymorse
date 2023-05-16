@@ -24,21 +24,19 @@ class AbstractEntityBlock extends base {
     }, base);
 
     static __VALUES = this.Ext(base.__VALUES, {
-        [IDS.UUID]: { value: 0, [nkm.data.IDS.SKIP_SERIALIZATION]:true },
+        [IDS.UUID]: { value: 0, [nkm.data.IDS.SKIP_SERIALIZATION]: true },
     });
 
     _Init() {
         super._Init();
-
-        this._entity = null;
 
         this._Bind(this.SaveRequestHandled);
         this._Bind(this.LoadRequestHandled);
 
     }
 
-    get entity() { return this._entity; }
-    set entity(p_value) { this._entity = p_value; }
+    get uuid() { return this._parent.uuid; }
+    set uuid(p_value) { return; }
 
     RequestSave(p_callback) {
         if (!this._saveRequestCBs) { this._saveRequestCBs = nkm.com.Rent(nkm.com.helpers.CallList); }
@@ -47,6 +45,7 @@ class AbstractEntityBlock extends base {
     }
 
     SaveRequestHandled(p_err) {
+        this.ClearDirty();
         this._saveRequestCBs.Notify(this, p_err).Release();
         this._saveRequestCBs = null;
         this.Broadcast(SIGNAL.SAVED, this);
@@ -59,13 +58,13 @@ class AbstractEntityBlock extends base {
     }
 
     LoadRequestHandled(p_err) {
+        this.ClearDirty();
         this._loadRequestCBs.Notify(this, p_err).Release();
         this._loadRequestCBs = null;
         this.Broadcast(SIGNAL.LOADED, this);
     }
 
     _CleanUp() {
-        this.entity = null;
         super._CleanUp();
     }
 

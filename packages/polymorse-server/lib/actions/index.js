@@ -6,7 +6,7 @@ module.exports = {
     AbstractUpdateAction: require(`./abstract-update-action`),
 
     // User actions
-    CreatePage: require(`./action-create-page`),
+    CreateDraft: require(`./action-create-draft`),
 
     // Update actions
     Edit: require(`./action-edit`),

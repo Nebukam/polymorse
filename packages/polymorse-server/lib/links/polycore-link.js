@@ -61,13 +61,15 @@ class PolyCoreLink extends nkm.com.Observable {
             let link = this._RegistryLink(conf.registry, conf.io);
         });
 
-        PolyMorse.mainSettings.body.RequestLoad((p_block, p_err) => {
+        PolyMorse.mainSettings.header.RequestLoad((p_block, p_err) => {
             if (p_err) {
-                PolyMorse.mainSettings.body.RequestSave((p_block, p_err) => {
-                    if (p_err) { throw p_err; }
-                    this._ProcessNext();
-                })
-            } else { this._ProcessNext(); }
+                nkm.main.InitMainSettings(() => {
+                    PolyMorse.mainSettings.header.RequestSave((p_block, p_err) => {
+                        if (p_err) { throw p_err; }
+                        nkm.main.ProcessMainSettings(this._ProcessNext);
+                    });
+                });
+            } else { nkm.main.ProcessMainSettings(this._ProcessNext); }
         });
 
     }
@@ -81,7 +83,7 @@ class PolyCoreLink extends nkm.com.Observable {
             return;
         }
 
-        currentLink.LoadHeaders(null, this._ProcessNext);
+        currentLink.Bootstrap(this._ProcessNext);
 
     }
 

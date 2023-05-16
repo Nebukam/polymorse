@@ -13,7 +13,7 @@ class Registry extends base {
 
     static __entityKey = null;
 
-    constructor(p_entityKey = null) {
+    constructor(p_name, p_entityKey = null) {
         super();
 
         let eKey = p_entityKey || this.constructor.__entityKey;
@@ -25,6 +25,8 @@ class Registry extends base {
         }
 
         this._onCreatedFn = null;
+        this._settings = null;
+        this._name = p_name;
 
     }
 
@@ -45,6 +47,13 @@ class Registry extends base {
 
     get onCreatedFn() { return this._onCreatedFn; }
     set onCreatedFn(p_value) { this._onCreatedFn = p_value; }
+
+    get name() { return this._name; }
+
+    get settings() { return this._settings; }
+    set settings(p_value) { this._settings = p_value; }
+
+    InitSettings(p_callback, p_firstTime = true) { p_callback(); }
 
     get prefix() { return this._prefix; }
     set prefix(p_value) { this._prefix = p_value; }

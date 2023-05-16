@@ -10,7 +10,7 @@ class ViewportBody extends nkm.datacontrols.ControlView {
         super._Init();
 
         this._dataObserver
-            .Hook(com.SIGNAL.UPDATED, this._OnDataUpdated, this);
+            .Hook(nkm.com.SIGNAL.UPDATED, this._OnDataUpdated, this);
 
         this._dataListHandler = new nkm.datacontrols.helpers.DataListHandler(this);
         this.forwardEditor.To(this._dataListHandler);
