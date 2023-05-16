@@ -3,7 +3,7 @@ module.exports = {
     AbstractBlock: require(`./abstract-block`),
 
     Text: require(`./block-text`),
-    Markdown: require(`./block-markdown`),
+    Code: require(`./block-code`),
 
     Media: require(`./block-media`),
     Image: require(`./block-image`),

@@ -12,16 +12,9 @@ class GetDraft extends base {
 
     static __NFO__ = polyCore.routes.getDraft;
 
-    _InternalExecute(p_params) {
-
-        //TODO: Make this async
-
-        let targetDraft = polyCore.PolyMorse.pageRegistry.Get(p_params.id);
-        if (!targetDraft) { return false; }
-
-        this._response = targetDraft.Serialize();
-        return true;
-
+    _Init(){
+        super._Init();
+        this._registry = polyCore.PolyMorse.draftRegistry;
     }
 
 }

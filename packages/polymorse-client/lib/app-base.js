@@ -23,12 +23,16 @@ class AppBase extends nkm.app.AppBase {
             [nkm.com.IDS.NAME]: `polymorse-client-views`
         }, [
             {
+                [nkm.com.IDS.NAME]: `compose`,
+                [nkm.ui.IDS.VIEW_CLASS]: editors.Compose.Editor
+            },
+            {
                 [nkm.com.IDS.NAME]: `profile`,
                 [nkm.ui.IDS.VIEW_CLASS]: views.Profile
             },
             {
                 [nkm.com.IDS.NAME]: `drafts`,
-                [nkm.ui.IDS.VIEW_CLASS]: views.Drafs
+                [nkm.ui.IDS.VIEW_CLASS]: views.Drafts
             },
             {
                 [nkm.com.IDS.NAME]: `pages`,
@@ -37,10 +41,6 @@ class AppBase extends nkm.app.AppBase {
             {
                 [nkm.com.IDS.NAME]: `admin`,
                 [nkm.ui.IDS.VIEW_CLASS]: views.Admin
-            },
-            {
-                [nkm.com.IDS.NAME]: `compose`,
-                [nkm.ui.IDS.VIEW_CLASS]: editors.Compose
             }
         ]);
 

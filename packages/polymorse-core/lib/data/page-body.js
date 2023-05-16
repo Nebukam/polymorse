@@ -14,6 +14,11 @@ class PageBody extends base {
         [nkm.com.IDS.UID]: `@polymorse:page-body`,
     }, base);
 
+    static __VALUES = this.Ext(base.__VALUES, {
+        [IDS.TITLE]: { value: `` },
+        [IDS.SUMMARY]: { value: `` },
+    });
+
     _Init() {
         super._Init();
     }

@@ -5,8 +5,11 @@ const u = nkm.u;
 const io = nkm.io;
 
 const IDS = require(`../ids`);
+const BLOCK_IDS = require(`./ids`);
+const ENUMS = require("../enums");
 
 const base = require("./abstract-block");
+
 class TextBlock extends base {
     constructor() { super(); }
 
@@ -15,7 +18,7 @@ class TextBlock extends base {
     }, base);
 
     static __VALUES = this.Ext(base.__VALUES, {
-        //[IDS.CONTENT]: { value: `` }
+        [BLOCK_IDS.TEXT_TYPE]: { value: ENUMS.TEXT_TYPES.At(0) }
     });
 
     _Init() {

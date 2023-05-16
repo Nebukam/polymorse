@@ -6,7 +6,7 @@ const io = nkm.io;
 
 const IDS = require(`./ids`);
 
-const base = require(`./abstract-header`);
+const base = require(`./content-header`);
 class UserHeader extends base {
     constructor() { super(); }
 

@@ -1,28 +1,7 @@
 {
-    "name": "@polymorse/client",
-    "longName": "@polymorse/client Verbose App Name",
-    "shortName": "@polymorse/client App",
-    "description": "PolyMorse Client",
-    "homepage": "https://www.@polymorse/client.com",
-    "app": {
-        "display": "standalone",
-        "orientation": "portrait",
-        "colorTheme": "#1e1e1e",
-        "theme": "default"
-    },
-    "extension": {
-        "manifest_version": 2,
-        "popup": {
-            "width": 800,
-            "height": 600
-        },
-        "display": "standalone",
-        "permissions": [
-            "storage"
-        ],
-        "hostPermissions": [
-            "%homepage%"
+    "sources": {
+        "styles": [
+            "./src-style"
         ]
-    },
-    "builds": []
+    }
 }

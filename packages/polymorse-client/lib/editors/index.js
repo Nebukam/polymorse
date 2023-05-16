@@ -1,3 +1,3 @@
 module.exports = {
-    Compose: require(`./editor-compose`),
+    entity:require(`./entity`)
 }

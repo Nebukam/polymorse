@@ -57,6 +57,14 @@ module.exports = {
         ]
     },
 
+    getPageRender: {
+        // api/get/page/:id/:locale
+        prefix: '/entity/page-raw-render',
+        params: [
+            { id: 'id' }
+        ]
+    },
+
 }
 
 for (let id in module.exports) {

@@ -2,7 +2,7 @@
 
 const nkm = require(`@nkmjs/core/nkmserver`);
 const polyCore = require(`@polymorse/core`);
-
+const Helper = require(`../helper`);
 /**
  * Get EDIT manages the creation & serving of pages for editing.
  */
@@ -12,14 +12,9 @@ class GetUser extends base {
 
     static __NFO__ = polyCore.routes.getUser;
 
-    _InternalExecute(p_params) {
-
-        let targetUser = polyCore.PolyMorse.userRegistry.Get(p_params.id);
-        if (!targetUser) { return false; }
-
-        this._response = targetUser.Serialize();
-        return true;
-
+    _Init() {
+        super._Init();
+        this._registry = polyCore.PolyMorse.userRegistry;
     }
 
 }

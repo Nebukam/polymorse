@@ -12,16 +12,9 @@ class GetPage extends base {
 
     static __NFO__ = polyCore.routes.getPage;
 
-    _InternalExecute(p_params) {
-
-        //TODO: Make this async
-
-        let targetPage = polyCore.PolyMorse.pageRegistry.Get(p_params.id);
-        if (!targetPage) { return false; }
-
-        this._response = targetPage.Serialize();
-        return true;
-
+    _Init() {
+        super._Init();
+        this._registry = polyCore.PolyMorse.pageRegistry;
     }
 
 }

@@ -93,17 +93,17 @@ class AbstractEntity extends base {
     _OnSubRequestLoad(p_sub, p_callback) { this.Broadcast(SIGNAL.REQUEST_LOAD, p_sub, p_callback); }
     _OnSubRequestSave(p_sub, p_callback) { this.Broadcast(SIGNAL.REQUEST_SAVE, p_sub, p_callback); }
 
-    LoadHeader(p_serial = null, p_requestLoad = false) {
+    LoadHeader(p_serial = null, p_requestLoad = null) {
         if (!this._header) { this.header = this._CreateSub(this.constructor.__headerKey); }
         if (p_serial) { this._header.Deserialize(p_serial); }
-        else if (p_requestLoad) { this._header.RequestLoad(); }
+        else if (p_requestLoad) { this._header.RequestLoad(p_requestLoad); }
         return this._header;
     }
 
-    LoadBody(p_serial = null, p_requestLoad = false) {
+    LoadBody(p_serial = null, p_requestLoad = null) {
         if (!this._body) { this.body = this._CreateSub(this.constructor.__bodyKey); }
         if (p_serial) { this._body.Deserialize(p_serial); }
-        else if (p_requestLoad) { this._body.RequestLoad(); }
+        else if (p_requestLoad) { this._body.RequestLoad(p_requestLoad); }
         return this._body;
     }
 

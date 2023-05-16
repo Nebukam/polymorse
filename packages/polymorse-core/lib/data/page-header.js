@@ -7,7 +7,7 @@ const io = nkm.io;
 const IDS = require(`./ids`);
 const SIGNAL = require(`../signal`);
 
-const base = require(`./abstract-header`);
+const base = require(`./content-header`);
 class PageHeader extends base {
     constructor() { super(); }
 

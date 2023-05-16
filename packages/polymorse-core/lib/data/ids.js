@@ -149,6 +149,7 @@ nkm.data.RegisterDescriptors({
 IDS.PARENT_UUID = Object.freeze(`puuid`);
 IDS.TITLE = Object.freeze(`title`);
 IDS.DESCRIPTION = Object.freeze(`description`);
+IDS.SUMMARY = Object.freeze(`summary`);
 
 IDS.TYPE_BODY = Object.freeze(`body`);
 IDS.TYPE_HEADER = Object.freeze(`header`);
