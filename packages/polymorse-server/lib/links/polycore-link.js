@@ -19,6 +19,7 @@ class PolyCoreLink extends nkm.com.Observable {
         this._config = null;
 
         this._regLinkObserver = new nkm.com.signals.Observer();
+        this._registryMap = new Map();
 
         this._regLinks = [];
         this._regQueue = [];
@@ -32,6 +33,8 @@ class PolyCoreLink extends nkm.com.Observable {
         let newRegLink = new RegistryLink();
         newRegLink.registry = p_registry;
         newRegLink.transceiver = p_transceiver;
+
+        this._registryMap.set(p_registry, newRegLink);
 
         this._regLinks.push(newRegLink);
         this._regQueue.push(newRegLink);

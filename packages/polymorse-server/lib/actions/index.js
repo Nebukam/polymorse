@@ -5,8 +5,8 @@ module.exports = {
     AbstractUserAction: require(`./abstract-user-action`),
     AbstractUpdateAction: require(`./abstract-update-action`),
 
-    // User actions
-    CreateDraft: require(`./action-create-draft`),
+    // Create actions
+    Draft: require(`./action-draft`),
 
     // Update actions
     Edit: require(`./action-edit`),

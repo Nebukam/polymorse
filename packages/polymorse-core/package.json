@@ -16,7 +16,7 @@
         "link-nkmjs": "yarn link @nkmjs/core"
     },
     "dependencies": {
-        "@nkmjs/core": "^1.2.2"
+        "@nkmjs/core": "^1.2.4"
     },
     "gitHead": "3e0810bae6fa7bc8f956330cb8bb167f02d8234e"
 }

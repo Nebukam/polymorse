@@ -11,6 +11,9 @@ class RegistryLink extends nkm.com.Observable {
     _Init() {
         super._Init();
 
+        this._safeIncrement = 0;
+        this._lastTimestamp = Date.now();
+
         this._registry = null;
         this._registryObserver = new nkm.com.signals.Observer();
         this._registryObserver
@@ -18,6 +21,17 @@ class RegistryLink extends nkm.com.Observable {
             .Hook(polyCore.SIGNAL.REQUEST_LOAD, this._OnLoadRequest, this)
             .Hook(polyCore.SIGNAL.REQUEST_SAVE, this._OnSaveRequest, this);
 
+    }
+
+    get timestampUID() {
+        let ts = Date.now();
+        if (ts == this._lastTimestamp) {
+            this._safeIncrement++;
+        } else {
+            this._lastTimestamp = ts;
+            this._safeIncrement = 0;
+        }
+        return `${this._lastTimestamp}-${this._safeIncrement.toString(16)}`;
     }
 
     get transceiver() { return this._transceiver; }

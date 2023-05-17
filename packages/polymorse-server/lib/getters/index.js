@@ -2,6 +2,8 @@
 
 module.exports = {
 
+    GetRegistries:require(`./get-registries`),
+
     GetListSettings: require(`./get-list-settings`),
     GetListUsers: require(`./get-list-users`),
     GetListDrafts: require(`./get-list-drafts`),

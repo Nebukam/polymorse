@@ -27,11 +27,29 @@ module.exports = {
         }
     },
 
-    UpdateEntity: function(p_entity, p_data, p_callback){
+    UpdateEntity: function (p_entity, p_data, p_callback) {
         p_entity.Unserialize(p_data);
         //TODO: Update entity header timestamps
         //TODO: Save header & body (if there)
         //TODO: Callback to wrap up
+    },
+
+    /**
+     * Try to get the latest draft owned by the given user.
+     * @param {*} p_user 
+     * @param {*} p_callback 
+     */
+    TryGetLatestDraft(p_user, p_callback) {
+        
+
+    },
+
+    TryGetDraftForEdit(p_user, p_draftId, p_callback){
+
+    },
+
+    TryGetPageForEdit(p_user, p_pageId, p_callback){
+
     }
 
 }

@@ -1,5 +1,10 @@
 module.exports = {
 
+    getRegistries: {
+        // api/get/registries
+        prefix: '/registries',
+    },
+
     getListSettings: {
         // api/get/list/settings
         prefix: '/list/settings',

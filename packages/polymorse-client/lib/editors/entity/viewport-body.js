@@ -15,7 +15,7 @@ class ViewportBody extends nkm.datacontrols.ControlView {
         this._dataListHandler = new nkm.datacontrols.helpers.DataListHandler(this);
         this.forwardEditor.To(this._dataListHandler);
         this.forwardContext.To(this._dataListHandler);
-        this.forwardData.To(this._dataListHandler, { get: polyCore.IDS.CONTENT_BLOCKS, set: `dataList` });
+        this.forwardData.To(this._dataListHandler, { get: polyCore.data.IDS.CONTENT_BLOCKS, set: `dataList` });
 
     }
     //First add static blocs editors
