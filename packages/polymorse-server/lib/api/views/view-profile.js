@@ -19,7 +19,7 @@ class ViewProfile extends base {
         if (!entity) { return; }
 
         let out = {
-            userProfile:JSON.stringify(entity.Serialize())
+            rawEntityString:JSON.stringify(entity.Serialize())
         };
 
         this._OnSuccess(out);

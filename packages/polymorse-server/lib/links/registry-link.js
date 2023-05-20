@@ -207,12 +207,16 @@ class RegistryLink extends nkm.com.Observable {
 
     }
 
+    //#region 
+
+    //#region Loading data
+
     async LoadBloc(p_entityId, p_blocId) {
-        return await this._transceiver.ReadFile(
+        return this._transceiver.ReadFile(
             this._transceiver.Join(p_entityId, `${p_blocId}.json`),
             (p_err, p_path, p_data) => {
                 let data = { [p_blocId]: nkm.u.isString(p_data) ? JSON.parse(p_data) : p_data };
-                return this._registry.GetOrCreate(p_entityId, data);
+                nkm.data.SIMPLEX.GetBloc(this._registry.GetOrCreate(p_entityId, data), p_blocId);
             });
     }
 
@@ -225,29 +229,28 @@ class RegistryLink extends nkm.com.Observable {
             promises = [],
             serials = {};
 
-        //TODO: Ensure it is loaded first
-        if (entity) {
+        console.log(`RequireEntity`, p_entityId, entity ? true : false);
 
-            let loaded = true;
+        let loaded = true;
 
-            for (let id in blocDefs) {
-                let def = blocDefs[id];
-                if (!entity[def.member].isLoaded) {
-                    loaded = false;
-                    ids.push(id);
-                    promises.push(this._transceiver.ReadFile(
-                        this._transceiver.Join(p_entityId, `${id}.json`),
-                        (p_err, p_path, p_data) => {
-                            if (p_err) { return null; }
-                            return nkm.u.isString(p_data) ? JSON.parse(p_data) : p_data;
-                        })
-                    );
-                }
+        for (let id in blocDefs) {
+            let def = blocDefs[id];
+            if (!entity || !entity[def.member].isLoaded) {
+                loaded = false;
+                ids.push(id);
+                promises.push(this._transceiver.ReadFile(
+                    this._transceiver.Join(p_entityId, `${id}.json`),
+                    (p_err, p_path, p_data) => {
+                        if (p_err) { return null; }
+                        return nkm.u.isString(p_data) ? JSON.parse(p_data) : p_data;
+                    })
+                );
             }
-
-            if (loaded) { return entity; }
-
         }
+
+        console.log(`bloc ids to be loaded: `, ids);
+
+        if (loaded) { return entity; }
 
         let
             data = await Promise.all(promises),
@@ -259,6 +262,25 @@ class RegistryLink extends nkm.com.Observable {
         }
 
         return Object.keys(serials).length ? this._registry.GetOrCreate(p_entityId, serials) : null;
+
+    }
+
+    //#endregion
+
+    //#region Saving data
+
+    async SaveBloc(p_entityId, p_blocId) {
+
+        let bloc = nkm.data.SIMPLEX.GetBloc(this._registry.Get(p_entityId), p_blocId);
+        if (!bloc) { return null; }
+
+        return this._transceiver.WriteFile(
+            this._transceiver.Join(p_entityId, `${p_blocId}.json`),
+            bloc.Serialize(),
+            (p_err, p_path, p_success) => { return bloc; });
+    }
+
+    async SaveEntity(p_entityId) {
 
     }
 

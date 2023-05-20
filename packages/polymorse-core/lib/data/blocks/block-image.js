@@ -11,7 +11,8 @@ class ImageBlock extends base {
     constructor() { super(); }
 
     static __NFO__ = nkm.com.NFOS.Ext({
-        [nkm.com.IDS.UID]: `@polymorse:block-image`
+        [nkm.com.IDS.UID]: `@polymorse:block-image`,
+        view:'image'
     }, base);
 
     static __VALUES = this.Ext(base.__VALUES, {
@@ -24,5 +25,4 @@ class ImageBlock extends base {
 
 }
 
-module.exports = ImageBlock;
-nkm.com.BINDINGS.RegisterFromNFO(ImageBlock);
+module.exports = nkm.data.SIMPLEX.Export(ImageBlock);

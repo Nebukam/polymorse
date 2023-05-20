@@ -11,7 +11,8 @@ class EmbedBlock extends base {
     constructor() { super(); }
 
     static __NFO__ = nkm.com.NFOS.Ext({
-        [nkm.com.IDS.UID]: `@polymorse:block-embed`
+        [nkm.com.IDS.UID]: `@polymorse:block-embed`,
+        view:'embed'
     }, base);
 
     static __VALUES = this.Ext(base.__VALUES, {
@@ -24,5 +25,4 @@ class EmbedBlock extends base {
 
 }
 
-module.exports = EmbedBlock;
-nkm.com.BINDINGS.RegisterFromNFO(EmbedBlock);
+module.exports = nkm.data.SIMPLEX.Export(EmbedBlock);

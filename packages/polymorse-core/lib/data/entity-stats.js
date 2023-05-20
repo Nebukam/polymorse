@@ -30,5 +30,4 @@ class EntityStats extends base {
 
 }
 
-module.exports = EntityStats;
-nkm.com.BINDINGS.RegisterFromNFO(EntityStats);
+module.exports = nkm.data.SIMPLEX.Export(EntityStats);

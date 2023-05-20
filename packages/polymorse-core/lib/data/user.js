@@ -73,5 +73,4 @@ class User extends base {
 
 }
 
-module.exports = User;
-nkm.com.BINDINGS.RegisterFromNFO(User);
+module.exports = nkm.data.SIMPLEX.Export(User);

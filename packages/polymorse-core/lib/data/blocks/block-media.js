@@ -11,7 +11,8 @@ class MediaBlock extends base {
     constructor() { super(); }
 
     static __NFO__ = nkm.com.NFOS.Ext({
-        [nkm.com.IDS.UID]: `@polymorse:block-media`
+        [nkm.com.IDS.UID]: `@polymorse:block-media`,
+        view:'media'
     }, base);
 
     static __VALUES = this.Ext(base.__VALUES, {
@@ -24,5 +25,4 @@ class MediaBlock extends base {
 
 }
 
-module.exports = MediaBlock;
-nkm.com.BINDINGS.RegisterFromNFO(MediaBlock);
+module.exports = nkm.data.SIMPLEX.Export(MediaBlock);

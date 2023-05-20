@@ -13,7 +13,8 @@ class TextBlock extends base {
     constructor() { super(); }
 
     static __NFO__ = nkm.com.NFOS.Ext({
-        [nkm.com.IDS.UID]: `@polymorse:block-text`
+        [nkm.com.IDS.UID]: `@polymorse:block-text`,
+        view:'code'
     }, base);
 
     static __VALUES = this.Ext(base.__VALUES, {
@@ -26,5 +27,4 @@ class TextBlock extends base {
 
 }
 
-module.exports = TextBlock;
-nkm.com.BINDINGS.RegisterFromNFO(TextBlock);
+module.exports = nkm.data.SIMPLEX.Export(TextBlock);

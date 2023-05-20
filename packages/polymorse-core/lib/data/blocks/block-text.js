@@ -27,5 +27,4 @@ class TextBlock extends base {
 
 }
 
-module.exports = TextBlock;
-nkm.com.BINDINGS.RegisterFromNFO(TextBlock);
+module.exports = nkm.data.SIMPLEX.Export(TextBlock);

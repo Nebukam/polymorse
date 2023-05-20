@@ -20,6 +20,7 @@ class AbstractBody extends base {
 
     _Init() {
         super._Init();
+        this._blocMap = {};
     }
 
     get blocks() { return this._blocks; }
@@ -28,15 +29,17 @@ class AbstractBody extends base {
         //TODO: Make sure there is no duplicate name?
         let newBlock = nkm.com.Rent(p_class);
         newBlock.uuid = p_uid;
+        this._blocMap[p_uid] = newBlock;
         this._blocks.Add(newBlock);
         return newBlock;
     }
 
-    RemoveBlock(p_block){
+    RemoveBlock(p_block) {
         this._blocks.Remove(p_block);
     }
 
     _CleanUp() {
+        for (const id of Object.keys(this._blocMap)) { delete this._blocMap[id]; }
         super._CleanUp();
     }
 

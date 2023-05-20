@@ -24,5 +24,4 @@ class SettingsBody extends base {
 
 }
 
-module.exports = SettingsBody;
-nkm.com.BINDINGS.RegisterFromNFO(SettingsBody);
+module.exports = nkm.data.SIMPLEX.Export(SettingsBody);

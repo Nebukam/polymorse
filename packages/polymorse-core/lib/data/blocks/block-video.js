@@ -11,7 +11,8 @@ class VideoBlock extends base {
     constructor() { super(); }
 
     static __NFO__ = nkm.com.NFOS.Ext({
-        [nkm.com.IDS.UID]: `@polymorse:block-video`
+        [nkm.com.IDS.UID]: `@polymorse:block-video`,
+        view:'video'
     }, base);
 
     static __VALUES = this.Ext(base.__VALUES, {
@@ -24,5 +25,4 @@ class VideoBlock extends base {
 
 }
 
-module.exports = VideoBlock;
-nkm.com.BINDINGS.RegisterFromNFO(VideoBlock);
+module.exports = nkm.data.SIMPLEX.Export(VideoBlock);

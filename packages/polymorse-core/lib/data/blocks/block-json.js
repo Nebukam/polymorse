@@ -13,6 +13,7 @@ class ContentBlock extends base {
 
     static __NFO__ = nkm.com.NFOS.Ext({
         [nkm.com.IDS.UID]: `@polymorse:block-object`,
+        view:'json'
     }, base);
 
     static __VALUES = this.Ext(base.__VALUES, {
@@ -29,5 +30,4 @@ class ContentBlock extends base {
 
 }
 
-module.exports = ContentBlock;
-nkm.com.BINDINGS.RegisterFromNFO(ContentBlock);
+module.exports = nkm.data.SIMPLEX.Export(ContentBlock);

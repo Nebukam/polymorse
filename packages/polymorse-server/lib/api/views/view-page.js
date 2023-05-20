@@ -17,9 +17,12 @@ class ViewPage extends base {
 
     async _InternalExecute(p_params) {
 
-        await super._InternalExecute(p_params);
+        let entity = await super._InternalExecute(p_params);
+        if (!entity) { return; }
 
-        let out = {};
+        let out = {
+            rawEntityString:JSON.stringify(entity.Serialize())
+        };
 
         this._OnSuccess(out);
 

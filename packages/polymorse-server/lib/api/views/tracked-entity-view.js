@@ -35,6 +35,8 @@ class TrackedEntityView extends base {
             return null;
         }
 
+        
+
         return entity;
 
     }

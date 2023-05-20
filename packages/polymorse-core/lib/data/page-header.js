@@ -51,5 +51,4 @@ class PageHeader extends base {
 
 }
 
-module.exports = PageHeader;
-nkm.com.BINDINGS.RegisterFromNFO(PageHeader);
+module.exports = nkm.data.SIMPLEX.Export(PageHeader);
