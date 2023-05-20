@@ -90,6 +90,7 @@ class AbstractData extends base {
 
     Deserialize(p_serial) {
         JSONS.Deserialize(p_serial, this);
+        this.isLoaded = true;
     }
 
     Serialize() { return JSONS.Serialize(this); }

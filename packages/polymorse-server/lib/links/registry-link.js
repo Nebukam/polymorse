@@ -274,9 +274,11 @@ class RegistryLink extends nkm.com.Observable {
         let bloc = nkm.data.SIMPLEX.GetBloc(this._registry.Get(p_entityId), p_blocId);
         if (!bloc) { return null; }
 
+        let data = JSON.stringify(bloc.Serialize());
+
         return this._transceiver.WriteFile(
             this._transceiver.Join(p_entityId, `${p_blocId}.json`),
-            bloc.Serialize(),
+            data,
             (p_err, p_path, p_success) => { return bloc; });
     }
 
