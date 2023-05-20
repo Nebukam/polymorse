@@ -2187,239 +2187,225 @@
   resolved "https://registry.yarnpkg.com/@nicolo-ribaudo/chokidar-2/-/chokidar-2-2.1.8-no-fsevents.3.tgz#323d72dd25103d0c4fbdce89dadf574a787b1f9b"
   integrity sha512-s88O1aVtXftvp5bCPB7WnmXc5IwOZZ7YPuwNPt+GtOOXpPvad1LfbmjYv+qII7zP6RU2QGnqve27dnLycEnyEQ==
 
-"@nkmjs/actions@^1.1.2":
-  version "1.1.2"
-  resolved "https://registry.yarnpkg.com/@nkmjs/actions/-/actions-1.1.2.tgz#f6a9eeec6cdf6af2ac73915ed017e80eee4a3a7e"
-  integrity sha512-3s9/VXF1v1TFn0fWXj/v9puNu5RNQwmiqsmzuJetrq8P9+u62pmDAeROGoeuzZvaQ1w2Z+31WrAty3MAoLtG1w==
+"@nkmjs/actions@^1.2.1":
+  version "1.2.1"
+  resolved "https://registry.yarnpkg.com/@nkmjs/actions/-/actions-1.2.1.tgz#4ff080c66e35378e3ecb122dad625d8c06becdc4"
+  integrity sha512-7qOxKaQW1RU0LsTfj9u9qwQe55a55JOHaaqOOM7niXaM0QbMx2E6LWjleMtkHue8OrTffmlnRDVphSu9rIygEw==
   dependencies:
-    "@nkmjs/collections" "^1.0.3"
-    "@nkmjs/common" "^1.1.2"
-    "@nkmjs/environment" "^1.1.2"
-    "@nkmjs/services" "^1.1.2"
-    "@nkmjs/utils" "^1.1.1"
+    "@nkmjs/collections" "^1.1.1"
+    "@nkmjs/common" "^1.2.1"
+    "@nkmjs/environment" "^1.2.1"
+    "@nkmjs/services" "^1.2.1"
+    "@nkmjs/utils" "^1.2.1"
 
-"@nkmjs/app-core@^1.1.2":
-  version "1.1.2"
-  resolved "https://registry.yarnpkg.com/@nkmjs/app-core/-/app-core-1.1.2.tgz#3be8f676034603c74fed71b013e8e288832e2eff"
-  integrity sha512-GLzUmM7/w1ohnZu4fMZpfeVTJR5sugnezysx6Bap6ss+yg2VWnOvjNforK3Kcb3Rso9PyLVvmord13U/BRhMsw==
+"@nkmjs/app-core@^1.2.1":
+  version "1.2.1"
+  resolved "https://registry.yarnpkg.com/@nkmjs/app-core/-/app-core-1.2.1.tgz#09b6c08b1938e6936bc78e32a8305f4c00ec0ce5"
+  integrity sha512-YHQvmwQQgjCncnco5Gyl2LZbVOLDCsaXttuSzJLd/KluRHZfS2CAMiKaywUR1hZIVJt5cDL/DwPkmIcx/0zBkw==
   dependencies:
-    "@nkmjs/actions" "^1.1.2"
-    "@nkmjs/collections" "^1.0.3"
-    "@nkmjs/common" "^1.1.2"
-    "@nkmjs/data-core" "^1.1.2"
-    "@nkmjs/dialog" "^1.1.2"
-    "@nkmjs/documents" "^1.1.2"
-    "@nkmjs/environment" "^1.1.2"
-    "@nkmjs/io-core" "^1.1.2"
-    "@nkmjs/services" "^1.1.2"
-    "@nkmjs/style" "^1.1.2"
-    "@nkmjs/ui-core" "^1.1.2"
-    "@nkmjs/ui-data-controls" "^1.1.2"
-    "@nkmjs/ui-library" "^1.1.2"
-    "@nkmjs/ui-workspace" "^1.1.2"
-    "@nkmjs/utils" "^1.1.1"
+    "@nkmjs/actions" "^1.2.1"
+    "@nkmjs/collections" "^1.1.1"
+    "@nkmjs/common" "^1.2.1"
+    "@nkmjs/data-core" "^1.2.1"
+    "@nkmjs/dialog" "^1.2.1"
+    "@nkmjs/documents" "^1.2.1"
+    "@nkmjs/environment" "^1.2.1"
+    "@nkmjs/io-core" "^1.2.1"
+    "@nkmjs/services" "^1.2.1"
+    "@nkmjs/style" "^1.2.1"
+    "@nkmjs/ui-core" "^1.2.1"
+    "@nkmjs/ui-data-controls" "^1.2.1"
+    "@nkmjs/ui-library" "^1.2.1"
+    "@nkmjs/ui-workspace" "^1.2.1"
+    "@nkmjs/utils" "^1.2.1"
 
-"@nkmjs/collections@^1.0.3":
-  version "1.0.3"
-  resolved "https://registry.yarnpkg.com/@nkmjs/collections/-/collections-1.0.3.tgz#cbc518eee1e22e7a711d348d075fefb50ce88009"
-  integrity sha512-qchbz6OMNPQ/TuiS7jEFw2b4BkMLSbLPmIltPm2/ubyoudDuvEowESmAJ+vAIOPgioYjzQkfpzr5l0SMaMEOeA==
+"@nkmjs/collections@^1.1.1":
+  version "1.1.1"
+  resolved "https://registry.yarnpkg.com/@nkmjs/collections/-/collections-1.1.1.tgz#cf7ca08e3b930bc71abd33d0f97664ef169c2e18"
+  integrity sha512-1u+zsStq4ESFaYoVjaWP3rUcdxdcIRAWGaRs7V2Op+ZunOM8LCVutLRs6O2y+/nDCAKwJUT0VKdXj2Zc4WMuHg==
 
-"@nkmjs/common@^1.1.2":
-  version "1.1.2"
-  resolved "https://registry.yarnpkg.com/@nkmjs/common/-/common-1.1.2.tgz#2baa5d216f5c69d048be674c63fea0715771861d"
-  integrity sha512-4YTXcl5qpPyN/xMWbSRXgCcdgc4ZVdyRZ3LNQg/c+r4a+HOIOsuPUqWY3Sm+KXsM+0kC4e0uNPmXAd+Eb+onaQ==
+"@nkmjs/common@^1.2.1":
+  version "1.2.1"
+  resolved "https://registry.yarnpkg.com/@nkmjs/common/-/common-1.2.1.tgz#ae7d6cb884f1c92f32342fc3635f2bbb3bb29b27"
+  integrity sha512-ofih2B9WtIwF+oAiRc2KFe1E19x6xryKhCWkyDciyP3+ntOEUZBUPRINPXnfGg8KThAN3M7XgiFkAuVZhPgMjQ==
   dependencies:
-    "@nkmjs/collections" "^1.0.3"
-    "@nkmjs/utils" "^1.1.1"
+    "@nkmjs/collections" "^1.1.1"
+    "@nkmjs/utils" "^1.2.1"
 
-"@nkmjs/core-dev@^1.1.6":
-  version "1.1.6"
-  resolved "https://registry.yarnpkg.com/@nkmjs/core-dev/-/core-dev-1.1.6.tgz#01f2704c8c43f3d626ddef78ced8131175c8a7f9"
-  integrity sha512-eKGTwl6+quv/rR+hiCNrba6HFZLPe3PNXCGRVTKrR2y2t+vY+KVrxpOi0FTGLz9g3gDcCNPGajeuR+00x0X1Hg==
+"@nkmjs/core-dev@^1.2.4":
+  version "1.3.1"
+  resolved "https://registry.yarnpkg.com/@nkmjs/core-dev/-/core-dev-1.3.1.tgz#ad1927d764b795a3bec5fa48bc29b0f70a467418"
+  integrity sha512-YTiwpkEUSS2D1a895WDhAeSBx9ufF8bO0lmqgrXm8bbMs8l5KTtNGVOhzuCKdVoV0NavLtkUd77HGejwvUNAzw==
   dependencies:
     "@babel/cli" "^7.12.10"
     "@babel/core" "^7.15.5"
     "@babel/plugin-proposal-class-properties" "^7.12.1"
     "@babel/preset-env" "^7.12.11"
-    "@nkmjs/core" "^1.1.6"
-    "@nkmjs/utils" "^1.1.1"
+    "@nkmjs/core" "^1.3.1"
+    "@nkmjs/utils" "^1.2.1"
     adm-zip "^0.5.3"
     axios "^1.4.0"
     babel-plugin-conditional-compilation "^0.0.1"
     browserify "^17.0.0"
-    chalk "^4.1.0"
-    csso "^4.2.0"
-    electron "^24.1.2"
+    chalk "4.1.2"
+    csso "^5.0.5"
+    electron "^24.3.1"
     electron-builder "^24.3.0"
-    image-size "^0.9.4"
+    image-size "^1.0.2"
     jsdoc "^4.0.2"
     jsdoc-to-markdown "^8.0.0"
     png-to-ico "^2.1.2"
     png2icons "^2.0.1"
     sass "^1.32.5"
     sharp "^0.32.1"
-    terser "^5.5.1"
+    terser "^5.17.4"
 
-"@nkmjs/core@^1.1.6":
-  version "1.1.6"
-  resolved "https://registry.yarnpkg.com/@nkmjs/core/-/core-1.1.6.tgz#9c342414c519786a9bc8df675ebf40ae7e73f8a5"
-  integrity sha512-g7pm+JS1LpGzvI4FGylcJN7RFFJ2xIAkcWQw2D8nmppFeoE5rIDVVcIBXc6UIVf2LfJ41dxXgofJd8FPX4UEcw==
+"@nkmjs/core@^1.2.4", "@nkmjs/core@^1.3.1":
+  version "1.3.1"
+  resolved "https://registry.yarnpkg.com/@nkmjs/core/-/core-1.3.1.tgz#6a4c83bacd6fb95ecb54b8e89a4156a8e75278c3"
+  integrity sha512-Aj52ScSPwBy4TXtKAQzmRkeHxGrN80FH1ADI7E8objQzd37mwDMCwwofChvTfMUDO2KQtTbbf0hNqUS9pcEbOA==
   dependencies:
-    "@nkmjs/actions" "^1.1.2"
-    "@nkmjs/app-core" "^1.1.2"
-    "@nkmjs/collections" "^1.0.3"
-    "@nkmjs/common" "^1.1.2"
-    "@nkmjs/data-core" "^1.1.2"
-    "@nkmjs/data-library" "^1.1.2"
-    "@nkmjs/dialog" "^1.1.2"
-    "@nkmjs/documents" "^1.1.2"
-    "@nkmjs/electron-core" "^1.1.2"
-    "@nkmjs/environment" "^1.1.2"
-    "@nkmjs/i18n" "^0.0.3"
-    "@nkmjs/io-core" "^1.1.2"
-    "@nkmjs/io-electron" "^1.1.2"
-    "@nkmjs/metrics" "^1.1.2"
-    "@nkmjs/server-core" "^1.3.5"
-    "@nkmjs/server-io" "^0.1.3"
-    "@nkmjs/services" "^1.1.2"
-    "@nkmjs/style" "^1.1.2"
-    "@nkmjs/ui-core" "^1.1.2"
-    "@nkmjs/ui-data-controls" "^1.1.2"
-    "@nkmjs/ui-library" "^1.1.2"
-    "@nkmjs/ui-workspace" "^1.1.2"
-    "@nkmjs/utils" "^1.1.1"
+    "@nkmjs/actions" "^1.2.1"
+    "@nkmjs/app-core" "^1.2.1"
+    "@nkmjs/collections" "^1.1.1"
+    "@nkmjs/common" "^1.2.1"
+    "@nkmjs/data-core" "^1.2.1"
+    "@nkmjs/dialog" "^1.2.1"
+    "@nkmjs/documents" "^1.2.1"
+    "@nkmjs/electron-core" "^1.2.1"
+    "@nkmjs/environment" "^1.2.1"
+    "@nkmjs/i18n" "^0.1.1"
+    "@nkmjs/io-core" "^1.2.1"
+    "@nkmjs/io-electron" "^1.2.1"
+    "@nkmjs/metrics" "^1.2.1"
+    "@nkmjs/server-core" "^1.4.1"
+    "@nkmjs/server-io" "^0.2.1"
+    "@nkmjs/services" "^1.2.1"
+    "@nkmjs/style" "^1.2.1"
+    "@nkmjs/ui-core" "^1.2.1"
+    "@nkmjs/ui-data-controls" "^1.2.1"
+    "@nkmjs/ui-library" "^1.2.1"
+    "@nkmjs/ui-workspace" "^1.2.1"
+    "@nkmjs/utils" "^1.2.1"
     node-fetch "^2.6.7"
 
-"@nkmjs/data-core@^1.1.2":
-  version "1.1.2"
-  resolved "https://registry.yarnpkg.com/@nkmjs/data-core/-/data-core-1.1.2.tgz#69c10e5dad87b74aa43ea1860f319f77aa39196e"
-  integrity sha512-tQAf2k11q7ya5EvKTEhUexqNPLeJFT1SRETa/60hey3BC2rq8DaiN8tEUx9OULrqR0VmS6FNaAVyurWd9Se1dQ==
+"@nkmjs/data-core@^1.2.1":
+  version "1.2.1"
+  resolved "https://registry.yarnpkg.com/@nkmjs/data-core/-/data-core-1.2.1.tgz#6d8674a7f4f97324ea0942961725864db7a7eb3c"
+  integrity sha512-G1d51keQkNSiJdhDbnS3Z9sm7C/NKLSR3gMk6EPzactQsKFXYQEOp/AIf7vuRffrDfncge8b2Gn4fRgUi3EcSA==
   dependencies:
-    "@nkmjs/actions" "^1.1.2"
-    "@nkmjs/collections" "^1.0.3"
-    "@nkmjs/common" "^1.1.2"
-    "@nkmjs/utils" "^1.1.1"
+    "@nkmjs/actions" "^1.2.1"
+    "@nkmjs/collections" "^1.1.1"
+    "@nkmjs/common" "^1.2.1"
+    "@nkmjs/utils" "^1.2.1"
 
-"@nkmjs/data-library@^1.1.2":
-  version "1.1.2"
-  resolved "https://registry.yarnpkg.com/@nkmjs/data-library/-/data-library-1.1.2.tgz#aad822c26e7b8220a43ba52077b8901798cabb28"
-  integrity sha512-g5dHh+YmnylLu5NpQtvAjhAB1qxWWzevwVDQ0aoNSxnJe9KjGAwyQuPgrXrlKDvpg0qtId0ENjeugEGt6RINFA==
+"@nkmjs/dialog@^1.2.1":
+  version "1.2.1"
+  resolved "https://registry.yarnpkg.com/@nkmjs/dialog/-/dialog-1.2.1.tgz#d07214736960858f590e370c4ea02e68b5e8d245"
+  integrity sha512-DUrUl8U9kN9BrHAPMyADn2e3PYIoPnLoHhM+zkkpOgx3onHxM0vn4qGx9MS1a/2b97WlernVXlja5UtN0dCISQ==
   dependencies:
-    "@nkmjs/actions" "^1.1.2"
-    "@nkmjs/collections" "^1.0.3"
-    "@nkmjs/common" "^1.1.2"
-    "@nkmjs/data-core" "^1.1.2"
-    "@nkmjs/documents" "^1.1.2"
-    "@nkmjs/environment" "^1.1.2"
-    "@nkmjs/io-core" "^1.1.2"
-    "@nkmjs/utils" "^1.1.1"
+    "@nkmjs/actions" "^1.2.1"
+    "@nkmjs/collections" "^1.1.1"
+    "@nkmjs/common" "^1.2.1"
+    "@nkmjs/services" "^1.2.1"
+    "@nkmjs/style" "^1.2.1"
+    "@nkmjs/ui-core" "^1.2.1"
+    "@nkmjs/utils" "^1.2.1"
 
-"@nkmjs/dialog@^1.1.2":
-  version "1.1.2"
-  resolved "https://registry.yarnpkg.com/@nkmjs/dialog/-/dialog-1.1.2.tgz#a087805e1106479e71e4d49f8cf387eec97fc9c0"
-  integrity sha512-Aqh1xu/6miojl7GFS4d26ycXwjfOGgWZMLuRkRykXRn71vwd6mHgxKIv9qOZtcYzgcFFVqTFtiRdREBILO2UmQ==
+"@nkmjs/documents@^1.2.1":
+  version "1.2.1"
+  resolved "https://registry.yarnpkg.com/@nkmjs/documents/-/documents-1.2.1.tgz#dfd93345a2c588eeee33b0345a21e4ed157dfb72"
+  integrity sha512-X1V/pdsCIyyXcDLbul+3s6iI04Hwz83k9uf/2S1b+xgJYgEvcGYdVl7swWwOPon5/DzVQ3hRde0Jcyd20b1ksA==
   dependencies:
-    "@nkmjs/actions" "^1.1.2"
-    "@nkmjs/collections" "^1.0.3"
-    "@nkmjs/common" "^1.1.2"
-    "@nkmjs/services" "^1.1.2"
-    "@nkmjs/style" "^1.1.2"
-    "@nkmjs/ui-core" "^1.1.2"
-    "@nkmjs/utils" "^1.1.1"
+    "@nkmjs/actions" "^1.2.1"
+    "@nkmjs/collections" "^1.1.1"
+    "@nkmjs/common" "^1.2.1"
+    "@nkmjs/data-core" "^1.2.1"
+    "@nkmjs/environment" "^1.2.1"
+    "@nkmjs/io-core" "^1.2.1"
+    "@nkmjs/utils" "^1.2.1"
 
-"@nkmjs/documents@^1.1.2":
-  version "1.1.2"
-  resolved "https://registry.yarnpkg.com/@nkmjs/documents/-/documents-1.1.2.tgz#4705f92a9f5111ee1930c0d917e30120f8e76927"
-  integrity sha512-DWZ+AmPxHOfYn+g0rC2Rq3om61sN5/nW9fEuazk6vRUUFr41qvHrDj5C8PwSiAVVmrBXB9Ft1QgNaOxmNcQ+lA==
-  dependencies:
-    "@nkmjs/actions" "^1.1.2"
-    "@nkmjs/collections" "^1.0.3"
-    "@nkmjs/common" "^1.1.2"
-    "@nkmjs/data-core" "^1.1.2"
-    "@nkmjs/environment" "^1.1.2"
-    "@nkmjs/io-core" "^1.1.2"
-    "@nkmjs/utils" "^1.1.1"
-
-"@nkmjs/electron-core@^1.1.2":
-  version "1.1.2"
-  resolved "https://registry.yarnpkg.com/@nkmjs/electron-core/-/electron-core-1.1.2.tgz#055eace139586199cfc00e44d81aad1bc3e184ce"
-  integrity sha512-Ic0d1M3NEYnh1aSMdTGwyCPn36gkOXUOH6jdDorzTD1LrPszcHI/dYQb75Kc3u+f5FazvUkgjDLtb+tLAbUxZw==
+"@nkmjs/electron-core@^1.2.1":
+  version "1.2.1"
+  resolved "https://registry.yarnpkg.com/@nkmjs/electron-core/-/electron-core-1.2.1.tgz#453d587af7b63f0c149760de8cf2a1c551dfc66c"
+  integrity sha512-R1efr6e6CBHS04iXSCnGRnhDRxj26zrPMA/Ie1phpBZC519HTifBnzHP3gMVdlGq/Np9JutXb4hFuGkcPcl8cQ==
   dependencies:
     "@electron/remote" "^2.0.5"
-    "@nkmjs/actions" "^1.1.2"
-    "@nkmjs/app-core" "^1.1.2"
-    "@nkmjs/collections" "^1.0.3"
-    "@nkmjs/common" "^1.1.2"
-    "@nkmjs/io-electron" "^1.1.2"
-    "@nkmjs/services" "^1.1.2"
-    "@nkmjs/utils" "^1.1.1"
+    "@nkmjs/actions" "^1.2.1"
+    "@nkmjs/app-core" "^1.2.1"
+    "@nkmjs/collections" "^1.1.1"
+    "@nkmjs/common" "^1.2.1"
+    "@nkmjs/io-electron" "^1.2.1"
+    "@nkmjs/services" "^1.2.1"
+    "@nkmjs/utils" "^1.2.1"
+    electron-deeplink "^1.0.10"
 
-"@nkmjs/environment@^1.1.2":
-  version "1.1.2"
-  resolved "https://registry.yarnpkg.com/@nkmjs/environment/-/environment-1.1.2.tgz#2b18b1b051b9294d8c7f0b342fa7e7acf8eb3663"
-  integrity sha512-ZuJ3aeP6q3+K583fFNGmHXwSQ3hzROKhGe/UC7Ty6ZNZzbGqPjLQKipBnoI46D0Zy+F/zwpZj5fHHQ7IKQyAjQ==
+"@nkmjs/environment@^1.2.1":
+  version "1.2.1"
+  resolved "https://registry.yarnpkg.com/@nkmjs/environment/-/environment-1.2.1.tgz#28d1742e9c547dfa7a334d720bab9794f07d5ad8"
+  integrity sha512-5tnixJV2bql0+HNV1SQ1OJqvno77F0g8Pbudar2L6zqjWhJI4/kiiXq94e0/8SOJ/WGhelulIjgQv7f0PIaZ4g==
   dependencies:
-    "@nkmjs/collections" "^1.0.3"
-    "@nkmjs/common" "^1.1.2"
-    "@nkmjs/services" "^1.1.2"
-    "@nkmjs/utils" "^1.1.1"
+    "@nkmjs/collections" "^1.1.1"
+    "@nkmjs/common" "^1.2.1"
+    "@nkmjs/services" "^1.2.1"
+    "@nkmjs/utils" "^1.2.1"
 
-"@nkmjs/i18n@^0.0.3":
-  version "0.0.3"
-  resolved "https://registry.yarnpkg.com/@nkmjs/i18n/-/i18n-0.0.3.tgz#d51e3c3ce43d86c183a6980d27331a147b54c2ef"
-  integrity sha512-HfqQfWe/KBknHN54cd1awPFsZfFzh6LRhMpWbHHK+7RQlTKCF6/mSzyOlc2MbmhFx0Cm4F9nuvbYVwXWFddIwQ==
+"@nkmjs/i18n@^0.1.1":
+  version "0.1.1"
+  resolved "https://registry.yarnpkg.com/@nkmjs/i18n/-/i18n-0.1.1.tgz#7040a6eb2f870c8a8e0729bcb869099ae9452480"
+  integrity sha512-KQO0/K4SxOvokRA92XjzWl+zsOzuC7Ue4A3tmCviwGQQp9SEav5tzSud9ExXooNcYBztK1IRpYQyR/qdEDAoYA==
   dependencies:
-    "@nkmjs/collections" "^1.0.3"
-    "@nkmjs/common" "^1.1.2"
-    "@nkmjs/environment" "^1.1.2"
-    "@nkmjs/services" "^1.1.2"
-    "@nkmjs/utils" "^1.1.1"
+    "@nkmjs/collections" "^1.1.1"
+    "@nkmjs/common" "^1.2.1"
+    "@nkmjs/environment" "^1.2.1"
+    "@nkmjs/services" "^1.2.1"
+    "@nkmjs/utils" "^1.2.1"
 
-"@nkmjs/io-core@^1.1.2":
-  version "1.1.2"
-  resolved "https://registry.yarnpkg.com/@nkmjs/io-core/-/io-core-1.1.2.tgz#5b968afa899791f013881420d2f1a5c79c96b16b"
-  integrity sha512-LxrMmUO+/yB5jvoOIiqBtJk7kDGOA5LceHeeuyAoA6gkxL0seXWQabp1rfMsVYYQRW98ysw74GlodtMq51EnyQ==
+"@nkmjs/io-core@^1.2.1":
+  version "1.2.1"
+  resolved "https://registry.yarnpkg.com/@nkmjs/io-core/-/io-core-1.2.1.tgz#2ff373ef279130fc0df6e5846e01cdbcb7812e8e"
+  integrity sha512-1PwtP2upXBmlesQlj1HljB6tyXuLABRA4GqkeUi+4wc2nuCD6DEwuZp/akecwqCGuUtAhWdu+Arfts77MEPnzw==
   dependencies:
-    "@nkmjs/collections" "^1.0.3"
-    "@nkmjs/common" "^1.1.2"
-    "@nkmjs/environment" "^1.1.2"
-    "@nkmjs/services" "^1.1.2"
-    "@nkmjs/utils" "^1.1.1"
+    "@nkmjs/collections" "^1.1.1"
+    "@nkmjs/common" "^1.2.1"
+    "@nkmjs/environment" "^1.2.1"
+    "@nkmjs/services" "^1.2.1"
+    "@nkmjs/utils" "^1.2.1"
 
-"@nkmjs/io-electron@^1.1.2":
-  version "1.1.2"
-  resolved "https://registry.yarnpkg.com/@nkmjs/io-electron/-/io-electron-1.1.2.tgz#0da41514792a589ead0eff1fe94967a9cd87f3f2"
-  integrity sha512-JMoxmFud5yk9H/V3/MnK3RkWVxYwig4KFa06j+w8QvLb2Xsas6W9aLZIENBkB6GFkXaSBnZlDESvUEkwW+4QmQ==
+"@nkmjs/io-electron@^1.2.1":
+  version "1.2.1"
+  resolved "https://registry.yarnpkg.com/@nkmjs/io-electron/-/io-electron-1.2.1.tgz#f23b6cb13597eee07ee5ebd5b9250c7a5829c89a"
+  integrity sha512-ej1tb70JEiM2XaTa6pagj1zV29tckIud41r9YCBZcFc32PQU53dH7wGVUYJCD1B4kTcT0g8evxS1JpH642Sztw==
   dependencies:
-    "@nkmjs/collections" "^1.0.3"
-    "@nkmjs/common" "^1.1.2"
-    "@nkmjs/io-core" "^1.1.2"
-    "@nkmjs/utils" "^1.1.1"
+    "@nkmjs/collections" "^1.1.1"
+    "@nkmjs/common" "^1.2.1"
+    "@nkmjs/io-core" "^1.2.1"
+    "@nkmjs/utils" "^1.2.1"
     chokidar "^3.5.3"
     sanitize-filename "^1.6.3"
     tmp "^0.2.1"
 
-"@nkmjs/metrics@^1.1.2":
-  version "1.1.2"
-  resolved "https://registry.yarnpkg.com/@nkmjs/metrics/-/metrics-1.1.2.tgz#1ac3576922610ac20be9130c108622a245d9f5d2"
-  integrity sha512-5WzUNVqvXrmOmhsKOXk3iI6yRpW1W0EIz3JYlUcmlLcq4OkAC0N2l4Znp0XNu1Nwy+BhzjgpVEHaRLspb6Kv0A==
+"@nkmjs/metrics@^1.2.1":
+  version "1.2.1"
+  resolved "https://registry.yarnpkg.com/@nkmjs/metrics/-/metrics-1.2.1.tgz#245fbb6d126544129c8e651a182d8e69fe1e1195"
+  integrity sha512-SPTz5d9EXe9LEIG6SlCP5v+RphhZyY9Ug3+oIPsWKlemSweIvR6jIqZO4zOwyKBhIFAiD3RCcxKAaSzzpqWcXg==
   dependencies:
-    "@nkmjs/collections" "^1.0.3"
-    "@nkmjs/common" "^1.1.2"
-    "@nkmjs/environment" "^1.1.2"
-    "@nkmjs/services" "^1.1.2"
-    "@nkmjs/utils" "^1.1.1"
+    "@nkmjs/collections" "^1.1.1"
+    "@nkmjs/common" "^1.2.1"
+    "@nkmjs/environment" "^1.2.1"
+    "@nkmjs/services" "^1.2.1"
+    "@nkmjs/utils" "^1.2.1"
 
-"@nkmjs/server-core@^1.3.5":
-  version "1.3.5"
-  resolved "https://registry.yarnpkg.com/@nkmjs/server-core/-/server-core-1.3.5.tgz#f13f6a8d822cb83aeb54f357cceeeea321374156"
-  integrity sha512-pyvn7XevohtJBQuUl5RO7iqeMHM8+fmAT7qDg19Pgm72ObkE3GIOcvQ0VODKlBpv1Tux4exXDCz1N5+FAZNdIg==
+"@nkmjs/server-core@^1.4.1":
+  version "1.4.1"
+  resolved "https://registry.yarnpkg.com/@nkmjs/server-core/-/server-core-1.4.1.tgz#ec0cc6d5746990f3188aca12efd4436678eb72d5"
+  integrity sha512-l3WlHb8QGuHJsAPqJBr8EbRBldmcbWCYEGnlM0gl5sEKheCmnvrDTTqot/3c7lRCL5I0DKBtqmKY4fYl0KSPHg==
   dependencies:
-    "@nkmjs/collections" "^1.0.3"
-    "@nkmjs/common" "^1.1.2"
-    "@nkmjs/environment" "^1.1.2"
-    "@nkmjs/server-io" "^0.1.3"
-    "@nkmjs/utils" "^1.1.1"
+    "@nkmjs/collections" "^1.1.1"
+    "@nkmjs/common" "^1.2.1"
+    "@nkmjs/environment" "^1.2.1"
+    "@nkmjs/server-io" "^0.2.1"
+    "@nkmjs/utils" "^1.2.1"
     axios "^1.4.0"
     cors "^2.8.5"
     dotenv "^16.0.3"
@@ -2427,133 +2413,134 @@
     express "^4.18.2"
     express-fileupload "^1.4.0"
     express-openid-connect "^2.15.0"
+    ws "^8.13.0"
 
-"@nkmjs/server-io-aws-s3@^0.1.6":
-  version "0.1.6"
-  resolved "https://registry.yarnpkg.com/@nkmjs/server-io-aws-s3/-/server-io-aws-s3-0.1.6.tgz#fc9a989d61b88bf65c1f9f39bbc1e549b4190aa8"
-  integrity sha512-DJmCw/DqT1WOiz132aOSE6MBzl5IOvUXYkVfaYcS6zhp+EwlfLyuU+PmWuBDwI+MweDaz56hqzR6gdB48DWyxQ==
+"@nkmjs/server-io-aws-s3@^0.1.7":
+  version "0.1.11"
+  resolved "https://registry.yarnpkg.com/@nkmjs/server-io-aws-s3/-/server-io-aws-s3-0.1.11.tgz#03d55c2bb6166157a52f3a93e5028238d59e028f"
+  integrity sha512-PqB8UMDoMe8IQr/yQdlGno4SoXS34MlHkDMg7eyse9q6HZwqp/hedDSIBD77zFNZmYqwXsod9OxfTfgCZQPG/w==
   dependencies:
     "@aws-sdk/client-s3" "^3.328.0"
-    "@nkmjs/core" "^1.1.6"
-    "@nkmjs/server-io-aws" "^0.1.6"
+    "@nkmjs/core" "^1.2.4"
+    "@nkmjs/server-io-aws" "^0.1.11"
 
-"@nkmjs/server-io-aws@^0.1.6":
-  version "0.1.6"
-  resolved "https://registry.yarnpkg.com/@nkmjs/server-io-aws/-/server-io-aws-0.1.6.tgz#d621354b6d347ea81dcf56bca9304eed4f03170d"
-  integrity sha512-8mmmiV19OXT8O6G47RhNQSaVSLqCTlTsXHuQ480wSXtZFPxippgmbmrmcPY9jNybJCT30Jm/2OUWIe2F64eZGw==
+"@nkmjs/server-io-aws@^0.1.11":
+  version "0.1.11"
+  resolved "https://registry.yarnpkg.com/@nkmjs/server-io-aws/-/server-io-aws-0.1.11.tgz#999a8e939e39ef65ab076bba28ae2b8aaa0dd0c3"
+  integrity sha512-d1Qe6cyLpiEc+Z47rj4yDchGiH4MotvFkLMioOwGtRm4xeWdR2WZZsvZipVOxhAM9eyPvzJONXKue+RY73R2gA==
   dependencies:
-    "@nkmjs/core" "^1.1.6"
+    "@nkmjs/core" "^1.2.4"
 
-"@nkmjs/server-io-fs@^0.1.6":
-  version "0.1.6"
-  resolved "https://registry.yarnpkg.com/@nkmjs/server-io-fs/-/server-io-fs-0.1.6.tgz#b56b8ee54eafa798faea6d6e54c4e352395b230f"
-  integrity sha512-Z6pkUatWpgmodun50Zp4HbWhnShscAmmMMNd1uph48VkvvSFOQvzN+bcEoKqRtFnxnHWPVPuHwLKf7IkKICjqA==
+"@nkmjs/server-io-fs@^0.1.7":
+  version "0.1.11"
+  resolved "https://registry.yarnpkg.com/@nkmjs/server-io-fs/-/server-io-fs-0.1.11.tgz#9dd6650006e567aa75a749a709d1066e2baf7028"
+  integrity sha512-av8NU3WKo0I+cRnS77BKiFw/aSVf+i+h7JyzOVvIJIctbsfnUg7WHiv9o+pIZKaMKEshlADymOu8A8B7aMVfwA==
   dependencies:
-    "@nkmjs/core" "^1.1.6"
+    "@nkmjs/core" "^1.2.4"
 
-"@nkmjs/server-io@^0.1.3":
-  version "0.1.3"
-  resolved "https://registry.yarnpkg.com/@nkmjs/server-io/-/server-io-0.1.3.tgz#3e6a40bf266abbb9cc9fb45bd570b3aaa985de05"
-  integrity sha512-cIHqa1boeLDxcD/5RPP9VvE6kY2jeAgbXUq1TyrwGPFHX++zNC9Ox9k/fpNEB3DA9zhpTw6RqVmSBXxRaMWR+A==
+"@nkmjs/server-io@^0.2.1":
+  version "0.2.1"
+  resolved "https://registry.yarnpkg.com/@nkmjs/server-io/-/server-io-0.2.1.tgz#a102b1d95ac74befbeb137ee96e17cc7df93ef73"
+  integrity sha512-iSwmVMF7Vtx/eoyd0Kd7rhJL4RaLMM/qIcmPM+ZPR1vFR4v5p86zP9sNZb/GTBbUwWwzwXhTqeVdUZo3CaOZ8Q==
   dependencies:
-    "@nkmjs/collections" "^1.0.3"
-    "@nkmjs/common" "^1.1.2"
-    "@nkmjs/environment" "^1.1.2"
-    "@nkmjs/services" "^1.1.2"
-    "@nkmjs/utils" "^1.1.1"
+    "@nkmjs/collections" "^1.1.1"
+    "@nkmjs/common" "^1.2.1"
+    "@nkmjs/environment" "^1.2.1"
+    "@nkmjs/services" "^1.2.1"
+    "@nkmjs/utils" "^1.2.1"
+    limiter "^2.1.0"
 
-"@nkmjs/services@^1.1.2":
-  version "1.1.2"
-  resolved "https://registry.yarnpkg.com/@nkmjs/services/-/services-1.1.2.tgz#0f46a8c4f546ad6fea59cbce53864acd7726a89a"
-  integrity sha512-b+NK0sP1i3viOuH7hq4ZBVERWU2BGRK5+Nk0bu+24qHhwCwdqTwkp/O70RMvrHP5ztLJSMSOuA9327ruH2Jmlg==
+"@nkmjs/services@^1.2.1":
+  version "1.2.1"
+  resolved "https://registry.yarnpkg.com/@nkmjs/services/-/services-1.2.1.tgz#162a84ff6fe0ea984cf48273f4f9caa4fa316f2b"
+  integrity sha512-RCSPq+mA+qVPuhSxbZwhqjzotz3iMvVoCQW9BdUIMJQIfvCvfhhxuUiC+V0LK7rCDDLwzPZLUmY859IXVdEItQ==
   dependencies:
-    "@nkmjs/collections" "^1.0.3"
-    "@nkmjs/common" "^1.1.2"
-    "@nkmjs/utils" "^1.1.1"
+    "@nkmjs/collections" "^1.1.1"
+    "@nkmjs/common" "^1.2.1"
+    "@nkmjs/utils" "^1.2.1"
 
-"@nkmjs/style@^1.1.2":
-  version "1.1.2"
-  resolved "https://registry.yarnpkg.com/@nkmjs/style/-/style-1.1.2.tgz#a2b629b033e968b46a21a407352576940e38fe0e"
-  integrity sha512-DxQD5slHDnED4GxvwEFg0k165yP0D+wYGXVew7TN5hMQp9bKUpBxieTRSvMFkPuVrwYFuTHZbIQnOlPcqqI+bg==
+"@nkmjs/style@^1.2.1":
+  version "1.2.1"
+  resolved "https://registry.yarnpkg.com/@nkmjs/style/-/style-1.2.1.tgz#c74a501ee8d15df4deb061f8b9456e15f234c447"
+  integrity sha512-sAHzQo22nMdT0Bl/G83SxaHi76nry1xx3LlAl1si3BEzbE6XxxbtwnMnzQtovD+5GY9LSZGeR/vVVymJM24ttA==
   dependencies:
-    "@nkmjs/collections" "^1.0.3"
-    "@nkmjs/common" "^1.1.2"
-    "@nkmjs/environment" "^1.1.2"
-    "@nkmjs/utils" "^1.1.1"
+    "@nkmjs/collections" "^1.1.1"
+    "@nkmjs/common" "^1.2.1"
+    "@nkmjs/environment" "^1.2.1"
+    "@nkmjs/utils" "^1.2.1"
 
-"@nkmjs/ui-core@^1.1.2":
-  version "1.1.2"
-  resolved "https://registry.yarnpkg.com/@nkmjs/ui-core/-/ui-core-1.1.2.tgz#5681ea489b3e4e298a3d9e41dcf282671c1159ec"
-  integrity sha512-muBheI44y6Po7BBJE2QKPj2krHOc/0P+SxVrJm/n05vGpTlhQ32z3Ihyk6qWyGP0Xlv1UiAHSa8ezVeJuhHOiA==
+"@nkmjs/ui-core@^1.2.1":
+  version "1.2.1"
+  resolved "https://registry.yarnpkg.com/@nkmjs/ui-core/-/ui-core-1.2.1.tgz#3b130f5683e50feb86d3c9bf6aad59f474a41b7c"
+  integrity sha512-fLSe4hrXsNfMnMQW71hKR7Hg3k5tYT2t1Pux3IGDAaKBhTeZlh4X3L+fOx6Wy+APzAharVXIlt0UKnMSrqb/Sg==
   dependencies:
-    "@nkmjs/actions" "^1.1.2"
-    "@nkmjs/collections" "^1.0.3"
-    "@nkmjs/common" "^1.1.2"
-    "@nkmjs/data-core" "^1.1.2"
-    "@nkmjs/environment" "^1.1.2"
-    "@nkmjs/services" "^1.1.2"
-    "@nkmjs/style" "^1.1.2"
-    "@nkmjs/utils" "^1.1.1"
+    "@nkmjs/actions" "^1.2.1"
+    "@nkmjs/collections" "^1.1.1"
+    "@nkmjs/common" "^1.2.1"
+    "@nkmjs/data-core" "^1.2.1"
+    "@nkmjs/environment" "^1.2.1"
+    "@nkmjs/services" "^1.2.1"
+    "@nkmjs/style" "^1.2.1"
+    "@nkmjs/utils" "^1.2.1"
 
-"@nkmjs/ui-data-controls@^1.1.2":
-  version "1.1.2"
-  resolved "https://registry.yarnpkg.com/@nkmjs/ui-data-controls/-/ui-data-controls-1.1.2.tgz#5bf8d8602d0541433db9505429c3c31b1acd1d4f"
-  integrity sha512-wV50Q4JJziPRpHjKgrfpNm2E+v4ASVdG4FKRCmhGMO0eJT3MkEOSw/5hSaOjqxKGcMre++xpHWUQenSevB3kZg==
+"@nkmjs/ui-data-controls@^1.2.1":
+  version "1.2.1"
+  resolved "https://registry.yarnpkg.com/@nkmjs/ui-data-controls/-/ui-data-controls-1.2.1.tgz#10b88c9b5c7555bbd0b632ee5a08c11bde790976"
+  integrity sha512-o+yynJ+VCDxH/jpZZKjFRjka4vHBKZkFD2WMLX/YH43Yq4ydnpyiy5NevZUW75CaGRx710wBfjpbz+mlZpj0oQ==
   dependencies:
-    "@nkmjs/actions" "^1.1.2"
-    "@nkmjs/collections" "^1.0.3"
-    "@nkmjs/common" "^1.1.2"
-    "@nkmjs/data-core" "^1.1.2"
-    "@nkmjs/data-library" "^1.1.2"
-    "@nkmjs/documents" "^1.1.2"
-    "@nkmjs/environment" "^1.1.2"
-    "@nkmjs/io-core" "^1.1.2"
-    "@nkmjs/style" "^1.1.2"
-    "@nkmjs/ui-core" "^1.1.2"
-    "@nkmjs/utils" "^1.1.1"
+    "@nkmjs/actions" "^1.2.1"
+    "@nkmjs/collections" "^1.1.1"
+    "@nkmjs/common" "^1.2.1"
+    "@nkmjs/data-core" "^1.2.1"
+    "@nkmjs/documents" "^1.2.1"
+    "@nkmjs/environment" "^1.2.1"
+    "@nkmjs/io-core" "^1.2.1"
+    "@nkmjs/style" "^1.2.1"
+    "@nkmjs/ui-core" "^1.2.1"
+    "@nkmjs/utils" "^1.2.1"
 
-"@nkmjs/ui-library@^1.1.2":
-  version "1.1.2"
-  resolved "https://registry.yarnpkg.com/@nkmjs/ui-library/-/ui-library-1.1.2.tgz#b7532f79a64e7d2abe8678502ed0c63855492673"
-  integrity sha512-8XkQXraWUvtLbY84G9xKRnDOvHVAc88ot09IiB37o7ewWZ/ArnuhrCX0u+UkLDTNvkuNu5Ubk0OGzlemSHzMDQ==
+"@nkmjs/ui-library@^1.2.1":
+  version "1.2.1"
+  resolved "https://registry.yarnpkg.com/@nkmjs/ui-library/-/ui-library-1.2.1.tgz#1a881b5e8b0fa1b91a0fc924ed153ac7f4f5a939"
+  integrity sha512-ZLKzfepz+V0StfelG58i6C3hh8tvKlT8GneQ5C9Yk205kMoLAnir90VWdj3Qru9gdTf2j/f4Tko9RA2vUscL0g==
   dependencies:
-    "@nkmjs/actions" "^1.1.2"
-    "@nkmjs/collections" "^1.0.3"
-    "@nkmjs/common" "^1.1.2"
-    "@nkmjs/data-core" "^1.1.2"
-    "@nkmjs/dialog" "^1.1.2"
-    "@nkmjs/documents" "^1.1.2"
-    "@nkmjs/environment" "^1.1.2"
-    "@nkmjs/io-core" "^1.1.2"
-    "@nkmjs/style" "^1.1.2"
-    "@nkmjs/ui-core" "^1.1.2"
-    "@nkmjs/ui-data-controls" "^1.1.2"
-    "@nkmjs/utils" "^1.1.1"
+    "@nkmjs/actions" "^1.2.1"
+    "@nkmjs/collections" "^1.1.1"
+    "@nkmjs/common" "^1.2.1"
+    "@nkmjs/data-core" "^1.2.1"
+    "@nkmjs/dialog" "^1.2.1"
+    "@nkmjs/documents" "^1.2.1"
+    "@nkmjs/environment" "^1.2.1"
+    "@nkmjs/io-core" "^1.2.1"
+    "@nkmjs/style" "^1.2.1"
+    "@nkmjs/ui-core" "^1.2.1"
+    "@nkmjs/ui-data-controls" "^1.2.1"
+    "@nkmjs/utils" "^1.2.1"
 
-"@nkmjs/ui-workspace@^1.1.2":
-  version "1.1.2"
-  resolved "https://registry.yarnpkg.com/@nkmjs/ui-workspace/-/ui-workspace-1.1.2.tgz#cacfbe0ff17f8c35a4c76fbce336df652b6f5dce"
-  integrity sha512-gaLxpNHAry4IKnjvzQ7dtSteFmL+w5cyV24enHP/EG3uzyqQvYYuBB1LvWRAQGty8BVCM0lSmPr/4B7sSwYOTw==
+"@nkmjs/ui-workspace@^1.2.1":
+  version "1.2.1"
+  resolved "https://registry.yarnpkg.com/@nkmjs/ui-workspace/-/ui-workspace-1.2.1.tgz#0f3c957441e72f5175fd551cff4d5624aa66ba2d"
+  integrity sha512-TeT49tlrr+1HFQYgpDBe1Yyq9ZeHqNhV6Zkxs12pSYZwr/i40F4iFaAKAFSjzj/2VWP63eWl4hHMOOjHU0qdJQ==
   dependencies:
-    "@nkmjs/actions" "^1.1.2"
-    "@nkmjs/collections" "^1.0.3"
-    "@nkmjs/common" "^1.1.2"
-    "@nkmjs/data-core" "^1.1.2"
-    "@nkmjs/dialog" "^1.1.2"
-    "@nkmjs/documents" "^1.1.2"
-    "@nkmjs/environment" "^1.1.2"
-    "@nkmjs/io-core" "^1.1.2"
-    "@nkmjs/services" "^1.1.2"
-    "@nkmjs/style" "^1.1.2"
-    "@nkmjs/ui-core" "^1.1.2"
-    "@nkmjs/ui-data-controls" "^1.1.2"
-    "@nkmjs/ui-library" "^1.1.2"
-    "@nkmjs/utils" "^1.1.1"
+    "@nkmjs/actions" "^1.2.1"
+    "@nkmjs/collections" "^1.1.1"
+    "@nkmjs/common" "^1.2.1"
+    "@nkmjs/data-core" "^1.2.1"
+    "@nkmjs/dialog" "^1.2.1"
+    "@nkmjs/documents" "^1.2.1"
+    "@nkmjs/environment" "^1.2.1"
+    "@nkmjs/io-core" "^1.2.1"
+    "@nkmjs/services" "^1.2.1"
+    "@nkmjs/style" "^1.2.1"
+    "@nkmjs/ui-core" "^1.2.1"
+    "@nkmjs/ui-data-controls" "^1.2.1"
+    "@nkmjs/ui-library" "^1.2.1"
+    "@nkmjs/utils" "^1.2.1"
 
-"@nkmjs/utils@^1.1.1":
-  version "1.1.1"
-  resolved "https://registry.yarnpkg.com/@nkmjs/utils/-/utils-1.1.1.tgz#e539bbfb56b3a164e4f43c1314e87e24498f6ce8"
-  integrity sha512-Jql3vBg1I6v37P/I9wizqiQIwbbvGoNZufhrDK71D2K7mXVNVvwi0KDiNkPgrHj/PHwCeCuD0P4E3Gba8Dksxg==
+"@nkmjs/utils@^1.2.1":
+  version "1.2.1"
+  resolved "https://registry.yarnpkg.com/@nkmjs/utils/-/utils-1.2.1.tgz#e7d6f13f07112c0f1fef4f73d3f1b790544cbb12"
+  integrity sha512-NepyYGdJVUibuJ5D7N5yWLCP0VgxUBHlZ1YpQO97hSFN//QVLVr5/YuEzf3/yPQ2r3agMu4LXX9vTqlMltr81w==
   dependencies:
     uuid "^9.0.0"
 
@@ -3031,6 +3018,13 @@
     "@types/keyv" "^3.1.4"
     "@types/node" "*"
     "@types/responselike" "^1.0.0"
+
+"@types/electron@^1.6.10":
+  version "1.6.10"
+  resolved "https://registry.yarnpkg.com/@types/electron/-/electron-1.6.10.tgz#7e87888ed3888767cca68e92772c2c8ea46bc873"
+  integrity sha512-MOCVyzIwkBEloreoCVrTV108vSf8fFIJPsGruLCoAoBZdxtnJUqKA4lNonf/2u1twSjAspPEfmEheC+TLm/cMw==
+  dependencies:
+    electron "*"
 
 "@types/http-cache-semantics@*":
   version "4.0.1"
@@ -3573,6 +3567,13 @@ binary-extensions@^2.0.0:
   resolved "https://registry.yarnpkg.com/binary-extensions/-/binary-extensions-2.2.0.tgz#75f502eeaf9ffde42fc98829645be4ea76bd9e2d"
   integrity sha512-jDctJ/IVQbZoJykoeHbhXpOlNBqGNcwXJKJog42E5HDPUwQTSdjCHdihjj0DlnheQ7blbT6dHOafNAiS8ooQKA==
 
+bindings@^1.5.0:
+  version "1.5.0"
+  resolved "https://registry.yarnpkg.com/bindings/-/bindings-1.5.0.tgz#10353c9e945334bc0511a6d90b38fbc7c9c504df"
+  integrity sha512-p2q/t/mhvuOj/UeLlV6566GD/guowlr0hHxClI0W9m7MWYkL1F0hLo+0Aexs9HSPCtR1SXQ0TD3MMKrXZajbiQ==
+  dependencies:
+    file-uri-to-path "1.0.0"
+
 bl@^4.0.3, bl@^4.1.0:
   version "4.1.0"
   resolved "https://registry.npmjs.org/bl/-/bl-4.1.0.tgz"
@@ -4031,6 +4032,14 @@ chalk@4.1.0:
     ansi-styles "^4.1.0"
     supports-color "^7.1.0"
 
+chalk@4.1.2, chalk@^4.0.0, chalk@^4.0.2, chalk@^4.1.0, chalk@^4.1.1, chalk@^4.1.2:
+  version "4.1.2"
+  resolved "https://registry.npmjs.org/chalk/-/chalk-4.1.2.tgz"
+  integrity sha512-oKnbhFyRIXpUuez8iBMmyEa4nbj4IOQyuhc/wy9kY7/WVPcwIO9VA668Pu8RkO7+0G76SLROeyw9CpQ061i4mA==
+  dependencies:
+    ansi-styles "^4.1.0"
+    supports-color "^7.1.0"
+
 chalk@^2.0.0:
   version "2.4.2"
   resolved "https://registry.npmjs.org/chalk/-/chalk-2.4.2.tgz"
@@ -4039,14 +4048,6 @@ chalk@^2.0.0:
     ansi-styles "^3.2.1"
     escape-string-regexp "^1.0.5"
     supports-color "^5.3.0"
-
-chalk@^4.0.0, chalk@^4.0.2, chalk@^4.1.0, chalk@^4.1.1, chalk@^4.1.2:
-  version "4.1.2"
-  resolved "https://registry.npmjs.org/chalk/-/chalk-4.1.2.tgz"
-  integrity sha512-oKnbhFyRIXpUuez8iBMmyEa4nbj4IOQyuhc/wy9kY7/WVPcwIO9VA668Pu8RkO7+0G76SLROeyw9CpQ061i4mA==
-  dependencies:
-    ansi-styles "^4.1.0"
-    supports-color "^7.1.0"
 
 chardet@^0.7.0:
   version "0.7.0"
@@ -4621,25 +4622,25 @@ crypto-random-string@^2.0.0:
   resolved "https://registry.npmjs.org/crypto-random-string/-/crypto-random-string-2.0.0.tgz"
   integrity sha512-v1plID3y9r/lPhviJ1wrXpLeyUIGAZ2SHNYTEapm7/8A9nLPoyvVp3RK/EPFqn5kEznyWgYZNsRtYYIWbuG8KA==
 
-css-tree@^1.1.2:
-  version "1.1.3"
-  resolved "https://registry.yarnpkg.com/css-tree/-/css-tree-1.1.3.tgz#eb4870fb6fd7707327ec95c2ff2ab09b5e8db91d"
-  integrity sha512-tRpdppF7TRazZrjJ6v3stzv93qxRcSsFmW6cX0Zm2NVKpxE1WV1HblnghVv9TreireHkqI/VDEsfolRF1p6y7Q==
+css-tree@~2.2.0:
+  version "2.2.1"
+  resolved "https://registry.yarnpkg.com/css-tree/-/css-tree-2.2.1.tgz#36115d382d60afd271e377f9c5f67d02bd48c032"
+  integrity sha512-OA0mILzGc1kCOCSJerOeqDxDQ4HOh+G8NbOJFOTgOCzpw7fCBubk0fEyxp8AgOL/jvLgYA/uV0cMbe43ElF1JA==
   dependencies:
-    mdn-data "2.0.14"
-    source-map "^0.6.1"
+    mdn-data "2.0.28"
+    source-map-js "^1.0.1"
 
 cssesc@^3.0.0:
   version "3.0.0"
   resolved "https://registry.npmjs.org/cssesc/-/cssesc-3.0.0.tgz"
   integrity sha512-/Tb/JcjK111nNScGob5MNtsntNM1aCNUDipB/TkwZFhyDrrE47SOx/18wF2bbjgc3ZzCSKW1T5nt5EbFoAz/Vg==
 
-csso@^4.2.0:
-  version "4.2.0"
-  resolved "https://registry.yarnpkg.com/csso/-/csso-4.2.0.tgz#ea3a561346e8dc9f546d6febedd50187cf389529"
-  integrity sha512-wvlcdIbf6pwKEk7vHj8/Bkc0B4ylXZruLvOgs9doS5eOsOpuodOV2zJChSpkp+pRpYQLQMeF04nr3Z68Sta9jA==
+csso@^5.0.5:
+  version "5.0.5"
+  resolved "https://registry.yarnpkg.com/csso/-/csso-5.0.5.tgz#f9b7fe6cc6ac0b7d90781bb16d5e9874303e2ca6"
+  integrity sha512-0LrrStPOdJj+SPCCrGhzryycLjwcgUSHBtxNA8aIDxf0GLsRh1cKYhB00Gd1lDOS4yGH69+SNn13+TWbVHETFQ==
   dependencies:
-    css-tree "^1.1.2"
+    css-tree "~2.2.0"
 
 dargs@^7.0.0:
   version "7.0.0"
@@ -4978,6 +4979,21 @@ electron-builder@^24.3.0:
     simple-update-notifier "^1.1.0"
     yargs "^17.6.2"
 
+electron-deeplink@^1.0.10:
+  version "1.0.10"
+  resolved "https://registry.yarnpkg.com/electron-deeplink/-/electron-deeplink-1.0.10.tgz#0ad827cc84f890d4f7712b38055e92fabfc2cc8b"
+  integrity sha512-kyvjPdOtPfzNfdJYymIMPsC3N+eLv0SIobx6XYVX3j5zgwQ6XKz0P9qOCBwdlK8DhY3MX6l/jhx3gKSecOyWoA==
+  dependencies:
+    "@types/electron" "^1.6.10"
+    bindings "^1.5.0"
+    electron-log "^4.2.3"
+    node-addon-api "^2.0.0"
+
+electron-log@^4.2.3:
+  version "4.4.8"
+  resolved "https://registry.yarnpkg.com/electron-log/-/electron-log-4.4.8.tgz#fcb9f714dbcaefb6ac7984c4683912c74730248a"
+  integrity sha512-QQ4GvrXO+HkgqqEOYbi+DHL7hj5JM+nHi/j+qrN9zeeXVKy8ZABgbu4CnG+BBqDZ2+tbeq9tUC4DZfIWFU5AZA==
+
 electron-publish@24.3.0:
   version "24.3.0"
   resolved "https://registry.yarnpkg.com/electron-publish/-/electron-publish-24.3.0.tgz#9ad740e8a00ae97aca2210a3d7fa603d0db81140"
@@ -4995,19 +5011,19 @@ electron-to-chromium@^1.4.284:
   resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.4.387.tgz#9a93ef1bd01b5898436026401ea3cabb1dd17d7a"
   integrity sha512-tutLf+alr1/0YqJwKPdstVvDLmxmLb5xNyDLNS0RZmenHcEYk9qKfpKDCVZEKJ00JVbnayJm1MZAbYhYDFpcOw==
 
-electron@^24.1.2:
-  version "24.2.0"
-  resolved "https://registry.yarnpkg.com/electron/-/electron-24.2.0.tgz#54623a909e2e5d53a69d5fd8bf22ab37e61c188b"
-  integrity sha512-fEYAftYqFhveniWJbEHXjNMWjooFFIuqNj/eEFJkGzycInfBJq/c4E/dew++s6s0YLubxFnjoF2qZiqapLj0gA==
+electron@*, electron@^24.3.1:
+  version "24.3.1"
+  resolved "https://registry.yarnpkg.com/electron/-/electron-24.3.1.tgz#f7d7d2018088d98b629c196b3a59e09a3a156c4a"
+  integrity sha512-lKfC0umie1k5LW48troHzpPKJrqPEW+5j14/CPTC41K9+dJA98oUPt/05G7QAe8OGD4fHjQQuulfRdZ9MjjXeQ==
   dependencies:
     "@electron/get" "^2.0.0"
     "@types/node" "^18.11.18"
     extract-zip "^2.0.1"
 
-electron@^24.3.0:
-  version "24.3.0"
-  resolved "https://registry.yarnpkg.com/electron/-/electron-24.3.0.tgz#d1ef519b0d6d86cc4992519b49821372cb957fe6"
-  integrity sha512-M7PpfpOzGdLeZPr2xhxXuvJeoXPEHMH40Rtv8BCGleRPolwna9BepAGc0H0F+Uz5kGKOv3xcm99fTurvXUH0nw==
+electron@^24.1.2:
+  version "24.2.0"
+  resolved "https://registry.yarnpkg.com/electron/-/electron-24.2.0.tgz#54623a909e2e5d53a69d5fd8bf22ab37e61c188b"
+  integrity sha512-fEYAftYqFhveniWJbEHXjNMWjooFFIuqNj/eEFJkGzycInfBJq/c4E/dew++s6s0YLubxFnjoF2qZiqapLj0gA==
   dependencies:
     "@electron/get" "^2.0.0"
     "@types/node" "^18.11.18"
@@ -5350,6 +5366,11 @@ file-set@^4.0.2:
   dependencies:
     array-back "^5.0.0"
     glob "^7.1.6"
+
+file-uri-to-path@1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/file-uri-to-path/-/file-uri-to-path-1.0.0.tgz#553a7b8446ff6f684359c445f1e37a05dacc33dd"
+  integrity sha512-0Zt+s3L7Vf1biwWZ29aARiVYLx7iMGnEUl9x33fbB/j3jR81u/O2LbqK+Bm1CDSNDKVtJ/YjwY7TUd5SkeLQLw==
 
 file-url@3.0.0:
   version "3.0.0"
@@ -6056,10 +6077,10 @@ ignore@^5.0.4, ignore@^5.2.0:
   resolved "https://registry.npmjs.org/ignore/-/ignore-5.2.4.tgz"
   integrity sha512-MAb38BcSbH0eHNBxn7ql2NH/kX33OkB3lZ1BNdh7ENeRChHTYsTvWrMubiIAMNS2llXEEgZ1MUOBtXChP3kaFQ==
 
-image-size@^0.9.4:
-  version "0.9.7"
-  resolved "https://registry.yarnpkg.com/image-size/-/image-size-0.9.7.tgz#43b4ead4b1310d5ae310a559d52935a347e47c09"
-  integrity sha512-KRVgLNZkr00YGN0qn9MlIrmlxbRhsCcEb1Byq3WKGnIV4M48iD185cprRtaoK4t5iC+ym2Q5qlArxZ/V1yzDgA==
+image-size@^1.0.2:
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/image-size/-/image-size-1.0.2.tgz#d778b6d0ab75b2737c1556dd631652eb963bc486"
+  integrity sha512-xfOoWjceHntRb3qFCrh5ZFORYH8XCdYpASltMhZ/Q0KZiOwjdE/Yl2QCiWdwD+lygV5bMCvauzgu5PxBX/Yerg==
   dependencies:
     queue "6.0.2"
 
@@ -6625,6 +6646,11 @@ just-diff@^6.0.0:
   resolved "https://registry.npmjs.org/just-diff/-/just-diff-6.0.2.tgz"
   integrity sha512-S59eriX5u3/QhMNq3v/gm8Kd0w8OS6Tz2FS1NG4blv+z0MuQcBRJyFWjdovM0Rad4/P4aUPFtnkNjMjyMlMSYA==
 
+just-performance@4.3.0:
+  version "4.3.0"
+  resolved "https://registry.yarnpkg.com/just-performance/-/just-performance-4.3.0.tgz#cc2bc8c9227f09e97b6b1df4cd0de2df7ae16db1"
+  integrity sha512-L7RjvtJsL0QO8xFs5wEoDDzzJwoiowRw6Rn/GnvldlchS2JQr9wFYPiwZcDfrbbujEKqKN0tvENdbjXdYhDp5Q==
+
 keyv@^4.0.0:
   version "4.5.2"
   resolved "https://registry.yarnpkg.com/keyv/-/keyv-4.5.2.tgz#0e310ce73bf7851ec702f2eaf46ec4e3805cce56"
@@ -6762,6 +6788,13 @@ libnpmpublish@7.1.4:
     semver "^7.3.7"
     sigstore "^1.4.0"
     ssri "^10.0.1"
+
+limiter@^2.1.0:
+  version "2.1.0"
+  resolved "https://registry.yarnpkg.com/limiter/-/limiter-2.1.0.tgz#d38d7c5b63729bb84fb0c4d8594b7e955a5182a2"
+  integrity sha512-361TYz6iay6n+9KvUUImqdLuFigK+K79qrUtBsXhJTLdH4rIt/r1y8r1iozwh8KbZNpujbFTSh74mJ7bwbAMOw==
+  dependencies:
+    just-performance "4.3.0"
 
 lines-and-columns@^1.1.6:
   version "1.2.4"
@@ -7009,10 +7042,10 @@ md5.js@^1.3.4:
     inherits "^2.0.1"
     safe-buffer "^5.1.2"
 
-mdn-data@2.0.14:
-  version "2.0.14"
-  resolved "https://registry.yarnpkg.com/mdn-data/-/mdn-data-2.0.14.tgz#7113fc4281917d63ce29b43446f701e68c25ba50"
-  integrity sha512-dn6wd0uw5GsdswPFfsgMp5NSB0/aDe6fK94YJV/AJDYXL6HVLWBsxeq7js7Ad+mU2K9LAlwpk6kN2D5mwCPVow==
+mdn-data@2.0.28:
+  version "2.0.28"
+  resolved "https://registry.yarnpkg.com/mdn-data/-/mdn-data-2.0.28.tgz#5ec48e7bef120654539069e1ae4ddc81ca490eba"
+  integrity sha512-aylIc7Z9y4yzHYAJNuESG3hfhC+0Ibp/MAMiaOZgNv4pmEdFyfZhhhny4MNiAfWdBQ1RQ2mfDWmM1x8SvGyp8g==
 
 mdurl@^1.0.1:
   version "1.0.1"
@@ -7375,6 +7408,11 @@ node-addon-api@^1.6.3:
   version "1.7.2"
   resolved "https://registry.yarnpkg.com/node-addon-api/-/node-addon-api-1.7.2.tgz#3df30b95720b53c24e59948b49532b662444f54d"
   integrity sha512-ibPK3iA+vaY1eEjESkQkM0BbCqFOaZMiXRTtdB0u7b4djtY6JnsjvPdUHVMg6xQt3B8fpTTWHI9A+ADjM9frzg==
+
+node-addon-api@^2.0.0:
+  version "2.0.2"
+  resolved "https://registry.yarnpkg.com/node-addon-api/-/node-addon-api-2.0.2.tgz#432cfa82962ce494b132e9d72a15b29f71ff5d32"
+  integrity sha512-Ntyt4AIXyaLIuMHF6IOoTakB3K+RWxwtsHNRxllEoA6vPwP9o4866g6YWDLUdnucilZhmkxiHwHr11gAENw+QA==
 
 node-addon-api@^3.2.1:
   version "3.2.1"
@@ -8829,7 +8867,7 @@ sanitize-filename@^1.6.3:
   dependencies:
     truncate-utf8-bytes "^1.0.0"
 
-sass@^1.32.5:
+sass@^1.32.5, sass@^1.62.1:
   version "1.62.1"
   resolved "https://registry.yarnpkg.com/sass/-/sass-1.62.1.tgz#caa8d6bf098935bc92fc73fa169fb3790cacd029"
   integrity sha512-NHpxIzN29MXvWiuswfc1W3I0N8SXBd8UR26WntmDlRYf0bSADnwnOjsyMZ3lMezSlArD33Vs3YFhp7dWvL770A==
@@ -9095,7 +9133,7 @@ sort-keys@^2.0.0:
   dependencies:
     is-plain-obj "^1.0.0"
 
-"source-map-js@>=0.6.2 <2.0.0":
+"source-map-js@>=0.6.2 <2.0.0", source-map-js@^1.0.1:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/source-map-js/-/source-map-js-1.0.2.tgz#adbc361d9c62df380125e7f161f71c826f1e490c"
   integrity sha512-R0XvVJ9WusLiqTCEiGCmICCMplcCkIwwR11mOSD9CR5u+IXYdiseeEuXCVAjS54zqwkLcPNnmU4OeJ6tUrWhDw==
@@ -9470,10 +9508,10 @@ tempy@1.0.0:
     type-fest "^0.16.0"
     unique-string "^2.0.0"
 
-terser@^5.5.1:
-  version "5.17.2"
-  resolved "https://registry.yarnpkg.com/terser/-/terser-5.17.2.tgz#06c9818ae998066234b985abeb57bb7bff29d449"
-  integrity sha512-1D1aGbOF1Mnayq5PvfMc0amAR1y5Z1nrZaGCvI5xsdEfZEVte8okonk02OiaK5fw5hG1GWuuVsakOnpZW8y25A==
+terser@^5.17.4:
+  version "5.17.4"
+  resolved "https://registry.yarnpkg.com/terser/-/terser-5.17.4.tgz#b0c2d94897dfeba43213ed5f90ed117270a2c696"
+  integrity sha512-jcEKZw6UPrgugz/0Tuk/PVyLAPfMBJf5clnGueo45wTweoV8yh7Q7PEkhkJ5uuUbC7zAxEcG3tqNr1bstkQ8nw==
   dependencies:
     "@jridgewell/source-map" "^0.3.2"
     acorn "^8.5.0"
@@ -10102,6 +10140,11 @@ write-pkg@4.0.0:
     sort-keys "^2.0.0"
     type-fest "^0.4.1"
     write-json-file "^3.2.0"
+
+ws@^8.13.0:
+  version "8.13.0"
+  resolved "https://registry.yarnpkg.com/ws/-/ws-8.13.0.tgz#9a9fb92f93cf41512a0735c8f4dd09b8a1211cd0"
+  integrity sha512-x9vcZYTrFPC7aSIbj7sRCYo7L/Xb8Iy+pW0ng0wt2vCJv7M9HOMy0UoN3rr+IFC7hb7vXoqS+P9ktyLLLhO+LA==
 
 xmlbuilder@>=11.0.1, xmlbuilder@^15.1.1:
   version "15.1.1"

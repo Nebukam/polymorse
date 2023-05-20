@@ -12,28 +12,11 @@ const style = require("@nkmjs/style");
 module.exports = {
     // Generics
 
-    /**
-     * @description TODO
-     * @type {string}
-     * @customtag read-only
-     * @group Generic
-     */
     PENDING: Object.freeze(`pending`),
-
-    /**
-     * @description TODO
-     * @type {string}
-     * @customtag read-only
-     * @group Generic
-     */
     ERROR: Object.freeze(`error`),
-
-    /**
-     * @description TODO
-     * @type {string}
-     * @customtag read-only
-     * @group Generic
-     */
     SUCCESS: Object.freeze(`success`),
 
+    PRELOAD_HEADER: Object.freeze(`preloadHeader`),
+    PRELOAD_BODIES: Object.freeze(`preloadBody`),
+    
 }

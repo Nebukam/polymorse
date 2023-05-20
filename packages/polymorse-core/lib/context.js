@@ -6,33 +6,41 @@ const nkm = require("@nkmjs/core/nkmin");
  * Using Class as key in order to support @nkmjs-common BINDINGS
  */
 
-class ENTITIES extends nkm.com.helpers.CSYMBOL { constructor() { super(); } }
+class ENTITIES extends nkm.com.CSYMBOL { constructor() { super(); } }
 
-class ENTITY_SETTINGS extends nkm.com.helpers.CKEY { constructor() { super(); } }
-class ENTITY_SETTINGS_HEADER extends nkm.com.helpers.CKEY { constructor() { super(); } }
-class ENTITY_SETTINGS_BODY extends nkm.com.helpers.CKEY { constructor() { super(); } }
+class ENTITY extends nkm.com.CKEY { constructor() { super(); } }
+class ENTITY_STATS extends nkm.com.CKEY { constructor() { super(); } }
 
-class ENTITY_USER extends nkm.com.helpers.CKEY { constructor() { super(); } }
-class ENTITY_USER_HEADER extends nkm.com.helpers.CKEY { constructor() { super(); } }
-class ENTITY_USER_BODY extends nkm.com.helpers.CKEY { constructor() { super(); } }
+class SETTINGS_ENTITY extends ENTITY { constructor() { super(); } }
+class SETTINGS_BLOC_HEADER extends nkm.com.CKEY { constructor() { super(); } }
+class SETTINGS_BLOC_BODY extends nkm.com.CKEY { constructor() { super(); } }
 
-class ENTITY_PAGE extends nkm.com.helpers.CKEY { constructor() { super(); } }
-class ENTITY_PAGE_HEADER extends nkm.com.helpers.CKEY { constructor() { super(); } }
-class ENTITY_PAGE_BODY extends nkm.com.helpers.CKEY { constructor() { super(); } }
+class USER_ENTITY extends ENTITY { constructor() { super(); } }
+class USER_BLOC_HEADER extends nkm.com.CKEY { constructor() { super(); } }
+class USER_BLOC_BODY extends nkm.com.CKEY { constructor() { super(); } }
+
+class PAGE_ENTITY extends ENTITY { constructor() { super(); } }
+class PAGE_BLOC_HEADER extends nkm.com.CKEY { constructor() { super(); } }
+class PAGE_BLOC_BODY extends nkm.com.CKEY { constructor() { super(); } }
+
 
 module.exports = {
+    
     ENTITIES: ENTITIES,
+    ENTITY:ENTITY,
 
-    ENTITY_SETTINGS: ENTITY_SETTINGS,
-    ENTITY_SETTINGS_HEADER: ENTITY_SETTINGS_HEADER,
-    ENTITY_SETTINGS_BODY: ENTITY_SETTINGS_BODY,
+    ENTITY_STATS: ENTITY_STATS,
 
-    ENTITY_USER: ENTITY_USER,
-    ENTITY_USER_HEADER: ENTITY_USER_HEADER,
-    ENTITY_USER_BODY: ENTITY_USER_BODY,
+    SETTINGS_ENTITY: SETTINGS_ENTITY,
+    SETTINGS_BLOC_HEADER: SETTINGS_BLOC_HEADER,
+    SETTINGS_BLOC_BODY: SETTINGS_BLOC_BODY,
 
-    ENTITY_PAGE: ENTITY_PAGE,
-    ENTITY_PAGE_HEADER: ENTITY_PAGE_HEADER,
-    ENTITY_PAGE_BODY: ENTITY_PAGE_BODY
+    USER_ENTITY: USER_ENTITY,
+    USER_BLOC_HEADER: USER_BLOC_HEADER,
+    USER_BLOC_BODY: USER_BLOC_BODY,
+
+    PAGE_ENTITY: PAGE_ENTITY,
+    PAGE_BLOC_HEADER: PAGE_BLOC_HEADER,
+    PAGE_BLOC_BODY: PAGE_BLOC_BODY
 
 };

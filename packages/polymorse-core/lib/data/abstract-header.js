@@ -11,13 +11,8 @@ class AbstractHeader extends base {
     constructor() { super(); }
 
     static __NFO__ = nkm.com.NFOS.Ext({
-        [nkm.com.IDS.UID]: `@polymorse:abstract-header`,
-        [nkm.com.IDS.TYPE]: IDS.TYPE_HEADER
+        [nkm.com.IDS.UID]: `@polymorse:abstract-header`
     }, base);
-
-    static __DATALISTS = {
-        [IDS.CONTENT_BLOCKS]: { autoSort: (a, b) => { return a.Get(IDS.ORDER) - b.Get(IDS.ORDER) } },
-    };
 
     static __VALUES = this.Ext(base.__VALUES, {
         [IDS.TIME_CREATED]: { value: 0 },
@@ -32,7 +27,6 @@ class AbstractHeader extends base {
     _CleanUp() {
         super._CleanUp();
     }
-
 
 }
 

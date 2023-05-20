@@ -1,0 +1,24 @@
+{
+    "name": "@polymorse/views",
+    "version": "0.0.1",
+    "description": "Default PolyMorse Views",
+    "author": {
+        "name": "Timothé Lapetite",
+        "email": "nebukam@gmail.com"
+    },
+    "main": "index.js",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/Nebukam/polymorse/tree/main/packages/polymorse-views"
+    },
+    "license": "SEE LICENSE IN LICENSE",
+    "scripts": {
+        "link-nkmjs": "yarn link @nkmjs/core"
+    },
+    "dependencies": {
+        "csso": "^5.0.5",
+        "sass": "^1.62.1"
+    },
+    "devDependencies": {},
+    "gitHead": "3e0810bae6fa7bc8f956330cb8bb167f02d8234e"
+}

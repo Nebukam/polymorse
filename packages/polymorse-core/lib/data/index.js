@@ -7,6 +7,8 @@ module.exports = {
 
     blocks: require(`./blocks`),
 
+    EntityStats: require(`./entity-stats`),
+
     User: require(`./user`),
     UserHeader: require(`./user-header`),
     UserBody: require(`./user-body`),

@@ -12,8 +12,7 @@ class ContentBlock extends base {
     constructor() { super(); }
 
     static __NFO__ = nkm.com.NFOS.Ext({
-        [nkm.com.IDS.UID]: `@polymorse:block`,
-        [nkm.com.IDS.TYPE]:IDS.TYPE_BLOCK
+        [nkm.com.IDS.UID]: `@polymorse:block`
     }, base);
 
     static __VALUES = this.Ext(base.__VALUES, {

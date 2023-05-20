@@ -112,7 +112,7 @@ class LOCALES {
         ];
 
         this._locales = {};
-        list.forEach(l => { this._locales[l.id] = l; });
+        for (const l of list) { this._locales[l.id] = l; };
 
     }
 

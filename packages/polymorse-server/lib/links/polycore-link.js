@@ -28,13 +28,18 @@ class PolyCoreLink extends nkm.com.Observable {
 
     }
 
-    _RegistryLink(p_registry, p_transceiver) {
+    _RegistryLink(p_config) {
 
-        let newRegLink = new RegistryLink();
-        newRegLink.registry = p_registry;
-        newRegLink.transceiver = p_transceiver;
+        let registry = p_config.registry,
+            transceiver = p_config.io,
+            newRegLink = new RegistryLink();
 
-        this._registryMap.set(p_registry, newRegLink);
+        newRegLink.registry = registry;
+        newRegLink.transceiver = transceiver;
+
+        newRegLink.options = p_config;
+
+        this._registryMap.set(registry, newRegLink);
 
         this._regLinks.push(newRegLink);
         this._regQueue.push(newRegLink);
@@ -43,6 +48,8 @@ class PolyCoreLink extends nkm.com.Observable {
         return newRegLink;
 
     }
+
+    GetRegistryLink(p_registry) { return this._registryMap.get(p_registry); }
 
     get ready() { return this._ready; }
 
@@ -60,9 +67,9 @@ class PolyCoreLink extends nkm.com.Observable {
 
         this._config = p_config;
 
-        p_config.registries.forEach(conf => {
-            let link = this._RegistryLink(conf.registry, conf.io);
-        });
+        for (const conf of p_config.registries) {
+            let link = this._RegistryLink(conf);
+        };
 
         PolyMorse.mainSettings.header.RequestLoad((p_block, p_err) => {
             if (p_err) {

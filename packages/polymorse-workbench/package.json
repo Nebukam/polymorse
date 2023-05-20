@@ -22,10 +22,10 @@
     "dependencies": {
         "@nkmjs/core": "^1.2.4",
         "@nkmjs/server-io-fs": "^0.1.7",
+        "@polymorse/client": "^0.0.6",
         "@polymorse/core": "^0.0.6",
         "@polymorse/server": "^0.0.6",
-        "@polymorse/client": "^0.0.6",
-        "electron": "^24.3.0"
+        "electron": "^24.3.1"
     },
     "devDependencies": {
         "@nkmjs/core-dev": "^1.2.4",

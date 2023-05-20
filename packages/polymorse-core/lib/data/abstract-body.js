@@ -11,8 +11,7 @@ class AbstractBody extends base {
     constructor() { super(); }
 
     static __NFO__ = nkm.com.NFOS.Ext({
-        [nkm.com.IDS.UID]: `@polymorse:abstract-body`,
-        [nkm.com.IDS.TYPE]: IDS.TYPE_BODY
+        [nkm.com.IDS.UID]: `@polymorse:abstract-body`
     }, base);
 
     static __DATALISTS = {

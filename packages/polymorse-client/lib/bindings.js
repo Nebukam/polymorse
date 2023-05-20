@@ -12,7 +12,7 @@ class Bindings extends nkm.com.helpers.BindingKit {
 
         this.Add(
             {
-                context: nkm.datacontrols.CONTEXT.CONTROLLER,
+                ctx: nkm.datacontrols.CTX.CONTROLLER,
                 kvps: [
                     { key: polyCore.data.blocks.Code, binding: editors.entity.widgets.blocks.Code },
                     { key: polyCore.data.blocks.Text, binding: editors.entity.widgets.blocks.Text },

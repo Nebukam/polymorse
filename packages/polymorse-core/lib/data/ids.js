@@ -151,10 +151,6 @@ IDS.TITLE = Object.freeze(`title`);
 IDS.DESCRIPTION = Object.freeze(`description`);
 IDS.SUMMARY = Object.freeze(`summary`);
 
-IDS.TYPE_BODY = Object.freeze(`body`);
-IDS.TYPE_HEADER = Object.freeze(`header`);
-IDS.TYPE_BLOCK = Object.freeze(`block`);
-
 IDS.JSON = Object.freeze(`json`);
 
 nkm.data.RegisterDescriptors({
@@ -183,6 +179,14 @@ nkm.data.RegisterDescriptors({
     },
 
 });
+
+//#endregion
+
+//#region Bloc ids
+
+IDS.BLOC_BODY = Object.freeze(`body`);
+IDS.BLOC_HEADER = Object.freeze(`header`);
+IDS.BLOC_STATS = Object.freeze(`stats`);
 
 //#endregion
 

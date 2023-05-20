@@ -58,13 +58,13 @@ class RequestBatch extends base {
         this._completeCount = 0;
         this._requests.length = 0;
 
-        requests.forEach(req => {
+        for (const req of requests) {
             let r = nkm.com.Rent(req.type);
             this._requests.push(r);
             r.Send(req)
                 .then(this._OnReqSuccess)
                 .catch(this._OnReqError);
-        });
+        };
 
         return this._callbacks;
 
@@ -98,7 +98,7 @@ class RequestBatch extends base {
 
     _CleanUp() {
 
-        this._requests.forEach(req => { req.Release(); });
+        for (const req of this._requests) { req.Release(); };
 
         this._running = false;
         this._requests.length = 0;

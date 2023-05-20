@@ -2,12 +2,8 @@
 
 module.exports = {
 
-    AbstractRender: require(`./handler-render`),
-
-    UserAction: require(`./handler-user-action`),
-    UserGet: require(`./handler-user-get`),
-
-    RenderPage: require(`./handler-render-page`),
-    RenderAdmin: require(`./handler-render-admin`),
-
+    Action: require(`./handler-action`),
+    Operation: require(`./handler-operation`),
+    View: require(`./handler-view`),
+    
 }

@@ -5,18 +5,21 @@ const u = nkm.u;
 const io = nkm.io;
 
 const IDS = require(`./ids`);
-const CONTEXT = require(`../context`);
+const CTX = require(`../context`);
 
 const base = require(`./abstract-entity`);
 class Page extends base {
     constructor() { super(); }
 
-    static __headerKey = CONTEXT.ENTITY_PAGE_HEADER;
-    static __bodyKey = CONTEXT.ENTITY_PAGE_BODY;
-
     static __NFO__ = nkm.com.NFOS.Ext({
         [nkm.com.IDS.UID]: `@polymorse:page`
     }, base);
+
+    static __BLOCS = base.Ext(base.__BLOCS, {
+        [IDS.BLOC_HEADER]: { type: CTX.PAGE_BLOC_HEADER },
+        [IDS.BLOC_BODY]: { type: CTX.PAGE_BLOC_BODY },
+        [IDS.BLOC_STATS]: { type: CTX.ENTITY_STATS },
+    });
 
     _Init() {
         super._Init();

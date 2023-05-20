@@ -1,7 +1,7 @@
 'use strict';
 
 const nkm = require(`@nkmjs/core/nkmin`);
-const JSONS = nkm.data.serialization.JSONSerializer;
+const JSONS = nkm.data.s11n.JSONSerializer;
 
 const IDS = require(`./ids`);
 

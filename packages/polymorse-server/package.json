@@ -19,6 +19,8 @@
         "@nkmjs/server-io-aws-s3": "^0.1.7",
         "@nkmjs/server-io-fs": "^0.1.7",
         "@polymorse/core": "^0.0.6",
+        "@polymorse/views": "^0.0.1",
+        "limiter": "^2.1.0",
         "marked": "^4.3.0"
     },
     "gitHead": "3e0810bae6fa7bc8f956330cb8bb167f02d8234e"

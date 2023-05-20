@@ -24,7 +24,7 @@ class AbstractEntityBlock extends base {
     }, base);
 
     static __VALUES = this.Ext(base.__VALUES, {
-        [IDS.UUID]: { value: 0, [nkm.data.IDS.SKIP_SERIALIZATION]: true },
+        [IDS.UUID]: { value: 0, [nkm.data.IDS.SKIP_S11N]: true },
     });
 
     _Init() {

@@ -11,9 +11,10 @@ module.exports = {
     LOCALES: require(`./lib/locales`),
     SIGNAL: require(`./lib/signal`),
     FLAGS: require(`./lib/flags`),
+    REG: require(`./lib/registries`),
 
     PolyMorse: __POLYMORSE,
-    routes: require(`./lib/routes`),
+    api: require(`./lib/api`),
     helpers: require(`./lib/helpers`),
     data: require(`./lib/data`),
 

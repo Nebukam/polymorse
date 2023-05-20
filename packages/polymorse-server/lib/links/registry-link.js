@@ -3,16 +3,25 @@
 const nkm = require(`@nkmjs/core/nkmserver`);
 const polyCore = require(`@polymorse/core`);
 
+const { RateLimiter } = require(`limiter`);
+
+const FLAGS = require(`../flags`);
 const SIGNAL = require(`../signal`);
 
 class RegistryLink extends nkm.com.Observable {
     constructor() { super(); }
+
+    static __distribute = nkm.com.helpers.OptionsDistribute.Ext()
+        .To(`preload`, null, []);
 
     _Init() {
         super._Init();
 
         this._safeIncrement = 0;
         this._lastTimestamp = Date.now();
+        this._preloadQueue = [];
+
+        this._Bind(this._Preload);
 
         this._registry = null;
         this._registryObserver = new nkm.com.signals.Observer();
@@ -21,6 +30,19 @@ class RegistryLink extends nkm.com.Observable {
             .Hook(polyCore.SIGNAL.REQUEST_LOAD, this._OnLoadRequest, this)
             .Hook(polyCore.SIGNAL.REQUEST_SAVE, this._OnSaveRequest, this);
 
+        this._batchCount = 10;
+        this._rateLimit = new RateLimiter({ tokensPerInterval: 1500, interval: "second" });
+
+    }
+
+    /**
+     * @description TODO
+     * @type {object}
+     */
+    get options() { return this._options; }
+    set options(p_options) {
+        this._options = p_options;
+        this.constructor.__distribute.Update(this, p_options);
     }
 
     get timestampUID() {
@@ -41,6 +63,11 @@ class RegistryLink extends nkm.com.Observable {
     set registry(p_value) {
         this._registry = p_value;
         this._registryObserver.ObserveOnly(p_value);
+    }
+
+    get preload() { return this._preload; }
+    set preload(p_value) {
+        this._preload = p_value;
     }
 
     _OnEntityCreated(p_registry, p_entity) {
@@ -74,122 +101,123 @@ class RegistryLink extends nkm.com.Observable {
 
     //#region Initial loading
 
-    _LoadIDList(p_ids, p_type) {
-        return new Promise(resolve => {
+    Bootstrap(p_callback) {
+        let rSettings = this._registry.settings;
+        if (this._preload?.length) {
+            for (const p of this._preload) { this._preloadQueue.push(p); };
+        }
 
-            if (p_ids.length == 0) {
-                this._log(`Skip loading [@${p_type}] (EMPTY)`, `←`);
-                resolve(p_ids);
-                return;
-            }
+        this._log(`Bootstrap`);
 
-            let queue = [...p_ids];
-
-            this._log(`Loading [@${p_type}]  (${queue.length})`, `←`);
-
-            p_ids.forEach(entry => {
-
-                this._transceiver.ReadFile(
-                    this._transceiver.Join(entry, `${p_type}.json`),
-                    (p_err, p_path, p_data) => {
-
-                        let data = { [p_type]: nkm.u.isString(p_data) ? JSON.parse(p_data) : p_data };
-
-                        this._registry.GetOrCreate(entry, data);
-
-                        queue.splice(queue.indexOf(entry), 1);
-                        if (!queue.length) { resolve(p_ids); }
-
+        if (rSettings) {
+            rSettings.header.RequestLoad((p_block, p_err) => {
+                if (p_err) {
+                    rSettings.header.RequestSave((p_block, p_err) => {
+                        if (p_err) { throw p_err; }
+                        this._registry.InitSettings(() => { this._Preload(p_callback); }, true);
                     });
-
+                } else { this._registry.InitSettings(() => { this._Preload(p_callback); }, false); }
             });
-
-        });
+        } else {
+            this._Preload(p_callback);
+        }
     }
 
-    TryLoad(p_type, p_ids, p_callback) {
+    _Preload(p_callback) {
 
-        //Check if user directory exists at all
-        let type = polyCore.data.IDS.TYPE_HEADER;
+        let blocId = this._preloadQueue.pop();
+
+        if (!blocId) {
+            p_callback();
+            return;
+        }
+
+        this.TryLoad(blocId, null, () => { this._Preload(p_callback); });
+
+    }
+
+    async TryLoad(p_blocId, p_entityIds, p_callback) {
 
         this._transceiver.Exists(``, (p_err, p_path, p_exists) => {
 
             if (!p_exists) {
                 this._log(`Skip loading (ENOENT on ${p_path})`, `←`);
-                p_callback(this, p_ids);
+                p_callback(this, p_entityIds);
                 return;
             }
 
-            if (!p_ids) {
+            if (!p_entityIds) {
 
                 this._transceiver.ReadDir(``, (p_err, p_path, p_content) => {
 
                     if (p_err) {
                         if (p_err.code == 'ENOENT') {
                             this._log(`Skip loading (ENOENT)`, `←`);
-                            p_callback(this, p_ids);
+                            p_callback(this, p_entityIds);
                         } else {
                             throw p_err;
                         }
                     } else {
-                        this._LoadIDList(p_content.directories, p_type)
-                            .then((ids) => { p_callback(this, p_ids); });
+                        this._LoadBlocList(p_content.directories, p_blocId)
+                            .then((ids) => { p_callback(this, p_entityIds); });
                     }
 
                 });
 
             } else {
-                this._LoadIDList(p_ids, p_type).then((ids) => { p_callback(this, p_ids); });
+                this._LoadBlocList(p_entityIds, p_blocId).then((ids) => { p_callback(this, p_entityIds); });
             }
 
         });
 
     }
 
-    Bootstrap(p_callback) {
-        let rSettings = this._registry.settings;
-        if (rSettings) {
-            rSettings.header.RequestLoad((p_block, p_err) => {
-                if (p_err) {
-                    rSettings.header.RequestSave((p_block, p_err) => {
-                        if (p_err) { throw p_err; }
-                        this._registry.InitSettings(() => { this.LoadHeaders(null, p_callback); }, true);
-                    });
-                } else { this._registry.InitSettings(() => { this.LoadHeaders(null, p_callback); }, false); }
-            });
-        } else {
-            this.LoadHeaders(null, p_callback);
+    async _LoadBlocList(p_entityIds, p_blocId) {
+
+        if (p_entityIds.length == 0) {
+            this._log(`Skip loading [@${p_blocId}] (EMPTY)`, `←`);
+            resolve(p_entityIds);
+            this.Broadcast(SIGNAL.BLOCS_LOADED, this, p_entityIds, p_blocId);
+            return;
         }
+
+        let queue = [...p_entityIds];
+
+        this._log(`Loading [@${p_blocId}]  (${queue.length})`, `←`);
+
+        while (queue.length) {
+
+            let batch = [];
+
+            for (let i = 0; i < this._batchCount; i++) {
+                let eid = queue.shift();
+                if (!eid) { continue; }
+                batch.push(this.LoadBloc(eid, p_blocId));
+            }
+
+            await this._rateLimit.removeTokens(batch.length);
+            await Promise.all(batch);
+
+        }
+
+        this.Broadcast(SIGNAL.BLOCS_LOADED, this, p_entityIds, p_blocId);
+        return p_entityIds;
+
     }
 
-    LoadHeaders(p_ids = null, p_callback = null) {
-        this.TryLoad(polyCore.data.IDS.TYPE_HEADER, p_ids,
-            (p_source, p_fwdIds) => {
-                this._OnHeadersLoaded(p_ids, p_callback);
+    async LoadBloc(p_entityId, p_blocId) {
+        await this._transceiver.ReadFile(
+            this._transceiver.Join(p_entityId, `${p_blocId}.json`),
+            (p_err, p_path, p_data) => {
+                let data = { [p_blocId]: nkm.u.isString(p_data) ? JSON.parse(p_data) : p_data };
+                this._registry.GetOrCreate(p_entityId, data);
             });
-    }
-
-    _OnHeadersLoaded(p_ids, p_callback = null) {
-        if (p_callback) { p_callback(this, p_ids); }
-        this.Broadcast(SIGNAL.HEADERS_LOADED, this, p_ids);
-    }
-
-    LoadBodies(p_ids = null, p_callback = null) {
-        this.TryLoad(polyCore.data.IDS.TYPE_BODY, p_ids,
-            (p_source, p_fwdIds) => {
-                this._OnBodiesLoaded(p_ids, p_callback);
-            });
-    }
-
-    _OnBodiesLoaded(p_ids, p_callback = null) {
-        if (p_callback) { p_callback(this, p_ids); }
-        this.Broadcast(SIGNAL.BODIES_LOADED, this, p_ids);
     }
 
     //#endregion
 
     _log(p_message, p_icon = '←') { //ⓘ ← →
-        console.log(` · · ${p_icon} RegistryLink | ${nkm.u.tils.TruncateStart(this._transceiver.root, 30)} :: ${p_message}`);
+        console.log(` · · ${p_icon} RegistryLink(${this._registry?.name}) | ${nkm.u.tils.TruncateStart(this._transceiver.root, 30)} :: ${p_message}`);
     }
 
 }

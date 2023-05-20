@@ -1,0 +1,7 @@
+<%- include('partials/header') -%>
+
+  <h1 class="text-4xl">💣 <%= error.status || "ERROR" %>:</h1>
+  <h2 class="text-3xl"> <%= error.message || "Error" %></h2>
+  <pre> <%= error.stack %></pre>
+  
+<%- include('partials/footer') -%>

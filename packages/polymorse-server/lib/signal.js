@@ -2,7 +2,6 @@
 
 module.exports = {
 
-    HEADERS_LOADED: Symbol(`headersLoaded`),
-    BODIES_LOADED: Symbol(`bodiesLoaded`),
+    BLOCS_LOADED: Symbol(`blocsLoaded`)
 
 }

@@ -6,10 +6,14 @@ const io = nkm.io;
 
 const IDS = require(`./ids`);
 const SIGNAL = require("../signal");
-const CONTEXT = require(`../context`);
+const CTX = require(`../context`);
 
 const base = nkm.com.Observable;
 class Registry extends base {
+
+    static __distribute = nkm.com.helpers.OptionsDistribute.Ext()
+        .To(`system`, null, null, `__defaultSystem`)
+        .To(`content`, null, ``);
 
     static __entityKey = null;
 
@@ -17,9 +21,8 @@ class Registry extends base {
         super();
 
         let eKey = p_entityKey || this.constructor.__entityKey;
-        if (nkm.u.isInstanceOf(eKey, nkm.com.helpers.CSYMBOL)) {
-            this._entityClass = nkm.com.BINDINGS.Get(
-                CONTEXT.ENTITIES, eKey, null);
+        if (nkm.u.isInstanceOf(eKey, nkm.com.CSYMBOL)) {
+            this._entityClass = nkm.com.GetBinding(CTX.ENTITIES, eKey, null);
         } else {
             this._entityClass = eKey;
         }
@@ -50,13 +53,23 @@ class Registry extends base {
 
     get name() { return this._name; }
 
+    /**
+     * @description TODO
+     * @type {object}
+     */
+    get options() { return this._options; }
+    set options(p_options) {
+        this._options = p_options;
+        this.constructor.__distribute.Update(this, p_options);
+    }
+
+    get prefix() { return this._prefix; }
+    set prefix(p_value) { this._prefix = p_value; }
+
     get settings() { return this._settings; }
     set settings(p_value) { this._settings = p_value; }
 
     InitSettings(p_callback, p_firstTime = true) { p_callback(); }
-
-    get prefix() { return this._prefix; }
-    set prefix(p_value) { this._prefix = p_value; }
 
     get entities() { return this._entities; }
 

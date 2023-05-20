@@ -7,9 +7,7 @@ module.exports = {
     IDS: require(`./lib/ids`),
 
     links:require(`./lib/links`),
-
-    actions: require(`./lib/actions`),
-    getters: require(`./lib/getters`),
+    api: require(`./lib/api`),
     handlers: require(`./lib/handlers`),
     
     openai: require(`./lib/openai`),

@@ -5,26 +5,23 @@ const u = nkm.u;
 const io = nkm.io;
 
 const IDS = require(`./ids`);
-const CONTEXT = require(`../context`);
+const CTX = require(`../context`);
 
 const base = require(`./abstract-entity`);
 class Settings extends base {
     constructor() { super(); }
 
-    static __headerKey = CONTEXT.ENTITY_SETTINGS_HEADER;
-    static __bodyKey = CONTEXT.ENTITY_SETTINGS_BODY;
-
     static __NFO__ = nkm.com.NFOS.Ext({
         [nkm.com.IDS.UID]: `@polymorse:settings`
     }, base);
 
+    static __BLOCS = base.Ext(base.__BLOCS, {
+        [IDS.BLOC_HEADER]: { type: CTX.SETTINGS_BLOC_HEADER },
+        [IDS.BLOC_BODY]: { type: CTX.SETTINGS_BLOC_BODY },
+    });
+
     _Init() {
         super._Init();
-    }
-
-    Wake() {
-        this.LoadHeader();
-        this.LoadBody();
     }
 
     _CleanUp() {
