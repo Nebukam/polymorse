@@ -30,6 +30,16 @@ class ViewHandler extends nkm.server.handlers.View {
 
     get user() { return this._user; }
 
+    PostprocessLocals(p_locals){
+        // Inject bloc id mappings
+    }
+
+    GetView(){
+        let viewId = super.GetView();
+        //
+        return viewId;
+    }
+
     async Handle() {
         this._user = this._req.user;
         await super.Handle();

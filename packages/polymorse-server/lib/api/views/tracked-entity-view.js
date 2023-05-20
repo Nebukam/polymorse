@@ -2,6 +2,7 @@
 
 const nkm = require(`@nkmjs/core/nkmserver`);
 const polyCore = require(`@polymorse/core`);
+const polyLinks = require(`../../links/polycore-link`);
 
 /**
  * Get EDIT manages the creation & serving of pages for editing.
@@ -23,7 +24,19 @@ class TrackedEntityView extends base {
     }
 
     async _InternalExecute(p_params) {
-        let entity = this._registry
+
+        let
+            entityId = p_params.id,
+            regLink = this.registryLink,
+            entity = await regLink.RequireEntity(entityId);
+
+        if (!entity) {
+            this._OnError();
+            return null;
+        }
+
+        return entity;
+
     }
 
     async LoadViewedEntity() {

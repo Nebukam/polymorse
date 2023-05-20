@@ -85,6 +85,7 @@ class RegistryLink extends nkm.com.Observable {
                     p_block.Deserialize(JSON.parse(p_serial));
                     p_callback(null);
                 }
+                return p_block;
             });
     }
 
@@ -96,6 +97,7 @@ class RegistryLink extends nkm.com.Observable {
             (p_err, p_path, p_success) => {
                 if (p_err) { p_callback(p_err); }
                 else { p_callback(null); }
+                return p_block;
             });
     }
 
@@ -206,12 +208,58 @@ class RegistryLink extends nkm.com.Observable {
     }
 
     async LoadBloc(p_entityId, p_blocId) {
-        await this._transceiver.ReadFile(
+        return await this._transceiver.ReadFile(
             this._transceiver.Join(p_entityId, `${p_blocId}.json`),
             (p_err, p_path, p_data) => {
                 let data = { [p_blocId]: nkm.u.isString(p_data) ? JSON.parse(p_data) : p_data };
-                this._registry.GetOrCreate(p_entityId, data);
+                return this._registry.GetOrCreate(p_entityId, data);
             });
+    }
+
+    async RequireEntity(p_entityId) {
+
+        let
+            blocDefs = this._registry.entityClass.__BLOCS,
+            entity = this._registry.Get(p_entityId),
+            ids = [],
+            promises = [],
+            serials = {};
+
+        //TODO: Ensure it is loaded first
+        if (entity) {
+
+            let loaded = true;
+
+            for (let id in blocDefs) {
+                let def = blocDefs[id];
+                if (!entity[def.member].isLoaded) {
+                    loaded = false;
+                    ids.push(id);
+                    promises.push(this._transceiver.ReadFile(
+                        this._transceiver.Join(p_entityId, `${id}.json`),
+                        (p_err, p_path, p_data) => {
+                            if (p_err) { return null; }
+                            return nkm.u.isString(p_data) ? JSON.parse(p_data) : p_data;
+                        })
+                    );
+                }
+            }
+
+            if (loaded) { return entity; }
+
+        }
+
+        let
+            data = await Promise.all(promises),
+            i = 0;
+
+        for (const d of data) {
+            if (d != null) { serials[ids[i]] = d; }
+            i++;
+        }
+
+        return Object.keys(serials).length ? this._registry.GetOrCreate(p_entityId, serials) : null;
+
     }
 
     //#endregion

@@ -32,35 +32,33 @@ class AbstractEntity extends base {
 
     _Init() {
         super._Init();
-
-        this._internalBlocks = new nkm.collections.List();
-
-        this._Bind(this._OnSubRequestLoad);
-        this._Bind(this._OnSubRequestSave);
-
     }
 
     _InitBloc(p_newBloc, p_def) {
         super._InitBloc(p_newBloc, p_def);
         p_newBloc
             .Watch(nkm.data.SIGNAL.DIRTY_CLEARED, () => { nkm.data.SIMPLEX.TryClearDirtyDeep(this); })
-            .Watch(SIGNAL.REQUEST_LOAD, (block, p_callback) => { this.Broadcast(SIGNAL.REQUEST_LOAD, block, p_callback); })
-            .Watch(SIGNAL.REQUEST_SAVE, (block, p_callback) => { this.Broadcast(SIGNAL.REQUEST_SAVE, block, p_callback); })
+            .Watch(SIGNAL.REQUEST_LOAD, this._OnBlocRequestLoad, this)
+            .Watch(SIGNAL.REQUEST_SAVE, this._OnBlocRequestSave, this)
             .Watch(nkm.com.SIGNAL.VALUE_CHANGED, (...args) => { this.Broadcast(SIGNAL.BLOC_VALUE_CHANGED, p_newBloc, ...args); });
     }
 
     get header() { return this._header; }
     get body() { return this._body; }
 
-    LoadBloc(p_id, p_serial, p_requestLoad = null) {
+    async LoadBloc(p_id, p_serial, p_requestLoad = null) {
         let bloc = this[`_${p_id}`];
-        if (p_serial) { bloc.Deserialize(p_serial); }
-        else if (p_requestLoad) { bloc.RequestLoad(p_requestLoad); }
+        if (p_serial) {
+            bloc.Deserialize(p_serial);
+            return bloc;
+        } else if (p_requestLoad) {
+            return bloc.RequestLoad(p_requestLoad);
+        }
         return bloc;
     }
 
-    _OnSubRequestLoad(p_sub, p_callback) { this.Broadcast(SIGNAL.REQUEST_LOAD, p_sub, p_callback); }
-    _OnSubRequestSave(p_sub, p_callback) { this.Broadcast(SIGNAL.REQUEST_SAVE, p_sub, p_callback); }
+    _OnBlocRequestLoad(p_bloc, p_callback) { this.Broadcast(SIGNAL.REQUEST_LOAD, p_bloc, p_callback); }
+    _OnBlocRequestSave(p_bloc, p_callback) { this.Broadcast(SIGNAL.REQUEST_SAVE, p_bloc, p_callback); }
 
     Update(p_options = null) {
         if (!p_options) { return; }

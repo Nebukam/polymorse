@@ -15,9 +15,12 @@ class ViewProfile extends base {
 
     async _InternalExecute(p_params) {
 
-        await super._InternalExecute(p_params);
+        let entity = await super._InternalExecute(p_params);
+        if (!entity) { return; }
 
-        let out = {};
+        let out = {
+            userProfile:JSON.stringify(entity.Serialize())
+        };
 
         this._OnSuccess(out);
 

@@ -27,6 +27,9 @@ class Registry extends base {
             this._entityClass = eKey;
         }
 
+        //Create a single instance to fix types early
+        nkm.com.Rent(this._entityClass).Release();
+
         this._onCreatedFn = null;
         this._settings = null;
         this._name = p_name;
@@ -46,6 +49,8 @@ class Registry extends base {
             .Hook(SIGNAL.BODY_VALUE_CHANGED, this._OnBodyValueChanged, this);
     }
 
+    get entityClass(){return this._entityClass;}
+    
     get entitiesObserver() { return this._entitiesObserver; }
 
     get onCreatedFn() { return this._onCreatedFn; }
