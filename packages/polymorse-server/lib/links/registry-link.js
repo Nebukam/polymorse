@@ -261,7 +261,7 @@ class RegistryLink extends nkm.com.Observable {
             i++;
         }
 
-        return Object.keys(serials).length ? this._registry.GetOrCreate(p_entityId, serials) : null;
+        return Object.keys(serials).length ? this._registry.GetOrCreate(p_entityId, serials) : this._registry.Get(p_entityId);
 
     }
 

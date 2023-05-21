@@ -35,8 +35,8 @@ class TrackedEntityView extends base {
             return null;
         }
 
+        this._output = { entity: polyCore.data.ToObject(entity) };
         
-
         return entity;
 
     }

@@ -4,6 +4,7 @@ const nkm = require(`@nkmjs/core/nkmin`);
 const JSONS = nkm.data.s11n.JSONSerializer;
 
 const LOCALES = require(`../locales`);
+const SIGNAL = require(`../signal`);
 const IDS = require(`./ids`);
 
 const base = nkm.data.SimpleDataBlock;

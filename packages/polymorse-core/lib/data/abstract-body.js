@@ -15,7 +15,10 @@ class AbstractBody extends base {
     }, base);
 
     static __DATALISTS = {
-        [IDS.CONTENT_BLOCKS]: { autoSort: (a, b) => { return a.Get(IDS.ORDER) - b.Get(IDS.ORDER) } },
+        [IDS.CONTENT_BLOCKS]: {
+            autoSort: (a, b) => { return a.Get(IDS.ORDER) - b.Get(IDS.ORDER) },
+            flush: nkm.data.helpers.DataList.FLUSH_DIRECT_RELEASE
+        },
     };
 
     _Init() {

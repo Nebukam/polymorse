@@ -18,11 +18,9 @@ class ViewProfile extends base {
         let entity = await super._InternalExecute(p_params);
         if (!entity) { return; }
 
-        let out = {
-            rawEntityString:JSON.stringify(entity.Serialize())
-        };
+        this._output.rawEntityString = JSON.stringify(this._output.entity, null, 2);
 
-        this._OnSuccess(out);
+        this._OnSuccess();
 
     }
 
