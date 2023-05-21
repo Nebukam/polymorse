@@ -38,6 +38,12 @@ module.exports = {
         view:'idx-category',
     },
 
+    serverStatus: {
+        // /server-status
+        prefix: '/server-status',
+        view:'idx-server-status',
+    },
+
 }
 
 for (let id in module.exports) {

@@ -108,9 +108,9 @@ class ServerBase extends nkm.server.ServerBaseAuth0 {
 
         await super._InitAPIs();
 
-        nkm.server.AddOperations(api.ops);
+        nkm.server.AddOperations(api.ops, handlers.Operation);
         nkm.server.AddOperations(api.views, handlers.View);
-        nkm.server.AddActions(api.actions);
+        nkm.server.AddActions(api.actions, handlers.Action);
         //this._RegisterAPIs(require(`./routes`));
 
     }
@@ -131,8 +131,8 @@ class ServerBase extends nkm.server.ServerBaseAuth0 {
         p_doneCb();
     }
 
-    _Boot() {
-        super._Boot();
+    async _Boot() {
+        await super._Boot();
     }
 
 }

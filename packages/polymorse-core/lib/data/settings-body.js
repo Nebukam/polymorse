@@ -15,7 +15,7 @@ class SettingsBody extends base {
     }, base);
 
     static __VALUES = this.Ext(base.__VALUES, {
-        //[IDS.CLEARANCE]: { value: 0 }
+        //[IDS.TITLE]: { value: `Title` }
     });
 
     _Init() {

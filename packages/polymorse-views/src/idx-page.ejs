@@ -1,8 +1,12 @@
 <%- include('partials/header') -%>
 
-<%#- include('components/page-header', locals.entity.header) -%>
-<%#- include('components/page-body', locals.entity.body.blocs) -%>
+<article class="page">
+
+<%- include('components/page-header', locals.entity.blocs.body) -%>
+<%- include('components/page-body', locals.entity.blocs.body) -%>
 
 <%- include('partials/raw-entity-string') -%>
+
+</article>
 
 <%- include('partials/footer') -%>

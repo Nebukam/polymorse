@@ -1,3 +1,11 @@
-<% for(var i=0; i < blocs.length; i++) { %>
-    <%= include(`blocs/${blocs[i].blockType}`) %>
-<% } %>
+<%
+if(datalists && datalists.blocks){for(var i=0; i < datalists.blocks.length; i++) { 
+let block = datalists.blocks[i]; 
+%>
+<div class="bloc type-<%= block.view %>">
+    <%- include(`blocs/${block.view}`, block) %>
+</div>
+<%
+    }
+}
+%>
