@@ -42,7 +42,7 @@ class AbstractEntityBlock extends base {
             () => { this.ClearDirty(); this.Broadcast(SIGNAL.LOADED, this); },
         );
 
-        
+
 
     }
 
@@ -51,25 +51,21 @@ class AbstractEntityBlock extends base {
 
     //#region Save
 
-    async RequestSave(p_callback) {
-        return p_callback ?
-            this._deferredSave.Call().then(p_callback) :
-            this._deferredSave.Call();
+    async RequestSave(p_onSuccessOrAny = null, p_onError = null) {
+        return this._deferredSave.Call(p_onSuccessOrAny, p_onError);
     }
 
     //#endregion
 
     //#region Save
 
-    async RequestLoad(p_callback) {
-        return p_callback ?
-            this._deferredLoad.Call().then(p_callback) :
-            this._deferredLoad.Call();
+    async RequestLoad(p_onSuccessOrAny = null, p_onError = null) {
+        return this._deferredLoad.Call(p_onSuccessOrAny, p_onError);
     }
 
     //#endregion
 
-    
+
     _CleanUp() {
         super._CleanUp();
     }

@@ -71,16 +71,20 @@ class PolyCoreLink extends nkm.com.Observable {
             let link = this._RegistryLink(conf);
         };
 
-        PolyMorse.mainSettings.header.RequestLoad((p_block, p_err) => {
+        PolyMorse.mainSettings.header.RequestLoad((p_err) => {
             if (p_err) {
                 nkm.main.InitMainSettings(() => {
-                    PolyMorse.mainSettings.header.RequestSave((p_block, p_err) => {
+                    console.log(`MAIN SETTINGS :: FIRST TIME INIT`);
+                    PolyMorse.mainSettings.header.RequestSave((p_err) => {
                         if (p_err) { throw p_err; }
                         nkm.main.ProcessMainSettings(this._ProcessNext);
                     });
                 });
-            } else { nkm.main.ProcessMainSettings(this._ProcessNext); }
-        });
+            } else {
+                console.log(`MAIN SETTINGS :: found & loaded`);
+                nkm.main.ProcessMainSettings(this._ProcessNext);
+            }
+        })
 
     }
 

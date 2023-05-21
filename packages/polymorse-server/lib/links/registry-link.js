@@ -74,10 +74,9 @@ class RegistryLink extends nkm.com.Observable {
 
     }
 
-    _OnLoadRequest(p_registry, p_block, p_callback) {
-        let nfos = nkm.com.NFOS.Get(p_block);
-        this._transceiver.ReadFile(
-            this._transceiver.Join(p_block.parent.uuid, `${nfos[nkm.com.IDS.TYPE]}.json`),
+    async _OnLoadRequest(p_registry, p_block, p_callback) {
+        return this._transceiver.ReadFile(
+            this._transceiver.Join(p_block.parent.uuid, `${p_block._iid}.json`),
             (p_err, p_path, p_serial) => {
                 if (p_err) {
                     p_callback(p_err);
@@ -89,10 +88,9 @@ class RegistryLink extends nkm.com.Observable {
             });
     }
 
-    _OnSaveRequest(p_registry, p_block, p_callback) {
-        let nfos = nkm.com.NFOS.Get(p_block);
-        this._transceiver.WriteFile(
-            this._transceiver.Join(p_block.parent.uuid, `${nfos[nkm.com.IDS.TYPE]}.json`),
+    async _OnSaveRequest(p_registry, p_block, p_callback) {
+        return this._transceiver.WriteFile(
+            this._transceiver.Join(p_block.parent.uuid, `${p_block._iid}.json`),
             JSON.stringify(p_block.Serialize()),
             (p_err, p_path, p_success) => {
                 if (p_err) { p_callback(p_err); }
@@ -112,9 +110,9 @@ class RegistryLink extends nkm.com.Observable {
         this._log(`Bootstrap`);
 
         if (rSettings) {
-            rSettings.header.RequestLoad((p_block, p_err) => {
+            rSettings.header.RequestLoad((p_err) => {
                 if (p_err) {
-                    rSettings.header.RequestSave((p_block, p_err) => {
+                    rSettings.header.RequestSave((p_err) => {
                         if (p_err) { throw p_err; }
                         this._registry.InitSettings(() => { this._Preload(p_callback); }, true);
                     });

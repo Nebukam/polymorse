@@ -31,12 +31,12 @@ class TrackedEntityView extends base {
             entity = await regLink.RequireEntity(entityId);
 
         if (!entity) {
-            this._OnError();
+            this._OnError(nkm.server.STATUSES.NOT_FOUND);
             return null;
         }
 
         this._output = { entity: polyCore.data.ToObject(entity) };
-        
+
         return entity;
 
     }
