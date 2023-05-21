@@ -16,7 +16,7 @@ class MediaBlock extends base {
     }, base);
 
     static __VALUES = this.Ext(base.__VALUES, {
-        //[IDS.CONTENT]: { value: `` }
+        [IDS.DESCRIPTION]: { value: ``, [FLAGS.LOCALIZABLE]: true }
     });
 
     _Init() {

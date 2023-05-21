@@ -16,7 +16,7 @@ class VideoBlock extends base {
     }, base);
 
     static __VALUES = this.Ext(base.__VALUES, {
-        //[IDS.CONTENT]: { value: `` }
+        
     });
 
     _Init() {

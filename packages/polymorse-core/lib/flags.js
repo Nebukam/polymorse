@@ -9,40 +9,13 @@ const style = require("@nkmjs/style");
  * @hideconstructor
  * @memberof ui.core
  */
-module.exports = {
+FLAGS = {};
 
-    // Generics
+FLAGS.PENDING = Object.freeze(`pending`);
+FLAGS.STATE_DRAFT = Object.freeze(`draft`);
+FLAGS.STATE_PUBLISHING = Object.freeze(`publishing`);
+FLAGS.STATE_PUBLISHED = Object.freeze(`published`);
 
-    /**
-     * @description TODO
-     * @type {string}
-     * @customtag read-only
-     * @group Generic
-     */
-    PENDING: Object.freeze(`pending`),
+FLAGS.LOCALIZABLE = Object.freeze(`localizable`);
 
-    /**
-     * @description TODO
-     * @type {string}
-     * @customtag read-only
-     * @group Generic
-     */
-    STATE_DRAFT: Object.freeze(`draft`),
-
-    /**
-     * @description TODO
-     * @type {string}
-     * @customtag read-only
-     * @group Generic
-     */
-    STATE_PUBLISHING: Object.freeze(`publishing`),
-
-    /**
-     * @description TODO
-     * @type {string}
-     * @customtag read-only
-     * @group Generic
-     */
-    STATE_PUBLISHED: Object.freeze(`published`),
-
-}
+module.exports = FLAGS;

@@ -89,12 +89,12 @@ class AbstractData extends base {
         this._infos = null;
     }
 
-    Deserialize(p_serial) {
-        JSONS.Deserialize(p_serial, this);
+    Deserialize(p_serial, p_options) {
+        JSONS.Deserialize(p_serial, this, p_options);
         this.isLoaded = true;
     }
 
-    Serialize() { return JSONS.Serialize(this); }
+    Serialize(p_options) { return JSONS.Serialize(this, p_options); }
 
     toString() { return `{${this.constructor.name}::...}`; }
 

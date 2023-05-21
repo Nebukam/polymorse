@@ -15,8 +15,7 @@ class PageBody extends base {
     }, base);
 
     static __VALUES = this.Ext(base.__VALUES, {
-        [IDS.TITLE]: { value: `Title` },
-        [IDS.SUMMARY]: { value: `Summary...` },
+        
     });
 
     _Init() {

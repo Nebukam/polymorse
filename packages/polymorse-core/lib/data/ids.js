@@ -124,7 +124,12 @@ nkm.data.RegisterDescriptors({
 
 //#region User
 
+IDS.NAME = Object.freeze(`name`);
+IDS.PRONOUNS = Object.freeze(`pronouns`);
+
 IDS.IDENTITY = Object.freeze(`identity`);
+IDS.BOOKMARKS = Object.freeze(`bookmarks`);
+IDS.LIKES = Object.freeze(`likes`);
 
 //#endregion
 
@@ -150,6 +155,7 @@ IDS.PARENT_UUID = Object.freeze(`puuid`);
 IDS.TITLE = Object.freeze(`title`);
 IDS.DESCRIPTION = Object.freeze(`description`);
 IDS.SUMMARY = Object.freeze(`summary`);
+IDS.COVER = Object.freeze(`cover`);
 
 IDS.JSON = Object.freeze(`json`);
 

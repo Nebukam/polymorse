@@ -15,7 +15,8 @@ class UserBody extends base {
     }, base);
 
     static __VALUES = this.Ext(base.__VALUES, {
-        [IDS.TITLE]: { value: `Title` }
+        [IDS.BOOKMARKS]: { value: [] },
+        [IDS.LIKES]: { value: [] },
     });
 
     _Init() {

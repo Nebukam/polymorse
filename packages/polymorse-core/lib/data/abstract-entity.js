@@ -43,6 +43,17 @@ class AbstractEntity extends base {
             .Watch(nkm.com.SIGNAL.VALUE_CHANGED, (...args) => { this.Broadcast(SIGNAL.BLOC_VALUE_CHANGED, p_newBloc, ...args); });
     }
 
+    set isLoaded(p_value) { return; }
+    get isLoaded() {
+        let
+            loaded = true,
+            BLOCS = this.constructor.__BLOCS;
+
+        for (let id in BLOCS) { if (!this[BLOCS[id].member].isLoaded) { return false; } }
+        return loaded;
+    }
+    
+
     get header() { return this._header; }
     get body() { return this._body; }
 
@@ -70,6 +81,10 @@ class AbstractEntity extends base {
     _CleanUp() {
         super._CleanUp();
     }
+
+    //#region Serialization
+
+    //#endregion
 
     //#region header metadata
 

@@ -15,10 +15,11 @@ class TextBlock extends base {
 
     static __NFO__ = nkm.com.NFOS.Ext({
         [nkm.com.IDS.UID]: `@polymorse:block-text`,
-        view:'text'
+        view: 'text'
     }, base);
 
     static __VALUES = this.Ext(base.__VALUES, {
+        [IDS.CONTENT]: { value: ``, [FLAGS.LOCALIZABLE]: true },
         [BLOCK_IDS.TEXT_TYPE]: { value: ENUMS.TEXT_TYPE_PLAIN }
     });
 

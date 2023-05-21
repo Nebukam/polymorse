@@ -4,6 +4,7 @@ const nkm = require(`@nkmjs/core/nkmin`);
 const u = nkm.u;
 const io = nkm.io;
 
+const FLAGS = require(`../flags`);
 const IDS = require(`./ids`);
 const SIGNAL = require(`../signal`);
 
@@ -20,6 +21,9 @@ class PageHeader extends base {
         [IDS.OWNER_ID]: { value: `` },
         [IDS.CONTENT_CATEGORY]: { value: `` },
         [IDS.CONTENT_TAGS]: { value: [] },
+        [IDS.COVER]: { value: `` },
+        [IDS.TITLE]: { value: `Title`, [FLAGS.LOCALIZABLE]: true },
+        [IDS.SUMMARY]: { value: `Summary`, [FLAGS.LOCALIZABLE]: true },
     });
 
     _Init() {
