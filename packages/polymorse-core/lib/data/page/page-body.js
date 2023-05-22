@@ -4,9 +4,9 @@ const nkm = require(`@nkmjs/core/nkmin`);
 const u = nkm.u;
 const io = nkm.io;
 
-const IDS = require(`./ids`);
+const IDS = require(`../ids`);
 
-const base = require(`./abstract-body`);
+const base = require(`../abstract-body`);
 class PageBody extends base {
     constructor() { super(); }
 

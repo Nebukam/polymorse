@@ -11,20 +11,11 @@ module.exports = {
 
     EntityStats: require(`./entity-stats`),
 
-    User: require(`./user`),
-    UserHeader: require(`./user-header`),
-    UserBody: require(`./user-body`),
-
-    Page: require(`./page`),
-    PageHeader: require(`./page-header`),
-    PageBody: require(`./page-body`),
-
-    Settings: require(`./settings`),
-    SettingsHeader: require(`./settings-header`),
-    SettingsBody: require(`./settings-body`),
+    user: require(`./user`),
+    page: require(`./page`),
+    settings: require(`./settings`),
 
     Registry: require(`./registry`),
-
 
     ToObject: function (p_data) {
 

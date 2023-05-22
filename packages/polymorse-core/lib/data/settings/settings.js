@@ -4,10 +4,10 @@ const nkm = require(`@nkmjs/core/nkmin`);
 const u = nkm.u;
 const io = nkm.io;
 
-const IDS = require(`./ids`);
-const CTX = require(`../context`);
+const IDS = require(`../ids`);
+const CTX = require(`../../context`);
 
-const base = require(`./abstract-entity`);
+const base = require(`../abstract-entity`);
 class Settings extends base {
     constructor() { super(); }
 

@@ -192,7 +192,11 @@ nkm.data.RegisterDescriptors({
 
 IDS.BLOC_BODY = Object.freeze(`body`);
 IDS.BLOC_HEADER = Object.freeze(`header`);
+IDS.BLOC_INVENTORY = Object.freeze(`inventory`);
 IDS.BLOC_STATS = Object.freeze(`stats`);
+
+IDS.LIST_DRAFTS = Object.freeze(`listDraft`);
+IDS.LIST_PUBLISHED = Object.freeze(`listPublished`);
 
 //#endregion
 

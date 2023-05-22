@@ -18,6 +18,7 @@ class SETTINGS_BLOC_BODY extends nkm.com.CKEY { constructor() { super(); } }
 class USER_ENTITY extends ENTITY { constructor() { super(); } }
 class USER_BLOC_HEADER extends nkm.com.CKEY { constructor() { super(); } }
 class USER_BLOC_BODY extends nkm.com.CKEY { constructor() { super(); } }
+class USER_BLOC_INVENTORY extends nkm.com.CKEY { constructor() { super(); } }
 
 class PAGE_ENTITY extends ENTITY { constructor() { super(); } }
 class PAGE_BLOC_HEADER extends nkm.com.CKEY { constructor() { super(); } }
@@ -38,6 +39,7 @@ module.exports = {
     USER_ENTITY: USER_ENTITY,
     USER_BLOC_HEADER: USER_BLOC_HEADER,
     USER_BLOC_BODY: USER_BLOC_BODY,
+    USER_BLOC_INVENTORY:USER_BLOC_INVENTORY,
 
     PAGE_ENTITY: PAGE_ENTITY,
     PAGE_BLOC_HEADER: PAGE_BLOC_HEADER,

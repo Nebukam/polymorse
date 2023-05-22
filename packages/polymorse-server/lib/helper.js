@@ -1,5 +1,9 @@
 'use strict';
 
+const nkm = require(`@nkmjs/core/nkmserver`);
+const polyCore = require(`@polymorse/core`);
+const links = require(`./links`);
+
 module.exports = {
 
 
@@ -7,24 +11,22 @@ module.exports = {
         return p_entity.header && p_entity.body ? true : false;
     },
 
-    RequireEntity: function (p_entity, p_callback) {
+    GetOrCreateUser: async function (p_authUserInfos) {
 
-        if (module.exports.IsLoaded(p_entity)) {
-            p_callback(p_entity);
-            return;
+        let
+            userRegistry = polyCore.PolyMorse.userRegistry,
+            userId = nkm.io.SanitizeFileName(p_authUserInfos.sub),
+            regLink = links.PolycoreLink.GetRegistryLink(userRegistry),
+            user = await regLink.RequireEntity(userId);
+
+        if (!user) {
+            //Create new user
+            user = userRegistry.Create(userId);
+            await user.header.RequestSave();
         }
 
-        if (p_entity.header) {
-            p_entity.LoadBody(null, () => {
-                p_callback(p_entity);
-            });
-        } else {
-            p_entity.LoadHeader(null, () => {
-                p_entity.LoadBody(null, () => {
-                    p_callback(p_entity);
-                });
-            });
-        }
+        return user;
+
     },
 
     UpdateEntity: function (p_entity, p_data, p_callback) {
@@ -40,15 +42,15 @@ module.exports = {
      * @param {*} p_callback 
      */
     TryGetLatestDraft(p_user, p_callback) {
-        
+
 
     },
 
-    TryGetDraftForEdit(p_user, p_draftId, p_callback){
+    TryGetDraftForEdit(p_user, p_draftId, p_callback) {
 
     },
 
-    TryGetPageForEdit(p_user, p_pageId, p_callback){
+    TryGetPageForEdit(p_user, p_pageId, p_callback) {
 
     }
 

@@ -2,8 +2,11 @@
 
 const nkm = require(`@nkmjs/core`);
 
-class DraftsView extends nkm.ui.views.View {
+const base = require(`./user-content-view`);
+class DraftsView extends base {
     constructor() { super(); }
+
+    //List user drafts
 
 }
 

@@ -9,7 +9,7 @@ const style = require("@nkmjs/style");
  * @hideconstructor
  * @memberof ui.core
  */
-FLAGS = {};
+const FLAGS = {};
 
 FLAGS.PENDING = Object.freeze(`pending`);
 FLAGS.STATE_DRAFT = Object.freeze(`draft`);

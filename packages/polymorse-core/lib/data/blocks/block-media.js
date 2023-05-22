@@ -4,6 +4,7 @@ const nkm = require(`@nkmjs/core/nkmin`);
 const u = nkm.u;
 const io = nkm.io;
 
+const FLAGS = require(`../../flags`);
 const IDS = require(`../ids`);
 
 const base = require("./abstract-block");

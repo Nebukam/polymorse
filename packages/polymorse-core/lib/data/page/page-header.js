@@ -4,11 +4,11 @@ const nkm = require(`@nkmjs/core/nkmin`);
 const u = nkm.u;
 const io = nkm.io;
 
-const FLAGS = require(`../flags`);
-const IDS = require(`./ids`);
-const SIGNAL = require(`../signal`);
+const SIGNAL = require(`../../signal`);
+const FLAGS = require(`../../flags`);
+const IDS = require(`../ids`);
 
-const base = require(`./content-header`);
+const base = require(`../abstract-header`);
 class PageHeader extends base {
     constructor() { super(); }
 

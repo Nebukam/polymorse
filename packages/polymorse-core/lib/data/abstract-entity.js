@@ -9,11 +9,6 @@ const SIGNAL = require(`../signal`);
 const CTX = require("../context");
 
 const AbstractData = require("./abstract-data");
-const MorseHeader = require(`./page-header`);
-
-
-const _id_HEADER = Object.freeze('header');
-const _id_BODY = Object.freeze('body');
 
 const base = AbstractData;
 const JSONS = nkm.data.s11n.JSONSerializer;
@@ -82,20 +77,15 @@ class AbstractEntity extends base {
         super._CleanUp();
     }
 
-    //#region Serialization
-
-    //#endregion
-
     //#region header metadata
 
-    Set(p_key, p_value) { this._header.metadata.Set(p_key, p_value); }
+    MetaSet(p_key, p_value) { this._header.metadata.Set(p_key, p_value); }
 
-    Get(p_key) { return this._header.metadata.Get(p_key); }
+    MetaGet(p_key) { return this._header.metadata.Get(p_key); }
 
-    GetOrSet(p_key, p_value) { return this._header.metadata.GetOrSet(p_key, p_value); }
+    MetaGetOrSet(p_key, p_value) { return this._header.metadata.GetOrSet(p_key, p_value); }
 
     //#endregion
-
 
 }
 

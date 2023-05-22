@@ -62,6 +62,11 @@ module.exports = {
         ]
     },
 
+    getCurrentUser: {
+        // /get/currentUser
+        prefix: '/get/currentUser'
+    },
+
     postUpdate: {
         // /update/:registry
         prefix: '/update',

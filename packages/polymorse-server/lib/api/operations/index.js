@@ -10,6 +10,7 @@ module.exports = {
     GetListPages: require(`./get-list-pages`),
 
     GetEntityUser: require(`./get-entity-user`),
+    GetCurrentUser:require(`./get-entity-user-current`),
     GetEntityDraft: require(`./get-entity-draft`),
     GetEntityPage: require(`./get-entity-page`),
 

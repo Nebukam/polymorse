@@ -7,7 +7,7 @@ const io = nkm.io;
 const IDS = require(`./ids`);
 const SIGNAL = require(`../signal`);
 
-const base = require(`./content-header`);
+const base = require(`./abstract-entity-block`);
 class EntityStats extends base {
     constructor() { super(); }
 

@@ -2,8 +2,11 @@
 
 const nkm = require(`@nkmjs/core`);
 
-class PagesView extends nkm.ui.views.View {
+const base = require(`./user-content-view`);
+class PagesView extends base {
     constructor() { super(); }
+
+    // List user pages
 
 }
 

@@ -227,9 +227,20 @@ class RegistryLink extends nkm.com.Observable {
             promises = [],
             serials = {};
 
-        console.log(`RequireEntity`, p_entityId, entity ? true : false);
+        //console.log(`RequireEntity`, p_entityId, entity ? true : false);
 
         let loaded = true;
+
+        if (!entity) {
+
+            //Make sure header exists
+            let exists = await this._transceiver.Exists(
+                this._transceiver.Join(p_entityId, `header.json`),
+                (p_err, p_path, p_exists) => { return p_exists; });
+
+            if (!exists) { return null; }
+
+        }
 
         for (let id in blocDefs) {
             let def = blocDefs[id];
@@ -245,8 +256,6 @@ class RegistryLink extends nkm.com.Observable {
                 );
             }
         }
-
-        console.log(`bloc ids to be loaded: `, ids);
 
         if (loaded) { return entity; }
 

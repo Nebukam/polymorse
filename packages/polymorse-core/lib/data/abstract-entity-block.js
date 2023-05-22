@@ -26,10 +26,11 @@ class AbstractEntityBlock extends base {
     }, base);
 
     static __VALUES = this.Ext(base.__VALUES, {
-        [IDS.UUID]: { value: 0, [nkm.data.IDS.SKIP_S11N]: true },
+        [IDS.UUID]: { value: null, [nkm.data.IDS.SKIP_S11N]: true },
     });
 
     _Init() {
+
         super._Init();
 
         this._deferredSave = nkm.com.DeferredCall(
@@ -41,9 +42,7 @@ class AbstractEntityBlock extends base {
             () => { this.Broadcast(SIGNAL.REQUEST_LOAD, this, this._deferredLoad.Resolve); },
             () => { this.ClearDirty(); this.Broadcast(SIGNAL.LOADED, this); },
         );
-
-
-
+        
     }
 
     get uuid() { this._parent.uuid; }

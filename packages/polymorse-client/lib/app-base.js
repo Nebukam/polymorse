@@ -1,7 +1,7 @@
 'use strict';
 
 const nkm = require(`@nkmjs/core`);
-const polymorse = require(`@polymorse/core`);
+const polyCore = require(`@polymorse/core`);
 
 const MainLayout = require("./main-layout");
 const views = require(`./views`);
@@ -44,7 +44,26 @@ class AppBase extends nkm.app.AppBase {
             }
         ]);
 
+        this._currentUser = null;
+
     }
+
+    AppReady() {
+        super.AppReady();
+        //TODO: Load current user profile
+        nkm.env.routing.Send(polyCore.api.ops.getCurrentUser, null,
+            (p_data) => {
+                console.log(`Current user loaded`);
+                console.log(p_data);
+            },
+            (p_err) => {
+                console.log(`Current user error`);
+                console.log(p_err);
+            }
+        );
+    }
+
+    _IsReadyForDisplay() { return this._currentUser ? true : false; }
 
     AppDisplay() {
 

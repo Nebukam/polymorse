@@ -2,37 +2,24 @@
 
 const nkm = require(`@nkmjs/core/nkmserver`);
 const polyCore = require(`@polymorse/core`);
+const Helper = require(`../helper`);
 
 class UserGetHandler extends nkm.server.handlers.Operation {
     constructor() { super(); }
 
-    _SanitizeRequest(p_request) {
-
-        let sup = super._SanitizeRequest(p_request);
-        if (!sup) { return false; }
-
-        // Request authentication is handled by API Definition,
-        // so if authentication is required by this handler
-        // this code is only reached if the auth passes.
-
-        let polyUser = p_request.user;
-        if (!polyUser) { return false; }
-
-        //TODO: Add user object to operation for the action to consume
-
-        //if(!p_request.params.id){ return false; }
-        //if(p_request.params.id == ``){ return false; }
-        //this._id = p_request.params.id;
-
-        return true;
-
-    }
-
     get user() { return this._user; }
 
     async Handle() {
-        this._user = this._req.user;
+
+        this._user = await Helper.GetOrCreateUser(this._req.user);
+
+        if(!this._user){
+            this.Abort(nkm.server.STATUSES.NOT_FOUND);
+            return;
+        }
+
         await super.Handle();
+
     }
 
     _CleanUp(){

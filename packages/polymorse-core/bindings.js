@@ -15,9 +15,9 @@ class Bindings extends nkm.com.helpers.BindingKit {
                 ctx: CTX.ENTITIES,
                 kvps: [
 
-                    { key: CTX.SETTINGS_ENTITY, binding: polyData.Settings },
-                    { key: CTX.USER_ENTITY, binding: polyData.User },
-                    { key: CTX.PAGE_ENTITY, binding: polyData.Page },
+                    { key: CTX.SETTINGS_ENTITY, binding: polyData.settings.Entity },
+                    { key: CTX.USER_ENTITY, binding: polyData.user.Entity },
+                    { key: CTX.PAGE_ENTITY, binding: polyData.page.Entity },
 
                 ]
             },
@@ -27,14 +27,14 @@ class Bindings extends nkm.com.helpers.BindingKit {
 
                     { key: CTX.ENTITY_STATS, binding: polyData.EntityStats },
 
-                    { key: CTX.SETTINGS_BLOC_HEADER, binding: polyData.SettingsHeader },
-                    { key: CTX.SETTINGS_BLOC_BODY, binding: polyData.SettingsBody },
+                    { key: CTX.SETTINGS_BLOC_HEADER, binding: polyData.settings.Header },
+                    { key: CTX.SETTINGS_BLOC_BODY, binding: polyData.settings.Body },
 
-                    { key: CTX.USER_BLOC_HEADER, binding: polyData.UserHeader },
-                    { key: CTX.USER_BLOC_BODY, binding: polyData.UserBody },
+                    { key: CTX.USER_BLOC_HEADER, binding: polyData.user.Header },
+                    { key: CTX.USER_BLOC_BODY, binding: polyData.user.Body },
 
-                    { key: CTX.PAGE_BLOC_HEADER, binding: polyData.PageHeader },
-                    { key: CTX.PAGE_BLOC_BODY, binding: polyData.PageBody },
+                    { key: CTX.PAGE_BLOC_HEADER, binding: polyData.page.Header },
+                    { key: CTX.PAGE_BLOC_BODY, binding: polyData.page.Body },
 
                 ]
             });

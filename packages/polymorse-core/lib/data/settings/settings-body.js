@@ -4,19 +4,18 @@ const nkm = require(`@nkmjs/core/nkmin`);
 const u = nkm.u;
 const io = nkm.io;
 
-const IDS = require(`./ids`);
+const IDS = require(`../ids`);
 
-const base = require(`./abstract-body`);
-class UserBody extends base {
+const base = require(`../abstract-body`);
+class SettingsBody extends base {
     constructor() { super(); }
 
     static __NFO__ = nkm.com.NFOS.Ext({
-        [nkm.com.IDS.UID]: `@polymorse:user-body`,
+        [nkm.com.IDS.UID]: `@polymorse:settings-body`,
     }, base);
 
     static __VALUES = this.Ext(base.__VALUES, {
-        [IDS.BOOKMARKS]: { value: [] },
-        [IDS.LIKES]: { value: [] },
+        //[IDS.TITLE]: { value: `Title` }
     });
 
     _Init() {
@@ -25,4 +24,4 @@ class UserBody extends base {
 
 }
 
-module.exports = nkm.data.SIMPLEX.Export(UserBody);
+module.exports = nkm.data.SIMPLEX.Export(SettingsBody);

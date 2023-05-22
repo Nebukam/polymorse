@@ -28,7 +28,7 @@ class AbstractData extends base {
     }
 
     get uuid() { return this._raw ? this._raw.uuid : this.Get(IDS.UUID); }
-    set uuid(p_value) { this.Set(IDS.UUID, p_value); }
+    set uuid(p_value) { let test = this.Set(IDS.UUID, p_value); console.log(`${test}`);}
 
     get infos() { return this._infos; }
 
