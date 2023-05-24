@@ -22,6 +22,8 @@ module.exports = {
         if (!user) {
             //Create new user
             user = userRegistry.Create(userId);
+            user.Set(polyCore.data.IDS.NAME, p_authUserInfos.name || p_authUserInfos.nickname);
+            user.Set(polyCore.data.IDS.COVER, p_authUserInfos.picture || ``);
             await user.header.RequestSave();
         }
 

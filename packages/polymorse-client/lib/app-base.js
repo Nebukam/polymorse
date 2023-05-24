@@ -3,16 +3,15 @@
 const nkm = require(`@nkmjs/core`);
 const polyCore = require(`@polymorse/core`);
 
-const MainLayout = require("./main-layout");
+const JSONS = nkm.data.s11n.JSONSerializer;
+
 const views = require(`./views`);
 const editors = require(`./editors`);
 
 class AppBase extends nkm.app.AppBase {
     constructor() { super(); }
 
-    static __singleViewLayer = MainLayout;
-
-    get baseURL() { return this._baseURL; }
+    static __singleViewLayer = require("./main-layout");
 
     _Init() {
         super._Init();
@@ -48,13 +47,17 @@ class AppBase extends nkm.app.AppBase {
 
     }
 
+    get baseURL() { return this._baseURL; }
+
+    get currentUser() { return this._currentUser; }
+
     AppReady() {
         super.AppReady();
         //TODO: Load current user profile
         nkm.env.routing.Send(polyCore.api.ops.getCurrentUser, null,
             (p_data) => {
-                console.log(`Current user loaded`);
-                console.log(p_data);
+                this._currentUser = JSONS.Deserialize(p_data);
+                polyCore.PolyMorse.userRegistry._Register(this._currentUser);
             },
             (p_err) => {
                 console.log(`Current user error`);
@@ -66,7 +69,7 @@ class AppBase extends nkm.app.AppBase {
     _IsReadyForDisplay() { return this._currentUser ? true : false; }
 
     AppDisplay() {
-
+        this._mainLayer.header.data = this._currentUser;
         super.AppDisplay();
 
     }

@@ -20,6 +20,7 @@ class UserHeader extends base {
         [IDS.IDENTITY]: { value: [] },
         [IDS.NAME]: { value: `Unamed`, [FLAGS.LOCALIZABLE]: true },
         [IDS.PRONOUNS]: { value: ``, [FLAGS.LOCALIZABLE]: true },
+        [IDS.COVER]: { value: `` },
     });
 
     _Init() {

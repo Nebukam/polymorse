@@ -49,8 +49,8 @@ class Registry extends base {
             .Hook(SIGNAL.BODY_VALUE_CHANGED, this._OnBodyValueChanged, this);
     }
 
-    get entityClass(){return this._entityClass;}
-    
+    get entityClass() { return this._entityClass; }
+
     get entitiesObserver() { return this._entitiesObserver; }
 
     get onCreatedFn() { return this._onCreatedFn; }
@@ -85,8 +85,7 @@ class Registry extends base {
         let newEntity = nkm.com.Rent(this._entityClass);
         newEntity.uuid = p_uid;
 
-        this._map[p_uid] = newEntity;
-        this._entities.push(newEntity);
+        this._Register(newEntity);
 
         newEntity.Update(p_options);
 
@@ -106,6 +105,12 @@ class Registry extends base {
         if (!entity) { entity = this.Create(p_uid, p_options); }
         else { entity.Update(p_options); }
         return entity;
+    }
+
+    _Register(p_entity) {
+        this._map[p_entity.uuid] = p_entity;
+        this._entities.push(p_entity);
+        return p_entity;
     }
 
     Remove(p_uid) {
