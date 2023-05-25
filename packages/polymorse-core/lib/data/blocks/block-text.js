@@ -30,4 +30,4 @@ class TextBlock extends base {
 
 }
 
-module.exports = nkm.data.SIMPLEX.Export(TextBlock);
+module.exports = nkm.data.Register(TextBlock);

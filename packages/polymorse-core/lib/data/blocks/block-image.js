@@ -26,4 +26,4 @@ class ImageBlock extends base {
 
 }
 
-module.exports = nkm.data.SIMPLEX.Export(ImageBlock);
+module.exports = nkm.data.Register(ImageBlock);

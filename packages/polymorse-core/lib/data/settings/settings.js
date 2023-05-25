@@ -30,4 +30,4 @@ class Settings extends base {
 
 }
 
-module.exports = nkm.data.SIMPLEX.Export(Settings);
+module.exports = nkm.data.Register(Settings);

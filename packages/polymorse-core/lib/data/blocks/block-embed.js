@@ -25,4 +25,4 @@ class EmbedBlock extends base {
 
 }
 
-module.exports = nkm.data.SIMPLEX.Export(EmbedBlock);
+module.exports = nkm.data.Register(EmbedBlock);

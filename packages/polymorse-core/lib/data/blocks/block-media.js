@@ -26,4 +26,4 @@ class MediaBlock extends base {
 
 }
 
-module.exports = nkm.data.SIMPLEX.Export(MediaBlock);
+module.exports = nkm.data.Register(MediaBlock);

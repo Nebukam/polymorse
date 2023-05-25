@@ -24,4 +24,4 @@ class SettingsBody extends base {
 
 }
 
-module.exports = nkm.data.SIMPLEX.Export(SettingsBody);
+module.exports = nkm.data.Register(SettingsBody);

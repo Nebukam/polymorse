@@ -25,4 +25,4 @@ class UserBody extends base {
 
 }
 
-module.exports = nkm.data.SIMPLEX.Export(UserBody);
+module.exports = nkm.data.Register(UserBody);

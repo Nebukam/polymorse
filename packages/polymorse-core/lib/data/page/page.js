@@ -32,4 +32,4 @@ class Page extends base {
 
 }
 
-module.exports = nkm.data.SIMPLEX.Export(Page);
+module.exports = nkm.data.Register(Page);

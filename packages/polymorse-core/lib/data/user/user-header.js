@@ -29,4 +29,4 @@ class UserHeader extends base {
 
 }
 
-module.exports = nkm.data.SIMPLEX.Export(UserHeader);
+module.exports = nkm.data.Register(UserHeader);

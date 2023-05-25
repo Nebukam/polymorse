@@ -25,4 +25,4 @@ class VideoBlock extends base {
 
 }
 
-module.exports = nkm.data.SIMPLEX.Export(VideoBlock);
+module.exports = nkm.data.Register(VideoBlock);

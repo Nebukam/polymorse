@@ -63,4 +63,4 @@ class UserInventory extends base {
 
 }
 
-module.exports = nkm.data.SIMPLEX.Export(UserInventory);
+module.exports = nkm.data.Register(UserInventory);

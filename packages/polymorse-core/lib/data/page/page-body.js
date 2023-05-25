@@ -29,4 +29,4 @@ class PageBody extends base {
 
 }
 
-module.exports = nkm.data.SIMPLEX.Export(PageBody);
+module.exports = nkm.data.Register(PageBody);

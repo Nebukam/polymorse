@@ -32,4 +32,4 @@ class User extends base {
 
 }
 
-module.exports = nkm.data.SIMPLEX.Export(User);
+module.exports = nkm.data.Register(User);

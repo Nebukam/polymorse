@@ -26,4 +26,4 @@ class ContentBlock extends base {
 
 }
 
-module.exports = nkm.data.SIMPLEX.Export(ContentBlock);
+module.exports = nkm.data.Register(ContentBlock);

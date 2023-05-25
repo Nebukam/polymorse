@@ -55,4 +55,4 @@ class PageHeader extends base {
 
 }
 
-module.exports = nkm.data.SIMPLEX.Export(PageHeader);
+module.exports = nkm.data.Register(PageHeader);
