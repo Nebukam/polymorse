@@ -17,7 +17,7 @@ class Polymorse extends nkm.com.Observable {
         super._Init();
 
         this._serverSide = false;
-        this._registries = new nkm.collections.List();
+        this._registries = [];
         this._registriesMap = {};
 
         this._settings = this._NewRegistry(REG.SETTINGS);
